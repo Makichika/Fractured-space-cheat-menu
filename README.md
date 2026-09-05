@@ -13,3 +13,5 @@ Features:
 For local/offline spserver.exe only.
 
 dl the [cheat.menu.zip]
+
+Windows security software may warn about or block the trainer because it reads/writes memory in spserver.exe
