@@ -11,3 +11,5 @@ Features:
 - Debug difficulty preset output
 
 For local/offline spserver.exe only.
+
+dl the [cheat.menu.zip]
