@@ -1,0 +1,2937 @@
+﻿17:53:00  Solo server verified.
+17:53:00  Ship appeared: 196C03B2AE0
+17:53:38  Queued 1 Raven (Ally)
+17:53:38  Queued 1 Executioner (Ally)
+17:53:38  Queued 1 Basilisk (Ally)
+17:53:38  Queued 1 Enforcer (Ally)
+17:53:38  Queued 1 Displacer (Ally)
+17:53:38  Queued 1 Interceptor (Enemy)
+17:53:38  Queued 1 Furion (Enemy)
+17:53:38  Queued 1 Aegis (Enemy)
+17:53:38  Queued 1 Guardian (Enemy)
+17:53:38  Queued 1 Paladin (Enemy)
+17:53:38  Spawned Raven / Ally / Milcho Bot
+17:53:38  Custom Stats applied to Raven: MaxHealth=100000
+17:53:38  Ship appeared: 196BB79D560
+17:53:39  Spawned Executioner / Ally / Milcho Bot
+17:53:39  Custom Stats applied to Executioner: MaxHealth=100000
+17:53:40  Ship appeared: 196D06E6AD0
+17:53:40  Spawned Basilisk / Ally / Milcho Bot
+17:53:40  Custom Stats applied to Basilisk: MaxHealth=100000
+17:53:41  Spawned Enforcer / Ally / Milcho Bot
+17:53:41  Ship appeared: 196B643D560
+17:53:41  Custom Stats applied to Enforcer: MaxHealth=100000
+17:53:42  Spawned Displacer / Ally / Milcho Bot
+17:53:42  Custom Stats applied to Displacer: MaxHealth=100000
+17:53:42  Ship appeared: 196928F8020
+17:53:42  Ship appeared: 196D0908020
+17:53:43  Spawned Interceptor / Enemy / Milcho Bot
+17:53:43  Custom Stats applied to Interceptor: MaxHealth=100000
+17:53:43  Ship appeared: 196CA9F2AE0
+17:53:44  Spawned Furion / Enemy / Milcho Bot
+17:53:44  Custom Stats applied to Furion: MaxHealth=100000
+17:53:44  Ship appeared: 196D2CED560
+17:53:45  Spawned Aegis / Enemy / Milcho Bot
+17:53:45  Custom Stats applied to Aegis: MaxHealth=100000
+17:53:45  Ship appeared: 196CAC59570
+17:53:46  Spawned Guardian / Enemy / Milcho Bot
+17:53:46  Custom Stats applied to Guardian: MaxHealth=100000
+17:53:46  Ship appeared: 196C5104030
+17:53:47  Spawned Paladin / Enemy / Milcho Bot
+17:53:47  Custom Stats applied to Paladin: MaxHealth=100000
+17:53:47  Ship appeared: 196CAC55580
+17:55:06  Ship left roster: 196CAC59570
+17:55:42  Ship appeared: 19693081590
+17:55:42  Ship left roster: 196D2CED560
+17:55:53  Ship appeared: 196FF2B9BA0
+17:56:02  Ship left roster: 196CA9F2AE0
+17:56:19  Ship appeared: 196C1409570
+17:56:19  Ship left roster: 196FF2B9BA0
+17:56:28  Ship left roster: 196C5104030
+17:56:29  Ship left roster: 196BB79D560
+17:56:38  Ship appeared: 196C7B79570
+17:56:48  Ship left roster: 196C7B79570
+17:56:48  Ship left roster: 19693081590
+17:56:48  Ship left roster: 196C1409570
+17:56:48  Ship left roster: 196CAC55580
+17:56:50  Ship left roster: 196D0908020
+17:56:50  Ship left roster: 196928F8020
+17:56:50  Ship left roster: 196D06E6AD0
+17:56:50  Ship left roster: 196B643D560
+17:56:55  Queued 1 Executioner (Ally)
+17:56:55  Queued 1 Colossus (Ally)
+17:56:55  Queued 1 Furion (Ally)
+17:56:55  Queued 1 Enforcer (Ally)
+17:56:55  Queued 1 Black Widow (Ally)
+17:56:55  Queued 1 Equalizer (Enemy)
+17:56:55  Queued 1 Basilisk (Enemy)
+17:56:55  Queued 1 Raven (Enemy)
+17:56:55  Queued 1 Venturer (Enemy)
+17:56:55  Queued 1 Overseer (Enemy)
+17:56:55  Spawned Executioner / Ally / Milcho Bot
+17:56:55  Custom Stats applied to Executioner: MaxHealth=100000
+17:56:55  Ship appeared: 196CAC50040
+17:56:56  Spawned Colossus / Ally / Milcho Bot
+17:56:56  Custom Stats applied to Colossus: MaxHealth=100000
+17:56:57  Ship appeared: 196B590AAC0
+17:56:57  Spawned Furion / Ally / Milcho Bot
+17:56:57  Custom Stats applied to Furion: MaxHealth=100000
+17:56:58  Ship appeared: 196CD1A8020
+17:56:58  Spawned Enforcer / Ally / Milcho Bot
+17:56:58  Custom Stats applied to Enforcer: MaxHealth=100000
+17:56:59  Spawned Black Widow / Ally / Milcho Bot
+17:56:59  Ship appeared: 1968621EAB0
+17:56:59  Custom Stats applied to Black Widow: MaxHealth=100000
+17:57:00  Spawned Equalizer / Enemy / Milcho Bot
+17:57:00  Custom Stats applied to Equalizer: MaxHealth=100000
+17:57:00  Ship appeared: 196D5A64030
+17:57:00  Ship appeared: 1968E61D560
+17:57:01  Spawned Basilisk / Enemy / Milcho Bot
+17:57:01  Custom Stats applied to Basilisk: MaxHealth=100000
+17:57:01  Ship appeared: 196CD6DC010
+17:57:02  Spawned Raven / Enemy / Milcho Bot
+17:57:02  Custom Stats applied to Raven: MaxHealth=100000
+17:57:02  Ship appeared: 196C03BEAB0
+17:57:03  Spawned Venturer / Enemy / Milcho Bot
+17:57:03  Custom Stats applied to Venturer: MaxHealth=100000
+17:57:03  Ship appeared: 196B618C010
+17:57:04  Spawned Overseer / Enemy / Milcho Bot
+17:57:04  Custom Stats applied to Overseer: MaxHealth=100000
+17:57:04  Ship appeared: 196B643AAC0
+18:00:12  Ship left roster: 196C03BEAB0
+18:00:52  Custom Stats armed for your next respawn.
+18:00:54  Ship appeared: 196D2CEEAB0
+18:00:55  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=1 | requesting game respawn...
+18:00:55  Custom Stats: new Pawn detected; waiting only for receiver/GUID readiness...
+18:00:55  Ship appeared: 196928FD560
+18:00:55  Ship left roster: 196C03B2AE0
+18:00:56  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x196928FD560 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+18:00:56  Custom Stats applied to player after respawn: MaxHealth=150000
+18:01:23  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+18:01:24  Ship appeared: 196CA9F2AE0
+18:01:24  Ship left roster: 196928FD560
+18:01:24  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x196CA9F2AE0 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+18:01:27  Custom Stats armed for your next respawn.
+18:01:29  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+18:01:29  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x196BB794030 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+18:01:29  Custom Stats applied to player after respawn: MaxHealth=150000
+18:01:29  Ship appeared: 196BB794030
+18:01:29  Ship left roster: 196CA9F2AE0
+18:02:24  Healed 1747231116736
+18:02:35  Ship left roster: 196B590AAC0
+18:02:56  Ship left roster: 196D5A64030
+18:03:27  Ship left roster: 1968621EAB0
+18:03:27  Ship left roster: 196CD1A8020
+18:03:27  Ship left roster: 196CAC50040
+18:03:28  Ship left roster: 196B643AAC0
+18:03:28  Ship left roster: 196CD6DC010
+18:03:28  Ship left roster: 1968E61D560
+18:03:28  Ship left roster: 196B618C010
+18:03:28  Ship left roster: 196D2CEEAB0
+18:03:36  Match speed x5
+18:04:23  Match speed restored.
+18:05:29  Queued 3 Punisher (Ally)
+18:05:29  Spawned Punisher / Ally / Easy 1
+18:05:29  Custom Stats applied to Punisher: MaxHealth=150000
+18:05:30  Spawned Punisher / Ally / Easy 1
+18:05:30  Ship appeared: 19693081590
+18:05:30  Custom Stats applied to Punisher: MaxHealth=150000
+18:05:31  Spawned Punisher / Ally / Easy 1
+18:05:31  Custom Stats applied to Punisher: MaxHealth=150000
+18:05:31  Ship appeared: 196CAC50040
+18:05:31  Ship appeared: 196CAC51590
+18:07:47  Match speed x5
+18:08:22  Match speed restored.
+18:08:24  Match speed x5
+18:08:24  Match speed restored.
+18:08:36  Match speed x5
+18:08:37  Match speed restored.
+18:08:38  Match speed x5
+18:08:39  Match speed restored.
+18:09:03  Ship left roster: 196CAC50040
+18:09:03  Ship left roster: 19693081590
+18:09:03  Ship left roster: 196BB794030
+18:09:03  Ship left roster: 196CAC51590
+18:10:29  Solo server verified.
+18:10:29  Ship appeared: 2C76B44C010
+18:10:29  Ship appeared: 2C76B44EAB0
+18:10:29  Ship appeared: 2C76B570040
+18:10:29  Ship appeared: 2C76B445580
+18:10:29  Ship appeared: 2C76B44D560
+18:10:29  Ship appeared: 2C76B448020
+18:10:29  Ship appeared: 2C76B444030
+18:10:29  Ship appeared: 2C76B446AD0
+18:10:29  Ship appeared: 2C76B44AAC0
+18:10:29  Ship appeared: 2C76B449570
+18:10:38  Action: DELETE ALL ALLIES
+18:10:40  Ship appeared: 2C76C4E0040
+18:10:40  Ship appeared: 2C7709FC010
+18:10:40  Ship appeared: 2C7709FAAC0
+18:10:40  Ship appeared: 2C7709F4030
+18:10:40  Ship appeared: 2C76C4E1590
+18:10:40  Ship appeared: 2C7709F2AE0
+18:10:40  Ship appeared: 2C7709F1590
+18:10:40  Ship appeared: 2C7709F0040
+18:10:40  Ship appeared: 2C7709F9570
+18:10:40  Ship appeared: 2C7709F8020
+18:10:40  Ship left roster: 2C76B44C010
+18:10:40  Ship left roster: 2C76B44EAB0
+18:10:40  Ship left roster: 2C76B570040
+18:10:40  Ship left roster: 2C76B445580
+18:10:40  Ship left roster: 2C76B44D560
+18:10:40  Ship left roster: 2C76B448020
+18:10:40  Ship left roster: 2C76B444030
+18:10:40  Ship left roster: 2C76B446AD0
+18:10:40  Ship left roster: 2C76B44AAC0
+18:10:40  Ship left roster: 2C76B449570
+18:10:43  Action: DELETE ALL ALLIES
+18:10:43  Ship left roster: 2C7709FC010
+18:10:43  Ship left roster: 2C7709FAAC0
+18:10:43  Ship left roster: 2C7709F9570
+18:10:43  Ship left roster: 2C7709F8020
+18:10:44  Action: DELETE ALL ENEMIES
+18:10:44  Ship left roster: 2C76C4E1590
+18:10:44  Ship left roster: 2C7709F2AE0
+18:10:44  Ship left roster: 2C7709F1590
+18:10:44  Ship left roster: 2C7709F4030
+18:10:44  Ship left roster: 2C7709F0040
+18:11:04  Action: QUEUE SPAWN
+18:11:05  Queued 3 Punisher (Ally)
+18:11:05  Spawned Punisher / Ally / Medium 2
+18:11:05  Custom Stats applied to Punisher: MaxHealth=100000
+18:11:05  Ship appeared: 2C78749D560
+18:11:06  Spawned Punisher / Ally / Medium 2
+18:11:06  Custom Stats applied to Punisher: MaxHealth=100000
+18:11:06  Ship appeared: 2C76B9C5580
+18:11:07  Spawned Punisher / Ally / Medium 2
+18:11:07  Custom Stats applied to Punisher: MaxHealth=100000
+18:11:07  Ship appeared: 2C70652AAC0
+18:11:22  Action: APPLY
+18:11:22  Match speed x5
+18:12:03  Action: RESTORE MATCH SPEED
+18:12:03  Match speed restored.
+18:13:02  Action: APPLY ON NEXT RESPAWN
+18:13:02  Custom Stats armed for your next respawn.
+18:13:03  Action: CHANGE SHIP NOW
+18:13:03  CHANGE SHIP NOW v18 FIX: Reaper | index=31 | bUseForcedLoadout before=1 | requesting game respawn...
+18:13:03  Custom Stats applied to player after respawn: MaxHealth=100000
+18:13:03  Ship appeared: 2C787285580
+18:13:03  Ship left roster: 2C76C4E0040
+18:13:04  CHANGE SHIP NOW VERIFIED: Reaper | new Pawn=0x2C787285580 | live GUID=CD8A513447E61CF2928BB185AE26138B | bUseForcedLoadout=0
+18:13:10  Action: APPLY
+18:13:10  Match speed x5
+18:13:28  Action: QUEUE SPAWN
+18:13:28  Queued 3 Punisher (Enemy)
+18:13:28  Spawned Punisher / Enemy / Medium 2
+18:13:28  Custom Stats / AddSimpleStatusEffect failed (native error 7).
+18:16:24  Solo server verified.
+18:16:24  Ship appeared: 21E1B6C5580
+18:16:26  Ship appeared: 21E1B6C4030
+18:16:26  Ship appeared: 21E1B6C6AD0
+18:16:47  Ship appeared: 21E54A2AAC0
+18:16:47  Ship appeared: 21E54A25580
+18:16:47  Ship appeared: 21E54A24030
+18:16:47  Ship left roster: 21E1B6C4030
+18:16:47  Ship left roster: 21E1B6C6AD0
+18:16:47  Ship left roster: 21E1B6C5580
+18:16:53  Ship appeared: 21E42831590
+18:16:53  Ship appeared: 21E3BF16AD0
+18:16:53  Ship appeared: 21E53F2D560
+18:16:53  Action: DELETE ALL ALLIES
+18:16:54  Ship left roster: 21E54A24030
+18:16:54  Ship left roster: 21E54A2AAC0
+18:17:13  Action: GENERATE BATTLE
+18:17:13  Queued 1 Leviathan (Ally)
+18:17:13  Queued 1 Reaper (Ally)
+18:17:13  Queued 1 Interceptor (Ally)
+18:17:13  Queued 1 Reaper (Ally)
+18:17:13  Spawned Leviathan / Ally / Milcho Bot
+18:17:13  Custom Stats applied to Leviathan: MaxHealth=50000
+18:17:13  Ship appeared: 21E4B110040
+18:17:14  Spawned Reaper / Ally / Milcho Bot
+18:17:14  Custom Stats applied to Reaper: MaxHealth=50000
+18:17:15  Ship appeared: 21E56245580
+18:17:15  Spawned Interceptor / Ally / Milcho Bot
+18:17:15  Custom Stats applied to Interceptor: MaxHealth=50000
+18:17:16  Ship appeared: 21E3E9A4030
+18:17:16  Spawned Reaper / Ally / Milcho Bot
+18:17:16  Custom Stats applied to Reaper: MaxHealth=50000
+18:17:17  Ship appeared: 21E5A079570
+18:17:40  Ship left roster: 21E53F2D560
+18:17:55  Ship left roster: 21E3BF16AD0
+18:18:04  Ship left roster: 21E42831590
+18:18:10  Ship appeared: 21E234F1590
+18:18:10  Ship appeared: 21E234FC010
+18:18:10  Ship appeared: 21E0DCE6AD0
+18:18:23  Ship appeared: 21E0D8CD560
+18:18:26  Ship appeared: 21E0D8C5580
+18:18:36  Solo server verified.
+18:18:36  Ship appeared: 21E4B110040
+18:18:36  Ship appeared: 21E54A25580
+18:18:36  Ship appeared: 21E3E9A4030
+18:18:36  Ship appeared: 21E0D8C5580
+18:18:36  Ship appeared: 21E234F1590
+18:18:36  Ship appeared: 21E56245580
+18:18:36  Ship appeared: 21E5A079570
+18:18:36  Ship appeared: 21E234FC010
+18:18:36  Ship appeared: 21E0DCE6AD0
+18:18:36  Ship appeared: 21E0D8CD560
+18:18:45  Action: HEAL FULL
+18:18:45  Ship healed.
+18:18:50  Action: DELETE SELECTED
+18:18:51  Ship left roster: 21E3E9A4030
+18:19:11  Ship left roster: 21E234F1590
+18:19:12  Action: APPLY AI
+18:19:12  Error: Select a live ship in the inspector.
+18:19:15  Action: APPLY AI
+18:19:15  Error: Select a live ship in the inspector.
+18:19:17  Action: APPLY AI
+18:19:17  Error: Select a live ship in the inspector.
+18:19:19  Action: APPLY AI
+18:19:19  Error: Select a live ship in the inspector.
+18:19:23  Action: APPLY AI
+18:19:23  Bot difficulty changed.
+18:19:24  Ship left roster: 21E0DCE6AD0
+18:19:28  Action: APPLY AI
+18:19:28  Bot difficulty changed.
+18:19:35  Action: APPLY AI
+18:19:35  Bot difficulty changed.
+18:19:44  Ship left roster: 21E234FC010
+18:20:14  Ship left roster: 21E0D8C5580
+18:20:55  Ship left roster: 21E0D8CD560
+18:21:00  Ship appeared: 21E1D5ED560
+18:21:00  Ship appeared: 21E56241590
+18:21:01  Ship appeared: 21E13B39570
+18:21:08  Action: QUEUE SPAWN
+18:21:08  Queued 5 Punisher (Ally)
+18:21:09  Spawned Punisher / Ally / Milcho Bot
+18:21:09  Ship appeared: 21E55EE2AE0
+18:21:09  Custom Stats applied to Punisher: MaxHealth=10000
+18:21:10  Spawned Punisher / Ally / Milcho Bot
+18:21:10  Ship appeared: 21E4B111590
+18:21:10  Custom Stats applied to Punisher: MaxHealth=10000
+18:21:10  Spawned Punisher / Ally / Milcho Bot
+18:21:11  Custom Stats applied to Punisher: MaxHealth=10000
+18:21:11  Ship appeared: 21E4B7D2AE0
+18:21:11  Spawned Punisher / Ally / Milcho Bot
+18:21:12  Custom Stats applied to Punisher: MaxHealth=10000
+18:21:12  Ship appeared: 21E12EC9570
+18:21:12  Spawned Punisher / Ally / Milcho Bot
+18:21:13  Custom Stats applied to Punisher: MaxHealth=10000
+18:21:13  Ship appeared: 21E51E41590
+18:21:40  Ship left roster: 21E12EC9570
+18:21:59  Ship appeared: 21E54AD9570
+18:21:59  Ship left roster: 21E13B39570
+18:22:24  Ship left roster: 21E56241590
+18:22:39  Ship left roster: 21E1D5ED560
+18:22:46  Ship appeared: 21E5A074030
+18:22:46  Ship appeared: 21E234F1590
+18:22:46  Ship appeared: 21E234FAAC0
+18:22:58  Ship appeared: 21E5667EAB0
+18:22:59  Ship appeared: 21E234F5580
+18:22:59  Ship appeared: 21E6A96D560
+18:23:40  Ship left roster: 21E234FAAC0
+18:24:21  Ship left roster: 21E5A074030
+18:24:38  Ship left roster: 21E6A96D560
+18:24:44  Action: CHANGE SHIP NOW
+18:24:44  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=1 | requesting game respawn...
+18:24:45  Ship appeared: 21E0E708020
+18:24:45  Ship left roster: 21E54A25580
+18:24:45  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x21E0E708020 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+18:24:46  Action: CHANGE SHIP NOW
+18:24:46  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+18:24:46  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x21E3BF16AD0 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+18:24:47  Ship appeared: 21E3BF16AD0
+18:24:47  Ship left roster: 21E0E708020
+18:24:48  Ship left roster: 21E234F1590
+18:24:57  Ship left roster: 21E234F5580
+18:25:17  Ship left roster: 21E5667EAB0
+18:25:22  Ship appeared: 21E5A071590
+18:25:22  Ship appeared: 21E6A96AAC0
+18:25:24  Ship appeared: 21E0D8CD560
+18:25:34  Ship appeared: 21E2A67C010
+18:25:34  Ship appeared: 21E78186AD0
+18:25:58  Ship left roster: 21E0D8CD560
+18:26:15  Action: DELETE SELECTED
+18:26:15  Ship left roster: 21E4B7D2AE0
+18:26:17  Action: DELETE SELECTED
+18:26:17  Ship left roster: 21E4B111590
+18:26:18  Action: DELETE SELECTED
+18:26:19  Ship left roster: 21E54AD9570
+18:26:19  Action: DELETE SELECTED
+18:26:20  Ship left roster: 21E55EE2AE0
+18:26:20  Action: DELETE SELECTED
+18:26:21  Ship left roster: 21E51E41590
+18:26:28  Ship left roster: 21E5A071590
+18:26:35  Ship appeared: 21E5A645580
+18:26:35  Ship appeared: 21E2A674030
+18:26:50  Ship left roster: 21E6A96AAC0
+18:26:51  Action: QUEUE SPAWN
+18:26:51  Queued 3 Brawler (Ally)
+18:26:51  Spawned Brawler / Ally / Milcho Bot
+18:26:51  Custom Stats applied to Brawler: MaxHealth=50000
+18:26:51  Ship appeared: 21E2A678020
+18:26:52  Spawned Brawler / Ally / Milcho Bot
+18:26:52  Custom Stats applied to Brawler: MaxHealth=50000
+18:26:52  Ship appeared: 21E78006AD0
+18:26:53  Spawned Brawler / Ally / Milcho Bot
+18:26:53  Custom Stats applied to Brawler: MaxHealth=50000
+18:26:54  Ship appeared: 21E51E4EAB0
+18:27:06  Ship left roster: 21E2A67C010
+18:27:25  Ship left roster: 21E78186AD0
+18:27:33  Action: DELETE SELECTED
+18:27:34  Ship left roster: 21E56245580
+18:27:58  Solo server verified.
+18:27:59  Ship appeared: 21E5A645580
+18:27:59  Ship appeared: 21E4B110040
+18:27:59  Ship appeared: 21E78006AD0
+18:27:59  Ship appeared: 21E5A079570
+18:27:59  Ship appeared: 21E2A678020
+18:27:59  Ship appeared: 21E3BF16AD0
+18:27:59  Ship appeared: 21E2A674030
+18:27:59  Ship appeared: 21E51E4EAB0
+18:28:32  Ship left roster: 21E2A674030
+18:28:54  Ship left roster: 21E5A645580
+18:28:59  Ship appeared: 21E128EC010
+18:28:59  Ship appeared: 21E552BAAC0
+18:28:59  Ship appeared: 21E2A67D560
+18:28:59  Ship appeared: 21E3BF19570
+18:29:01  Action: APPLY
+18:29:01  Match speed x5
+18:29:11  Ship left roster: 21E552BAAC0
+18:29:17  Ship left roster: 21E2A67D560
+18:29:21  Ship left roster: 21E128EC010
+18:29:26  Ship left roster: 21E3BF19570
+18:29:28  Ship appeared: 21E660BAAC0
+18:29:28  Ship appeared: 21E5624D560
+18:29:28  Ship appeared: 21E56249570
+18:29:28  Ship appeared: 21E56246AD0
+18:29:30  Ship appeared: 21E0D809570
+18:29:30  Ship appeared: 21E0DCE9570
+18:29:30  Ship appeared: 21E1CA69570
+18:29:40  Ship left roster: 21E5624D560
+18:29:42  Ship left roster: 21E660BAAC0
+18:29:45  Ship left roster: 21E56246AD0
+18:29:46  Ship left roster: 21E56249570
+18:29:56  Ship left roster: 21E1CA69570
+18:29:56  Action: APPLY
+18:29:56  Match speed x3
+18:29:59  Ship left roster: 21E0D809570
+18:30:10  Ship left roster: 21E0DCE9570
+18:30:12  Ship appeared: 21E5624EAB0
+18:30:12  Ship appeared: 21E54A2D560
+18:30:12  Ship appeared: 21E234F4030
+18:30:16  Ship appeared: 21E552BD560
+18:30:16  Ship appeared: 21E5A645580
+18:30:34  Ship appeared: 21E89D41590
+18:30:34  Ship appeared: 21E0F34EAB0
+18:30:34  Ship appeared: 21E1B6C2AE0
+18:30:35  Ship left roster: 21E5624EAB0
+18:30:43  Ship left roster: 21E234F4030
+18:30:47  Ship left roster: 21E54A2D560
+18:31:02  Ship left roster: 21E5A645580
+18:31:07  Ship left roster: 21E89D41590
+18:31:13  Ship left roster: 21E552BD560
+18:31:20  Ship left roster: 21E0F34EAB0
+18:31:24  Ship left roster: 21E1B6C2AE0
+18:31:26  Ship appeared: 21E89D42AE0
+18:31:26  Ship appeared: 21E1CA69570
+18:31:26  Ship appeared: 21E90281590
+18:31:52  Action: QUEUE SPAWN
+18:31:52  Queued 1 Punisher (Enemy)
+18:31:52  Spawned Punisher / Enemy / Medium 2
+18:31:52  Ship appeared: 21E8DFC2AE0
+18:31:56  Ship left roster: 21E90281590
+18:32:01  Ship left roster: 21E5A079570
+18:32:03  Ship left roster: 21E89D42AE0
+18:32:06  Ship left roster: 21E1CA69570
+18:32:08  Ship appeared: 21E234F1590
+18:32:08  Ship appeared: 21E54A21590
+18:32:08  Ship appeared: 21E3BF18020
+18:32:08  Ship appeared: 21E54A2D560
+18:32:09  Ship appeared: 21E3E9AAAC0
+18:32:11  Ship appeared: 21E9C9D2AE0
+18:32:11  Ship appeared: 21E4B11EAB0
+18:32:11  Ship appeared: 21E2A675580
+18:32:22  Action: DELETE SELECTED
+18:32:23  Ship left roster: 21E8DFC2AE0
+18:32:31  Ship left roster: 21E234F1590
+18:32:33  Ship left roster: 21E54A21590
+18:32:36  Ship left roster: 21E54A2D560
+18:32:45  Ship left roster: 21E3BF18020
+18:32:58  Ship left roster: 21E3E9AAAC0
+18:33:00  Ship left roster: 21E2A675580
+18:33:02  Ship left roster: 21E4B11EAB0
+18:33:04  Ship appeared: 21E1B6C2AE0
+18:33:04  Ship appeared: 21E234F1590
+18:33:04  Ship appeared: 21E8DFCD560
+18:33:07  Ship appeared: 21E54A25580
+18:33:07  Ship appeared: 21E660BC010
+18:33:07  Ship appeared: 21E54A2AAC0
+18:33:13  Action: APPLY ON NEXT RESPAWN
+18:33:13  Custom Stats armed for your next respawn.
+18:33:20  Action: CHANGE SHIP NOW
+18:33:20  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+18:33:21  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x21E5A07AAC0 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+18:33:21  Custom Stats applied to player after respawn: CooldownModifierPrimary=-1
+18:33:21  Ship appeared: 21E5A07AAC0
+18:33:21  Ship left roster: 21E3BF16AD0
+18:33:24  Ship appeared: 21E92661590
+18:33:24  Ship appeared: 21E93F6EAB0
+18:33:28  Action: RESTORE MATCH SPEED
+18:33:29  Match speed restored.
+18:33:39  Action: APPLY ON NEXT RESPAWN
+18:33:39  Custom Stats armed for your next respawn.
+18:33:42  Action: CHANGE SHIP NOW
+18:33:42  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+18:33:42  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x21E891E0040 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+18:33:42  Custom Stats applied to player after respawn: RefireRateModifier=-1
+18:33:43  Ship appeared: 21E891E0040
+18:33:43  Ship left roster: 21E1B6C2AE0
+18:33:43  Ship left roster: 21E5A07AAC0
+18:33:47  Ship left roster: 21E234F1590
+18:33:57  Ship left roster: 21E8DFCD560
+18:34:10  Ship left roster: 21E660BC010
+18:34:13  Ship left roster: 21E54A2AAC0
+18:34:28  Action: APPLY
+18:34:28  Match speed x2
+18:34:38  Ship left roster: 21E54A25580
+18:34:43  Ship left roster: 21E93F6EAB0
+18:34:49  Ship left roster: 21E92661590
+18:34:52  Ship appeared: 21E4CA24030
+18:34:52  Ship appeared: 21E6A96AAC0
+18:34:54  Ship appeared: 21E18D48020
+18:34:54  Ship appeared: 21E0E6BD560
+18:34:54  Ship appeared: 21E53F25580
+18:35:09  Ship left roster: 21E78006AD0
+18:35:09  Ship left roster: 21E53F25580
+18:35:16  Ship left roster: 21E51E4EAB0
+18:35:19  Ship left roster: 21E6A96AAC0
+18:35:21  Ship left roster: 21E2A678020
+18:35:24  Ship appeared: 21E0D804030
+18:35:30  Ship appeared: 21E3E9A9570
+18:35:32  Ship left roster: 21E9C9D2AE0
+18:35:33  Ship left roster: 21E18D48020
+18:35:36  Ship appeared: 21E90285580
+18:35:36  Ship left roster: 21E0E6BD560
+18:35:47  Ship appeared: 21E0E6BD560
+18:35:51  Ship left roster: 21E4CA24030
+18:35:55  Ship appeared: 21E56675580
+18:35:55  Ship appeared: 21E56242AE0
+18:35:55  Ship appeared: 21E3D6CEAB0
+18:35:55  Ship appeared: 21E5624AAC0
+18:35:56  Ship appeared: 21E55EE5580
+18:35:56  Ship appeared: 21E53F25580
+18:36:11  Ship left roster: 21E56675580
+18:36:19  Ship left roster: 21E90285580
+18:36:19  Ship left roster: 21E56242AE0
+18:36:22  Ship appeared: 21E5A645580
+18:36:22  Ship appeared: 21E5A644030
+18:36:22  Ship appeared: 21E660B4030
+18:36:33  Ship appeared: 21E8DEAEAB0
+18:36:35  Ship left roster: 21E5624AAC0
+18:36:40  Ship left roster: 21E3D6CEAB0
+18:36:43  Ship left roster: 21E55EE5580
+18:36:52  Ship left roster: 21E53F25580
+18:37:17  Ship left roster: 21E0E6BD560
+18:37:23  Ship left roster: 21E0D804030
+18:37:24  Ship left roster: 21E5A645580
+18:37:31  Ship left roster: 21E5A644030
+18:37:32  Ship appeared: 21E6A969570
+18:37:38  Ship appeared: 21E3D6C6AD0
+18:37:46  Action: QUEUE SPAWN
+18:37:46  Queued 2 Paladin (Ally)
+18:37:46  Spawned Paladin / Ally / Milcho Bot
+18:37:47  Ship appeared: 21E56674030
+18:37:47  Spawned Paladin / Ally / Milcho Bot
+18:37:48  Ship appeared: 21E56672AE0
+18:37:57  Action: APPLY ON NEXT RESPAWN
+18:37:57  Custom Stats armed for your next respawn.
+18:38:02  Ship left roster: 21E660B4030
+18:38:05  Ship appeared: 21E18D42AE0
+18:38:05  Ship appeared: 21E6A96EAB0
+18:38:05  Ship appeared: 21E21F30040
+18:38:06  Ship appeared: 21E18D4D560
+18:38:08  Ship appeared: 21E4CA25580
+18:38:08  Ship appeared: 21E78000040
+18:38:09  Action: CHANGE SHIP NOW
+18:38:09  CHANGE SHIP NOW v18 FIX: Persecutor | index=24 | bUseForcedLoadout before=0 | requesting game respawn...
+18:38:09  Custom Stats applied to player after respawn: RefireRateModifier=-1
+18:38:10  CHANGE SHIP NOW VERIFIED: Persecutor | new Pawn=0x21E3BF15580 | live GUID=406A83094DAC130A4938D9B809BDBEAB | bUseForcedLoadout=0
+18:38:10  Ship appeared: 21E3BF15580
+18:38:10  Ship left roster: 21E891E0040
+18:38:27  Ship left roster: 21E18D42AE0
+18:38:32  Ship left roster: 21E21F30040
+18:38:34  Ship appeared: 21E9028EAB0
+18:38:34  Ship appeared: 21E92350040
+18:38:34  Ship appeared: 21E5A642AE0
+18:38:35  Action: APPLY ON NEXT RESPAWN
+18:38:35  Custom Stats armed for your next respawn.
+18:38:44  Ship left roster: 21E6A96EAB0
+18:38:45  Ship left roster: 21E3BF15580
+18:38:46  Action: CHANGE SHIP NOW
+18:38:46  Error: CHANGE SHIP NOW must be used while your current ship is alive.
+18:38:47  Action: CHANGE SHIP NOW
+18:38:47  Error: CHANGE SHIP NOW must be used while your current ship is alive.
+18:38:56  Ship left roster: 21E4CA25580
+18:38:59  Ship appeared: 21E891EEAB0
+18:38:59  Custom Stats applied to player after respawn: RefireRateModifier=-1
+18:39:06  Action: APPLY ON NEXT RESPAWN
+18:39:06  Custom Stats armed for your next respawn.
+18:39:08  Ship left roster: 21E4B110040
+18:39:11  Action: CHANGE SHIP NOW
+18:39:11  CHANGE SHIP NOW v18 FIX: Watchman | index=35 | bUseForcedLoadout before=0 | requesting game respawn...
+18:39:11  Custom Stats applied to player after respawn: RefireRateModifier=-1
+18:39:11  Ship appeared: 21E148B9570
+18:39:11  Ship left roster: 21E891EEAB0
+18:39:12  CHANGE SHIP NOW VERIFIED: Watchman | new Pawn=0x21E148B9570 | live GUID=3D00470D4738A8FA14F637963FF5CE8A | bUseForcedLoadout=0
+18:39:21  Ship left roster: 21E18D4D560
+18:39:22  Ship left roster: 21E56674030
+18:39:23  Ship appeared: 21E0DCED560
+18:39:26  Ship left roster: 21E92350040
+18:39:26  Ship left roster: 21E56672AE0
+18:39:37  Ship appeared: 21E3E9AD560
+18:39:41  Ship appeared: 21E13B32AE0
+18:39:41  Ship left roster: 21E78000040
+18:39:44  Ship left roster: 21E5A642AE0
+18:39:47  Ship left roster: 21E9028EAB0
+18:39:51  Ship appeared: 21E9C40C010
+18:39:51  Ship appeared: 21E90281590
+18:39:51  Ship appeared: 21E93F31590
+18:39:51  Ship appeared: 21E93F60040
+18:39:52  Ship appeared: 21EA4F51590
+18:39:52  Ship appeared: 21EA5290040
+18:39:56  Action: APPLY ON NEXT RESPAWN
+18:39:56  Custom Stats armed for your next respawn.
+18:39:58  Action: CHANGE SHIP NOW
+18:39:58  CHANGE SHIP NOW v18 FIX: Watchman | index=35 | bUseForcedLoadout before=0 | requesting game respawn...
+18:39:58  Custom Stats applied to player after respawn: RefireRateModifier=-0,8
+18:39:58  CHANGE SHIP NOW VERIFIED: Watchman | new Pawn=0x21EA4F5EAB0 | live GUID=3D00470D4738A8FA14F637963FF5CE8A | bUseForcedLoadout=0
+18:39:58  Ship appeared: 21EA4F5EAB0
+18:39:58  Ship left roster: 21E148B9570
+18:40:10  Ship left roster: 21E3D6C6AD0
+18:40:16  Action: CHANGE SHIP NOW
+18:40:16  CHANGE SHIP NOW v18 FIX: Watchman | index=35 | bUseForcedLoadout before=0 | requesting game respawn...
+18:40:16  CHANGE SHIP NOW VERIFIED: Watchman | new Pawn=0x21E2C211590 | live GUID=3D00470D4738A8FA14F637963FF5CE8A | bUseForcedLoadout=0
+18:40:17  Ship appeared: 21E2C211590
+18:40:17  Ship left roster: 21EA4F5EAB0
+18:40:26  Ship appeared: 21E509E5580
+18:40:29  Ship left roster: 21E0DCED560
+18:40:30  Action: APPLY ON NEXT RESPAWN
+18:40:30  Custom Stats armed for your next respawn.
+18:40:35  Ship left roster: 21EA5290040
+18:40:41  Action: CHANGE SHIP NOW
+18:40:41  CHANGE SHIP NOW v18 FIX: Watchman | index=35 | bUseForcedLoadout before=0 | requesting game respawn...
+18:40:42  Custom Stats applied to player after respawn: RefireRateModifier=-0,75
+18:40:42  CHANGE SHIP NOW VERIFIED: Watchman | new Pawn=0x21E0E6B9570 | live GUID=3D00470D4738A8FA14F637963FF5CE8A | bUseForcedLoadout=0
+18:40:42  Ship appeared: 21E0E6B9570
+18:40:42  Ship left roster: 21E2C211590
+18:40:44  Ship appeared: 21E5624C010
+18:40:46  Ship left roster: 21E93F31590
+18:40:50  Ship left roster: 21E509E5580
+18:40:52  Ship left roster: 21EA4F51590
+18:40:57  Ship left roster: 21E90281590
+18:40:59  Ship left roster: 21E9C40C010
+18:41:05  Ship appeared: 21E9D09D560
+18:41:08  Ship left roster: 21E93F60040
+18:41:10  Ship appeared: 21EA5299570
+18:41:12  Action: CHANGE SHIP NOW
+18:41:12  CHANGE SHIP NOW v18 FIX: Watchman | index=35 | bUseForcedLoadout before=0 | requesting game respawn...
+18:41:12  CHANGE SHIP NOW VERIFIED: Watchman | new Pawn=0x21E93F32AE0 | live GUID=3D00470D4738A8FA14F637963FF5CE8A | bUseForcedLoadout=0
+18:41:12  Ship appeared: 21EA4F58020
+18:41:12  Ship appeared: 21EA4F5AAC0
+18:41:12  Ship appeared: 21E93F32AE0
+18:41:12  Ship appeared: 21E509E0040
+18:41:12  Ship left roster: 21E0E6B9570
+18:41:13  Ship appeared: 21E6A965580
+18:41:13  Ship appeared: 21E0F34AAC0
+18:41:26  Action: RESTORE MATCH SPEED
+18:41:26  Match speed restored.
+18:41:27  Ship left roster: 21EA4F58020
+18:41:41  Action: APPLY ON NEXT RESPAWN
+18:41:41  Custom Stats armed for your next respawn.
+18:41:48  Ship appeared: 21E9C406AD0
+18:41:48  Ship appeared: 21E9C400040
+18:41:48  Ship appeared: 21E51E41590
+18:41:48  Ship left roster: 21EA5299570
+18:41:50  Action: CHANGE SHIP NOW
+18:41:50  CHANGE SHIP NOW v18 FIX: Watchman | index=35 | bUseForcedLoadout before=0 | requesting game respawn...
+18:41:50  Custom Stats applied to player after respawn: RefireRateModifier=-0,6
+18:41:50  CHANGE SHIP NOW VERIFIED: Watchman | new Pawn=0x21E90288020 | live GUID=3D00470D4738A8FA14F637963FF5CE8A | bUseForcedLoadout=0
+18:41:50  Ship appeared: 21E90288020
+18:41:50  Ship left roster: 21E93F32AE0
+18:41:51  Ship left roster: 21EA4F5AAC0
+18:42:05  Ship left roster: 21E509E0040
+18:42:24  Ship left roster: 21E6A965580
+18:42:49  Action: APPLY ON NEXT RESPAWN
+18:42:49  Custom Stats armed for your next respawn.
+18:42:54  Action: CHANGE SHIP NOW
+18:42:55  CHANGE SHIP NOW v18 FIX: Paragon | index=23 | bUseForcedLoadout before=0 | requesting game respawn...
+18:42:55  Custom Stats applied to player after respawn: RefireRateModifier=-0,6
+18:42:55  Ship appeared: 21E5667EAB0
+18:42:55  Ship left roster: 21E90288020
+18:42:55  Ship left roster: 21E0F34AAC0
+18:42:55  CHANGE SHIP NOW VERIFIED: Paragon | new Pawn=0x21E5667EAB0 | live GUID=1253D6F14151734ECBAA3F8C92C66BDF | bUseForcedLoadout=0
+18:43:09  Ship left roster: 21E9C400040
+18:43:24  Ship left roster: 21E9C406AD0
+18:44:09  Ship left roster: 21E51E41590
+18:44:14  Ship appeared: 21EA5291590
+18:44:14  Ship appeared: 21E55EEC010
+18:44:14  Ship appeared: 21E7FCAAAC0
+18:44:14  Ship appeared: 21E78000040
+18:44:20  Ship appeared: 21E2C21AAC0
+18:44:20  Ship appeared: 21E5A075580
+18:44:20  Action: APPLY ON NEXT RESPAWN
+18:44:20  Custom Stats armed for your next respawn.
+18:44:33  Action: CHANGE SHIP NOW
+18:44:33  CHANGE SHIP NOW v18 FIX: Reaper | index=31 | bUseForcedLoadout before=0 | requesting game respawn...
+18:44:33  Custom Stats applied to player after respawn: RefireRateModifier=-0,6
+18:44:33  Ship appeared: 21E93F30040
+18:44:33  Ship left roster: 21E5667EAB0
+18:44:34  CHANGE SHIP NOW VERIFIED: Reaper | new Pawn=0x21E93F30040 | live GUID=CD8A513447E61CF2928BB185AE26138B | bUseForcedLoadout=0
+18:44:53  Ship left roster: 21E55EEC010
+18:44:53  Ship left roster: 21EA5291590
+18:45:00  Ship left roster: 21E78000040
+18:45:08  Ship left roster: 21E7FCAAAC0
+18:45:09  Ship appeared: 21E0D8C0040
+18:45:09  Ship appeared: 21E2A675580
+18:45:09  Ship appeared: 21E56249570
+18:45:26  Action: APPLY ON NEXT RESPAWN
+18:45:26  Custom Stats armed for your next respawn.
+18:45:33  Action: CHANGE SHIP NOW
+18:45:33  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+18:45:33  Custom Stats applied to player after respawn: RefireRateModifier=-0,6
+18:45:34  Ship appeared: 21E4B7D6AD0
+18:45:34  Ship left roster: 21E93F30040
+18:45:34  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x21E4B7D6AD0 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+18:45:41  Ship left roster: 21E6A969570
+18:45:48  Ship left roster: 21E2C21AAC0
+18:46:05  Ship left roster: 21E5A075580
+18:46:10  Ship appeared: 21E128EAAC0
+18:46:17  Action: APPLY ON NEXT RESPAWN
+18:46:17  Custom Stats armed for your next respawn.
+18:46:18  Action: CHANGE SHIP NOW
+18:46:18  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+18:46:19  Custom Stats applied to player after respawn: RefireRateModifier=-0,6
+18:46:19  Ship appeared: 21E148B4030
+18:46:19  Ship left roster: 21E4B7D6AD0
+18:46:19  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x21E148B4030 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+18:46:42  Ship left roster: 21E2A675580
+18:47:12  Ship left roster: 21E56249570
+18:47:23  Action: APPLY ON NEXT RESPAWN
+18:47:23  Custom Stats armed for your next respawn.
+18:47:24  Ship left roster: 21E0D8C0040
+18:47:25  Action: CHANGE SHIP NOW
+18:47:25  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+18:47:25  Custom Stats applied to player after respawn: RefireRateModifier=-0,6
+18:47:25  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x21E0D801590 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+18:47:25  Ship appeared: 21E0D801590
+18:47:25  Ship left roster: 21E148B4030
+18:47:30  Ship appeared: 21E93F6D560
+18:47:30  Ship appeared: 21EA4F56AD0
+18:47:30  Ship appeared: 21E891E8020
+18:47:30  Ship appeared: 21E9C408020
+18:47:30  Ship appeared: 21E18D4C010
+18:47:30  Ship appeared: 21E0F34AAC0
+18:48:06  Action: APPLY ON NEXT RESPAWN
+18:48:06  Custom Stats armed for your next respawn.
+18:48:33  Action: CHANGE SHIP NOW
+18:48:33  CHANGE SHIP NOW v18 FIX: Overseer | index=21 | bUseForcedLoadout before=0 | requesting game respawn...
+18:48:33  Custom Stats applied to player after respawn: RefireRateModifier=-0,6
+18:48:34  Ship appeared: 21E5624EAB0
+18:48:34  Ship left roster: 21E0D801590
+18:48:36  CHANGE SHIP NOW VERIFIED: Overseer | new Pawn=0x21E5624EAB0 | live GUID=9A93FF8A41BEB20D24C000B52930A637 | bUseForcedLoadout=0
+18:49:29  Ship left roster: 21E93F6D560
+18:49:44  Ship left roster: 21E128EAAC0
+18:50:04  Ship left roster: 21E9C408020
+18:50:07  Ship left roster: 21E0F34AAC0
+18:50:14  Action: APPLY ON NEXT RESPAWN
+18:50:14  Custom Stats armed for your next respawn.
+18:50:15  Ship appeared: 21E128EAAC0
+18:50:20  Action: CHANGE SHIP NOW
+18:50:20  CHANGE SHIP NOW v18 FIX: Leviathan | index=20 | bUseForcedLoadout before=0 | requesting game respawn...
+18:50:20  Custom Stats applied to player after respawn: RefireRateModifier=-0,6
+18:50:20  Ship appeared: 21E54A24030
+18:50:20  Ship left roster: 21E5624EAB0
+18:50:20  CHANGE SHIP NOW VERIFIED: Leviathan | new Pawn=0x21E54A24030 | live GUID=05BBCBAA41CB21B6C98E129FE6A9651F | bUseForcedLoadout=0
+18:50:23  Ship left roster: 21E18D4C010
+18:50:28  Ship left roster: 21E891E8020
+18:50:28  Ship left roster: 21E8DEAEAB0
+18:50:44  Ship left roster: 21EA4F56AD0
+18:50:51  Ship appeared: 21E5A64EAB0
+18:50:51  Ship appeared: 21E4B119570
+18:50:51  Ship appeared: 21E6A965580
+18:50:51  Ship appeared: 21E0F341590
+18:50:54  Ship appeared: 21E891EC010
+18:50:54  Ship appeared: 21EA4F59570
+18:50:58  Ship appeared: 21EB5DE1590
+18:51:30  Ship left roster: 21E5A64EAB0
+18:51:42  Ship left roster: 21E4B119570
+18:51:44  Ship appeared: 21E14721590
+18:51:44  Ship appeared: 21E1CA66AD0
+18:51:44  Ship appeared: 21E51E48020
+18:52:05  Ship left roster: 21E0F341590
+18:52:15  Ship left roster: 21EA4F59570
+18:52:52  Lethal damage applied.
+18:52:52  Ship left roster: 21E1CA66AD0
+18:52:52  Lethal damage applied.
+18:52:53  Lethal damage applied.
+18:52:53  Ship left roster: 21E51E48020
+18:52:53  Ship left roster: 21E6A965580
+18:52:53  Lethal damage applied.
+18:52:54  Lethal damage applied.
+18:52:54  Ship left roster: 21E14721590
+18:52:54  Ship left roster: 21E891EC010
+18:53:00  Ship appeared: 21E0E6BD560
+18:53:00  Ship appeared: 21E4B115580
+18:53:00  Ship appeared: 21E1B6C4030
+18:53:00  Ship appeared: 21E9D09EAB0
+18:53:05  Ship appeared: 21F264E4030
+18:53:05  Ship appeared: 21F26E68020
+18:53:33  Ship left roster: 21E0E6BD560
+18:53:50  Ship appeared: 21EE739C010
+18:53:50  Ship appeared: 21E6A96EAB0
+18:53:50  Ship appeared: 21E1B6C5580
+18:53:50  Ship left roster: 21E9D09EAB0
+18:53:51  Ship left roster: 21E1B6C4030
+18:53:54  Ship left roster: 21E4B115580
+18:54:03  Action: APPLY ON NEXT RESPAWN
+18:54:03  Custom Stats armed for your next respawn.
+18:54:12  Action: CHANGE SHIP NOW
+18:54:12  CHANGE SHIP NOW v18 FIX: Black Widow | index=2 | bUseForcedLoadout before=0 | requesting game respawn...
+18:54:12  Custom Stats applied to player after respawn: RefireRateModifier=-0,6
+18:54:13  Ship appeared: 21E0E6BD560
+18:54:13  Ship left roster: 21E54A24030
+18:54:13  CHANGE SHIP NOW VERIFIED: Black Widow | new Pawn=0x21E0E6BD560 | live GUID=747DEE6D476875B019857EA5D30D170E | bUseForcedLoadout=0
+18:54:21  Ship left roster: 21F26E68020
+18:54:44  Ship left roster: 21F264E4030
+18:54:59  Action: APPLY ON NEXT RESPAWN
+18:54:59  Custom Stats armed for your next respawn.
+18:55:00  Action: CHANGE SHIP NOW
+18:55:00  CHANGE SHIP NOW v18 FIX: Black Widow | index=2 | bUseForcedLoadout before=0 | requesting game respawn...
+18:55:00  Custom Stats: new Pawn detected; waiting only for receiver/GUID readiness...
+18:55:00  CHANGE SHIP NOW VERIFIED: Black Widow | new Pawn=0x21E14722AE0 | live GUID=747DEE6D476875B019857EA5D30D170E | bUseForcedLoadout=0
+18:55:01  Custom Stats applied to player after respawn: RefireRateModifier=-0,6, CooldownModifierPrimary=-1
+18:55:01  Ship appeared: 21E14722AE0
+18:55:01  Ship left roster: 21E0E6BD560
+18:55:22  Ship left roster: 21E6A96EAB0
+18:55:31  Action: APPLY ON NEXT RESPAWN
+18:55:31  Custom Stats armed for your next respawn.
+18:55:33  Action: APPLY ON NEXT RESPAWN
+18:55:33  Custom Stats armed for your next respawn.
+18:55:33  Ship left roster: 21E1B6C5580
+18:55:37  Action: CHANGE SHIP NOW
+18:55:37  CHANGE SHIP NOW v18 FIX: Ghost | index=14 | bUseForcedLoadout before=0 | requesting game respawn...
+18:55:37  Custom Stats applied to player after respawn: RefireRateModifier=-0,6, CooldownModifierPrimary=-1
+18:55:37  Ship appeared: 21E0DCE9570
+18:55:37  Ship left roster: 21E14722AE0
+18:55:38  CHANGE SHIP NOW VERIFIED: Ghost | new Pawn=0x21E0DCE9570 | live GUID=C890501B4E153EE73B7189A8CA811488 | bUseForcedLoadout=0
+18:55:58  Ship left roster: 21EE739C010
+18:56:05  Ship appeared: 21E660B6AD0
+18:56:05  Ship appeared: 21EA529AAC0
+18:56:05  Ship appeared: 21E6A964030
+18:56:05  Ship appeared: 21F26E69570
+18:56:05  Ship appeared: 21F264E5580
+18:56:05  Ship appeared: 21E3BF1EAB0
+18:56:32  Ship left roster: 21E660B6AD0
+18:56:54  Ship left roster: 21F26E69570
+18:57:04  Ship left roster: 21F264E5580
+18:57:04  Ship left roster: 21E5624C010
+18:57:08  Ship left roster: 21EA529AAC0
+18:57:12  Ship left roster: 21E3BF1EAB0
+18:57:21  Ship left roster: 21E6A964030
+18:57:28  Ship appeared: 21E93F6AAC0
+18:57:28  Ship appeared: 21E7FCAC010
+18:57:28  Ship appeared: 21E56675580
+18:57:28  Ship appeared: 21E9C404030
+18:57:28  Action: APPLY ON NEXT RESPAWN
+18:57:28  Custom Stats armed for your next respawn.
+18:57:31  Ship appeared: 21E0F34EAB0
+18:57:31  Ship appeared: 21E78008020
+18:57:33  Ship appeared: 21E1B6C6AD0
+18:57:38  Action: CHANGE SHIP NOW
+18:57:38  CHANGE SHIP NOW v18 FIX: Executioner | index=12 | bUseForcedLoadout before=0 | requesting game respawn...
+18:57:38  Custom Stats applied to player after respawn: RefireRateModifier=-0,6, CooldownModifierPrimary=-1
+18:57:39  Ship appeared: 21E3D6C4030
+18:57:39  Ship left roster: 21E0DCE9570
+18:57:39  CHANGE SHIP NOW VERIFIED: Executioner | new Pawn=0x21E3D6C4030 | live GUID=1CB7531942CAA92F5741739A9124B5C9 | bUseForcedLoadout=0
+18:57:55  Ship left roster: 21E7FCAC010
+18:58:12  Ship left roster: 21E9C404030
+18:58:15  Ship appeared: 21E90B20040
+18:58:15  Ship appeared: 21E7FCAC010
+18:58:15  Ship appeared: 21E90B21590
+18:58:17  Action: APPLY ON NEXT RESPAWN
+18:58:17  Custom Stats armed for your next respawn.
+18:58:23  Action: CHANGE SHIP NOW
+18:58:23  CHANGE SHIP NOW v18 FIX: Pioneer | index=25 | bUseForcedLoadout before=0 | requesting game respawn...
+18:58:23  Custom Stats applied to player after respawn: RefireRateModifier=-0,6, CooldownModifierPrimary=-1
+18:58:24  CHANGE SHIP NOW VERIFIED: Pioneer | new Pawn=0x21E1472D560 | live GUID=54D0DFA14E57170E5CA88AA0B89AF409 | bUseForcedLoadout=0
+18:58:24  Ship appeared: 21E1472D560
+18:58:24  Ship left roster: 21E3D6C4030
+18:58:28  Ship left roster: 21E93F6AAC0
+18:59:23  Ship left roster: 21E0F34EAB0
+18:59:30  Action: APPLY ON NEXT RESPAWN
+18:59:30  Custom Stats armed for your next respawn.
+18:59:33  Ship left roster: 21E1472D560
+18:59:36  Action: CHANGE SHIP NOW
+18:59:36  Error: CHANGE SHIP NOW must be used while your current ship is alive.
+19:18:17  Solo server verified.
+19:18:17  Ship appeared: 26BCE74EAB0
+19:18:17  Ship appeared: 26BBA414030
+19:18:17  Ship appeared: 26BBA410040
+19:18:17  Ship appeared: 26BBA418020
+19:18:17  Ship appeared: 26BBA415580
+19:18:17  Ship appeared: 26BBA419570
+19:18:17  Ship appeared: 26BBA411590
+19:18:17  Ship appeared: 26BBA416AD0
+19:18:17  Ship appeared: 26BBA41AAC0
+19:18:17  Ship appeared: 26BBA412AE0
+19:18:18  Action: DELETE ALL ENEMIES
+19:18:19  Ship left roster: 26BBA414030
+19:18:19  Ship left roster: 26BBA418020
+19:18:19  Ship left roster: 26BBA415580
+19:18:19  Ship left roster: 26BBA419570
+19:18:19  Ship left roster: 26BBA416AD0
+19:18:20  Action: DELETE ALL ALLIES
+19:18:20  Ship left roster: 26BBA410040
+19:18:20  Ship left roster: 26BBA411590
+19:18:20  Ship left roster: 26BBA412AE0
+19:18:20  Ship left roster: 26BCE74EAB0
+19:54:07  Ship left roster: 26BBA41AAC0
+21:32:36  Solo server verified.
+21:32:36  Ship appeared: 284BF77AAC0
+21:32:37  Ship appeared: 284BF770040
+21:32:37  Ship appeared: 284BF778020
+21:32:37  Ship appeared: 284BF779570
+21:32:37  Ship appeared: 284BF774030
+21:32:37  Ship appeared: 284BF775580
+21:32:37  Ship appeared: 284BF772AE0
+21:32:37  Ship appeared: 284BF776AD0
+21:32:37  Ship appeared: 284BF77C010
+21:32:37  Ship appeared: 284BF771590
+21:33:02  Ship appeared: 28504355580
+21:33:02  Ship appeared: 28504350040
+21:33:02  Ship appeared: 2850435C010
+21:33:02  Ship appeared: 28504352AE0
+21:33:02  Ship appeared: 284DB790040
+21:33:02  Ship appeared: 2850435D560
+21:33:02  Ship appeared: 28504356AD0
+21:33:02  Ship appeared: 28504351590
+21:33:02  Ship appeared: 28504354030
+21:33:02  Ship appeared: 28504358020
+21:33:02  Ship left roster: 284BF770040
+21:33:02  Ship left roster: 284BF778020
+21:33:02  Ship left roster: 284BF779570
+21:33:02  Ship left roster: 284BF774030
+21:33:02  Ship left roster: 284BF77AAC0
+21:33:02  Ship left roster: 284BF775580
+21:33:02  Ship left roster: 284BF772AE0
+21:33:02  Ship left roster: 284BF776AD0
+21:33:02  Ship left roster: 284BF77C010
+21:33:02  Ship left roster: 284BF771590
+21:33:03  Action: APPLY ON NEXT RESPAWN
+21:33:03  Custom Stats armed for your next respawn.
+21:33:03  Action: APPLY ON NEXT RESPAWN
+21:33:03  Custom Stats armed for your next respawn.
+21:33:03  Action: APPLY ON NEXT RESPAWN
+21:33:03  Custom Stats armed for your next respawn.
+21:33:06  Action: DELETE ALL ENEMIES
+21:33:06  Ship left roster: 28504355580
+21:33:06  Ship left roster: 2850435C010
+21:33:06  Ship left roster: 28504356AD0
+21:33:06  Ship left roster: 28504354030
+21:33:06  Ship left roster: 28504358020
+21:33:07  Action: DELETE ALL ALLIES
+21:33:07  Ship left roster: 28504351590
+21:33:07  Ship left roster: 284DB790040
+21:33:07  Ship left roster: 28504350040
+21:33:07  Ship left roster: 28504352AE0
+21:33:19  Action: CHANGE SHIP NOW
+21:33:19  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=1 | requesting game respawn...
+21:33:19  Custom Stats applied to player after respawn: RefireRateModifier=-0,75
+21:33:19  Ship appeared: 284CE1E9570
+21:33:19  Ship left roster: 2850435D560
+21:33:19  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x284CE1E9570 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+21:34:03  Action: APPLY ON NEXT RESPAWN
+21:34:03  Custom Stats armed for your next respawn.
+21:34:09  Action: CHANGE SHIP NOW
+21:34:09  CHANGE SHIP NOW v18 FIX: Reaper | index=31 | bUseForcedLoadout before=0 | requesting game respawn...
+21:34:09  Custom Stats: new Pawn detected; waiting only for receiver/GUID readiness...
+21:34:10  Ship appeared: 2848923C010
+21:34:10  Ship left roster: 284CE1E9570
+21:34:11  CHANGE SHIP NOW VERIFIED: Reaper | new Pawn=0x2848923C010 | live GUID=CD8A513447E61CF2928BB185AE26138B | bUseForcedLoadout=0
+21:34:11  Custom Stats applied to player after respawn: RefireRateModifier=-0,75
+21:34:34  Action: APPLY ON NEXT RESPAWN
+21:34:34  Custom Stats armed for your next respawn.
+21:34:46  Action: CHANGE SHIP NOW
+21:34:46  CHANGE SHIP NOW v18 FIX: Infiltrator | index=18 | bUseForcedLoadout before=0 | requesting game respawn...
+21:34:46  Custom Stats: new Pawn detected; waiting only for receiver/GUID readiness...
+21:34:46  Ship appeared: 284C043EAB0
+21:34:46  Ship left roster: 2848923C010
+21:34:47  CHANGE SHIP NOW VERIFIED: Infiltrator | new Pawn=0x284C043EAB0 | live GUID=EBE532C246872D08ACB1F2BFC16E29A4 | bUseForcedLoadout=0
+21:34:47  Custom Stats applied to player after respawn: RefireRateModifier=-0,75
+21:35:03  Action: APPLY ON NEXT RESPAWN
+21:35:03  Custom Stats armed for your next respawn.
+21:35:17  Action: CHANGE SHIP NOW
+21:35:17  CHANGE SHIP NOW v18 FIX: Aegis | index=0 | bUseForcedLoadout before=0 | requesting game respawn...
+21:35:17  Custom Stats: new Pawn detected; waiting only for receiver/GUID readiness...
+21:35:18  Ship appeared: 28489239570
+21:35:18  Ship left roster: 284C043EAB0
+21:35:19  CHANGE SHIP NOW VERIFIED: Aegis | new Pawn=0x28489239570 | live GUID=80C054A748F1BAABA7FDA09168054B73 | bUseForcedLoadout=0
+21:35:19  Custom Stats applied to player after respawn: RefireRateModifier=-0,75
+21:35:38  Action: APPLY ON NEXT RESPAWN
+21:35:38  Custom Stats armed for your next respawn.
+21:35:53  Action: CHANGE SHIP NOW
+21:35:53  CHANGE SHIP NOW v18 FIX: Gladiator | index=15 | bUseForcedLoadout before=0 | requesting game respawn...
+21:35:53  Custom Stats applied to player after respawn: RefireRateModifier=-0,75
+21:35:54  Ship appeared: 28489238020
+21:35:54  Ship left roster: 28489239570
+21:35:55  CHANGE SHIP NOW VERIFIED: Gladiator | new Pawn=0x28489238020 | live GUID=3CD44BFB40EDAA2C05E7C99FA24F0731 | bUseForcedLoadout=0
+21:36:44  Action: APPLY ON NEXT RESPAWN
+21:36:44  Custom Stats armed for your next respawn.
+21:36:58  Action: CHANGE SHIP NOW
+21:36:58  CHANGE SHIP NOW v18 FIX: Sentinel | index=32 | bUseForcedLoadout before=0 | requesting game respawn...
+21:36:58  Custom Stats applied to player after respawn: RefireRateModifier=-0,75
+21:36:58  Ship appeared: 28493DB5580
+21:36:58  Ship left roster: 28489238020
+21:36:59  CHANGE SHIP NOW VERIFIED: Sentinel | new Pawn=0x28493DB5580 | live GUID=20090F1A40A2E7A97DDB7A8EA437A69C | bUseForcedLoadout=0
+21:37:13  Action: APPLY ON NEXT RESPAWN
+21:37:13  Custom Stats armed for your next respawn.
+21:37:44  Action: CHANGE SHIP NOW
+21:37:44  CHANGE SHIP NOW v18 FIX: Colossus | index=5 | bUseForcedLoadout before=0 | requesting game respawn...
+21:37:44  Custom Stats applied to player after respawn: RefireRateModifier=-0,75
+21:37:44  CHANGE SHIP NOW VERIFIED: Colossus | new Pawn=0x284CE1EEAB0 | live GUID=CCAA8EFC48379FCDB11C24B649795998 | bUseForcedLoadout=0
+21:37:44  Ship appeared: 284CE1EEAB0
+21:37:44  Ship left roster: 28493DB5580
+21:38:15  Action: APPLY ON NEXT RESPAWN
+21:38:15  Custom Stats armed for your next respawn.
+21:38:18  Action: CHANGE SHIP NOW
+21:38:18  CHANGE SHIP NOW v18 FIX: Colossus | index=5 | bUseForcedLoadout before=0 | requesting game respawn...
+21:38:18  Custom Stats: new Pawn detected; waiting only for receiver/GUID readiness...
+21:38:18  CHANGE SHIP NOW VERIFIED: Colossus | new Pawn=0x284D65E5580 | live GUID=CCAA8EFC48379FCDB11C24B649795998 | bUseForcedLoadout=0
+21:38:18  Custom Stats applied to player after respawn: RefireRateModifier=-1
+21:38:18  Ship appeared: 284D65E5580
+21:38:18  Ship left roster: 284CE1EEAB0
+21:38:46  Action: APPLY ON NEXT RESPAWN
+21:38:46  Custom Stats armed for your next respawn.
+21:38:48  Action: CHANGE SHIP NOW
+21:38:48  CHANGE SHIP NOW v18 FIX: Colossus | index=5 | bUseForcedLoadout before=0 | requesting game respawn...
+21:38:48  Custom Stats applied to player after respawn: RefireRateModifier=-0,8
+21:38:48  CHANGE SHIP NOW VERIFIED: Colossus | new Pawn=0x284C0434030 | live GUID=CCAA8EFC48379FCDB11C24B649795998 | bUseForcedLoadout=0
+21:38:49  Ship appeared: 284C0434030
+21:38:49  Ship left roster: 284D65E5580
+21:39:23  Action: APPLY ON NEXT RESPAWN
+21:39:23  Custom Stats armed for your next respawn.
+21:39:26  Action: CHANGE SHIP NOW
+21:39:26  CHANGE SHIP NOW v18 FIX: Colossus | index=5 | bUseForcedLoadout before=0 | requesting game respawn...
+21:39:26  Custom Stats applied to player after respawn: RefireRateModifier=-0,9
+21:39:26  CHANGE SHIP NOW VERIFIED: Colossus | new Pawn=0x284A4CA5580 | live GUID=CCAA8EFC48379FCDB11C24B649795998 | bUseForcedLoadout=0
+21:39:26  Ship appeared: 284A4CA5580
+21:39:26  Ship left roster: 284C0434030
+21:39:41  Action: APPLY ON NEXT RESPAWN
+21:39:41  Custom Stats armed for your next respawn.
+21:39:46  Action: CHANGE SHIP NOW
+21:39:46  CHANGE SHIP NOW v18 FIX: Colossus | index=5 | bUseForcedLoadout before=0 | requesting game respawn...
+21:39:46  Custom Stats applied to player after respawn: RefireRateModifier=-0,85
+21:39:46  CHANGE SHIP NOW VERIFIED: Colossus | new Pawn=0x284CC9D1590 | live GUID=CCAA8EFC48379FCDB11C24B649795998 | bUseForcedLoadout=0
+21:39:47  Ship appeared: 284CC9D1590
+21:39:47  Ship left roster: 284A4CA5580
+21:40:10  Action: APPLY ON NEXT RESPAWN
+21:40:10  Custom Stats armed for your next respawn.
+21:40:17  Action: CHANGE SHIP NOW
+21:40:17  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+21:40:17  Custom Stats applied to player after respawn: RefireRateModifier=-0,85
+21:40:18  Ship appeared: 284A4CA0040
+21:40:18  Ship left roster: 284CC9D1590
+21:40:18  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x284A4CA0040 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+21:40:52  Action: APPLY ON NEXT RESPAWN
+21:40:52  Custom Stats armed for your next respawn.
+21:40:54  Action: CHANGE SHIP NOW
+21:40:54  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+21:40:54  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x285168A0040 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+21:40:54  Custom Stats applied to player after respawn: RefireRateModifier=-0,9
+21:40:55  Ship appeared: 285168A0040
+21:40:55  Ship left roster: 284A4CA0040
+21:42:30  Action: APPLY ON NEXT RESPAWN
+21:42:30  Custom Stats armed for your next respawn.
+21:42:34  Action: APPLY ON NEXT RESPAWN
+21:42:34  Custom Stats armed for your next respawn.
+21:42:36  Action: CHANGE SHIP NOW
+21:42:36  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+21:42:36  Custom Stats applied to player after respawn: RefireRateModifier=-0,85
+21:42:36  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x2848923D560 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+21:42:36  Ship appeared: 2848923D560
+21:42:36  Ship left roster: 285168A0040
+21:44:37  Action: APPLY ON NEXT RESPAWN
+21:44:37  Custom Stats armed for your next respawn.
+21:44:38  Action: CHANGE SHIP NOW
+21:44:38  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+21:44:38  Custom Stats: new Pawn detected; waiting only for receiver/GUID readiness...
+21:44:39  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x284D65E1590 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+21:44:39  Custom Stats applied to player after respawn: RefireRateModifier=-0,8
+21:44:39  Ship appeared: 284D65E1590
+21:44:39  Ship left roster: 2848923D560
+21:49:38  Action: APPLY ON NEXT RESPAWN
+21:49:38  Custom Stats armed for your next respawn.
+21:49:44  Action: CHANGE SHIP NOW
+21:49:44  CHANGE SHIP NOW v18 FIX: Colossus | index=5 | bUseForcedLoadout before=0 | requesting game respawn...
+21:49:44  Custom Stats applied to player after respawn: RefireRateModifier=-0,85
+21:49:44  CHANGE SHIP NOW VERIFIED: Colossus | new Pawn=0x2848923AAC0 | live GUID=CCAA8EFC48379FCDB11C24B649795998 | bUseForcedLoadout=0
+21:49:45  Ship appeared: 2848923AAC0
+21:49:45  Ship left roster: 284D65E1590
+21:49:58  Action: CHANGE SHIP NOW
+21:49:58  CHANGE SHIP NOW v18 FIX: Colossus | index=5 | bUseForcedLoadout before=0 | requesting game respawn...
+21:49:58  CHANGE SHIP NOW VERIFIED: Colossus | new Pawn=0x28487D96AD0 | live GUID=CCAA8EFC48379FCDB11C24B649795998 | bUseForcedLoadout=0
+21:49:59  Ship appeared: 28487D96AD0
+21:49:59  Ship left roster: 2848923AAC0
+21:50:03  Action: APPLY ON NEXT RESPAWN
+21:50:03  Custom Stats armed for your next respawn.
+21:50:05  Action: CHANGE SHIP NOW
+21:50:05  CHANGE SHIP NOW v18 FIX: Colossus | index=5 | bUseForcedLoadout before=0 | requesting game respawn...
+21:50:06  Ship left roster: 28487D96AD0
+21:50:12  Error: Ship-change request was accepted, but no replacement Pawn appeared within 6 seconds for Colossus.
+21:59:22  Solo server verified.
+21:59:22  Ship appeared: 1F074712AE0
+21:59:22  Ship appeared: 1F05733C010
+21:59:22  Ship appeared: 1F057336AD0
+21:59:22  Ship appeared: 1F05733AAC0
+21:59:22  Ship appeared: 1F057339570
+21:59:22  Ship appeared: 1F05733D560
+21:59:22  Ship appeared: 1F074710040
+21:59:22  Ship appeared: 1F057338020
+21:59:22  Ship appeared: 1F074711590
+21:59:22  Ship appeared: 1F05733EAB0
+21:59:45  Ship appeared: 1F05631D560
+21:59:45  Ship appeared: 1F057330040
+21:59:45  Ship appeared: 1F057334030
+21:59:45  Ship appeared: 1F041D3EAB0
+21:59:45  Ship appeared: 1F05631C010
+21:59:45  Ship appeared: 1F058D7C010
+21:59:45  Ship appeared: 1F05631EAB0
+21:59:45  Ship appeared: 1F057335580
+21:59:45  Ship appeared: 1F057331590
+21:59:45  Ship appeared: 1F057332AE0
+21:59:45  Ship left roster: 1F074712AE0
+21:59:45  Ship left roster: 1F05733C010
+21:59:45  Ship left roster: 1F057336AD0
+21:59:45  Ship left roster: 1F05733AAC0
+21:59:45  Ship left roster: 1F057339570
+21:59:45  Ship left roster: 1F05733D560
+21:59:45  Ship left roster: 1F074710040
+21:59:45  Ship left roster: 1F057338020
+21:59:45  Ship left roster: 1F074711590
+21:59:45  Ship left roster: 1F05733EAB0
+22:00:48  Healed 2131358426816
+22:00:56  Healed 2131358400704
+22:00:59  Healed 2131358394176
+22:01:00  Healed 2131358413760
+22:01:07  Invulnerability enabled.
+22:01:20  Invulnerability enabled.
+22:01:21  Invulnerability enabled.
+22:01:21  Invulnerability enabled.
+22:01:22  Invulnerability enabled.
+22:02:09  Ship left roster: 1F05631C010
+22:02:27  Ship left roster: 1F057331590
+22:02:38  Ship appeared: 1F07729EAB0
+22:02:55  Ship appeared: 1F00F921590
+22:02:55  Ship left roster: 1F05631EAB0
+22:03:17  Invulnerability disabled.
+22:03:18  Invulnerability disabled.
+22:03:19  Invulnerability disabled.
+22:03:20  Invulnerability disabled.
+22:03:20  Invulnerability disabled.
+22:03:25  Ship left roster: 1F057330040
+22:03:26  Ship appeared: 1F01AA18020
+22:03:26  Invulnerability enabled.
+22:03:27  Invulnerability disabled.
+22:03:30  Ship left roster: 1F07729EAB0
+22:03:34  Ship left roster: 1F057335580
+22:03:50  Ship left roster: 1F05631D560
+22:03:50  Invulnerability enabled.
+22:03:50  Invulnerability enabled.
+22:03:51  Invulnerability disabled.
+22:03:51  Invulnerability disabled.
+22:03:52  Invulnerability enabled.
+22:03:53  Invulnerability enabled.
+22:03:54  Invulnerability disabled.
+22:03:54  Invulnerability disabled.
+22:03:55  Invulnerability enabled.
+22:03:55  Invulnerability enabled.
+22:03:56  Invulnerability disabled.
+22:03:58  Invulnerability enabled.
+22:03:59  Ship appeared: 1F05631EAB0
+22:03:59  Invulnerability disabled.
+22:04:00  Invulnerability disabled.
+22:04:05  Ship appeared: 1F06A776AD0
+22:04:07  Ship left roster: 1F057332AE0
+22:04:09  Ship appeared: 1F01AA12AE0
+22:04:12  Action: QUEUE SPAWN
+22:04:12  Queued 1 Punisher (Ally)
+22:04:12  Spawned Punisher / Ally / Medium 2
+22:04:12  Ship appeared: 1F000F12AE0
+22:04:18  Ship left roster: 1F01AA18020
+22:04:25  Ship appeared: 1F00158EAB0
+22:04:44  Ship appeared: 1F01634EAB0
+22:04:55  Ship appeared: 1F01AA18020
+22:05:00  Ship appeared: 1F040477290
+22:05:00  Ship left roster: 1F058D7C010
+22:05:05  Ship left roster: 1F00F921590
+22:05:15  Action: KILL
+22:05:15  Lethal damage applied.
+22:05:16  Ship left roster: 1F041D3EAB0
+22:05:22  Action: KILL
+22:05:22  Error: Select a live ship in the inspector.
+22:05:24  Ship left roster: 1F00158EAB0
+22:05:32  Ship left roster: 1F06A776AD0
+22:05:37  Ship appeared: 1F05631D560
+22:05:37  Ship left roster: 1F040477290
+22:05:39  Ship left roster: 1F01AA12AE0
+22:05:42  Ship appeared: 1F07B1F0040
+22:05:53  Ship left roster: 1F05631EAB0
+22:05:55  Ship appeared: 1F07B1FC010
+22:06:03  Ship appeared: 1F065C48020
+22:06:12  Solo server verified.
+22:06:12  Ship appeared: 1F07B1F0040
+22:06:12  Ship appeared: 1F05631D560
+22:06:12  Ship appeared: 1F057334030
+22:06:12  Ship appeared: 1F01634EAB0
+22:06:12  Ship appeared: 1F01AA11590
+22:06:12  Ship appeared: 1F065C48020
+22:06:12  Ship appeared: 1F000F12AE0
+22:06:12  Ship appeared: 1F07B1FC010
+22:06:13  Ship left roster: 1F000F12AE0
+22:06:20  Ship appeared: 1F00A3D2AE0
+22:06:33  Ship appeared: 1F001FE8020
+22:06:51  Ship appeared: 1F05631EAB0
+22:06:54  Ship appeared: 1F07E24D560
+22:07:09  Ship left roster: 1F057334030
+22:07:21  Ship left roster: 1F00A3D2AE0
+22:07:44  Ship left roster: 1F05631EAB0
+22:07:50  Action: QUEUE SPAWN
+22:07:50  Queued 6 Punisher (Ally)
+22:07:50  Spawned Punisher / Ally / Medium 2
+22:07:51  Ship appeared: 1F00F922AE0
+22:07:51  Spawned Punisher / Ally / Medium 2
+22:07:52  Ship appeared: 1F07729EAB0
+22:07:52  Spawned Punisher / Ally / Medium 2
+22:07:53  Ship appeared: 1F065C41590
+22:07:53  Spawned Punisher / Ally / Medium 2
+22:07:54  Ship appeared: 1F01AA1D560
+22:07:54  Spawned Punisher / Ally / Medium 2
+22:07:55  Ship appeared: 1F0799C9570
+22:07:55  Ship appeared: 1F00FAC4030
+22:07:55  Spawned Punisher / Ally / Medium 2
+22:07:56  Ship appeared: 1F0148A4030
+22:08:07  Ship appeared: 1F001586AD0
+22:08:23  Ship left roster: 1F07E24D560
+22:08:25  Ship appeared: 1F0655D8020
+22:08:27  Ship left roster: 1F07B1F0040
+22:08:30  Ship left roster: 1F001FE8020
+22:09:10  Ship left roster: 1F001586AD0
+22:09:11  Ship appeared: 1F00F920040
+22:09:14  Ship appeared: 1F07E24D560
+22:09:16  Ship left roster: 1F0655D8020
+22:09:18  Ship appeared: 1F009EA0040
+22:09:25  Ship left roster: 1F01AA11590
+22:09:35  Ship left roster: 1F065C48020
+22:09:49  Ship left roster: 1F009EA0040
+22:10:01  Ship appeared: 1F041D36AD0
+22:10:04  Ship appeared: 1F00F924030
+22:10:14  Ship appeared: 1F004211590
+22:10:19  Ship left roster: 1F07E24D560
+22:10:22  Action: CHANGE SHIP NOW
+22:10:22  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=1 | requesting game respawn...
+22:10:22  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x1F00FACEAB0 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:10:22  Ship appeared: 1F00FACEAB0
+22:10:22  Ship left roster: 1F07B1FC010
+22:10:23  Action: CHANGE SHIP NOW
+22:10:23  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:10:23  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x1F075EC6AD0 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:10:24  Ship appeared: 1F085E95580
+22:10:24  Ship appeared: 1F075EC6AD0
+22:10:24  Ship left roster: 1F00FACEAB0
+22:10:35  Action: DELETE ALL ALLIES
+22:10:36  Ship left roster: 1F0148A4030
+22:10:36  Ship left roster: 1F065C41590
+22:10:36  Ship left roster: 1F00F922AE0
+22:10:36  Ship left roster: 1F05631D560
+22:10:36  Ship left roster: 1F0799C9570
+22:10:36  Ship left roster: 1F00FAC4030
+22:10:36  Ship left roster: 1F041D36AD0
+22:10:36  Ship left roster: 1F07729EAB0
+22:10:36  Ship left roster: 1F01634EAB0
+22:10:36  Ship left roster: 1F00F920040
+22:10:36  Ship left roster: 1F01AA1D560
+22:10:42  Ship left roster: 1F075EC6AD0
+22:10:42  Ship left roster: 1F085E95580
+22:10:42  Ship left roster: 1F00F924030
+22:10:42  Ship left roster: 1F004211590
+22:12:00  Solo server verified.
+22:12:00  Ship appeared: 250F7136AD0
+22:12:03  Ship appeared: 250D027EAB0
+22:12:03  Ship appeared: 250F7135580
+22:12:03  Ship appeared: 250F7132AE0
+22:12:03  Ship appeared: 250F7130040
+22:12:03  Ship appeared: 250F7134030
+22:12:03  Ship appeared: 250D027D560
+22:12:03  Ship appeared: 250F7131590
+22:12:03  Ship appeared: 250F7138020
+22:12:03  Ship appeared: 250D027C010
+22:12:24  Ship appeared: 250FC0CC010
+22:12:24  Ship appeared: 250FC0CEAB0
+22:12:24  Ship appeared: 250FB975580
+22:12:24  Ship appeared: 250FC0C4030
+22:12:24  Ship appeared: 250FB976AD0
+22:12:24  Ship appeared: 250FC0C0040
+22:12:24  Ship appeared: 250FC0C2AE0
+22:12:24  Ship appeared: 250FB978020
+22:12:24  Ship appeared: 250FC0CD560
+22:12:24  Ship appeared: 250FC0C1590
+22:12:24  Ship left roster: 250D027EAB0
+22:12:24  Ship left roster: 250F7135580
+22:12:24  Ship left roster: 250F7132AE0
+22:12:24  Ship left roster: 250F7130040
+22:12:24  Ship left roster: 250F7136AD0
+22:12:24  Ship left roster: 250F7134030
+22:12:24  Ship left roster: 250D027D560
+22:12:24  Ship left roster: 250F7131590
+22:12:24  Ship left roster: 250F7138020
+22:12:24  Ship left roster: 250D027C010
+22:12:26  Action: CHANGE SHIP NOW
+22:12:26  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=1 | requesting game respawn...
+22:12:26  Ship appeared: 2509B680040
+22:12:26  Ship left roster: 250FC0CC010
+22:12:26  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x2509B680040 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:12:28  Action: CHANGE SHIP NOW
+22:12:28  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:12:28  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x250906D2AE0 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:12:28  Ship appeared: 250906D2AE0
+22:12:28  Ship left roster: 2509B680040
+22:12:35  Action: QUEUE SPAWN
+22:12:35  Queued 2 Punisher (Ally)
+22:12:36  Spawned Punisher / Ally / Easy 1
+22:12:36  Ship appeared: 25080AC0040
+22:12:37  Spawned Punisher / Ally / Easy 1
+22:12:37  Ship appeared: 25080AC6AD0
+22:13:03  Action: ARM SELECTED NEXT RESPAWN
+22:13:03  Custom Stats armed for makichika / Superlifter | every respawn
+22:13:10  Action: CHANGE SHIP NOW
+22:13:10  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:13:10  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x250C56F9570 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:13:11  Custom Stats applied to makichika / Superlifter after respawn: CooldownModifierSubsystem2=-0,8
+22:13:11  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:13:11  Ship appeared: 250C56F9570
+22:13:11  Ship left roster: 250906D2AE0
+22:13:12  Ship left roster: 250FC0CEAB0
+22:13:13  Ship left roster: 250FB978020
+22:13:32  Action: ARM SELECTED NEXT RESPAWN
+22:13:32  Custom Stats armed for makichika / Superlifter | every respawn
+22:13:37  Ship appeared: 2509B68EAB0
+22:13:38  Ship appeared: 2508DCCC010
+22:13:43  Ship left roster: 250FB976AD0
+22:13:45  Action: ARM SELECTED NEXT RESPAWN
+22:13:45  Custom Stats armed for makichika / Superlifter | every respawn
+22:13:46  Ship left roster: 250FC0C4030
+22:13:47  Ship left roster: 250FC0C2AE0
+22:13:47  Action: CHANGE SHIP NOW
+22:13:47  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:13:47  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x25091B2D560 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:13:48  Custom Stats applied to makichika / Superlifter after respawn: CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8
+22:13:48  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:13:48  Ship appeared: 25091B2D560
+22:13:48  Ship left roster: 250C56F9570
+22:14:01  Ship left roster: 25080AC0040
+22:14:10  Ship appeared: 25081819570
+22:14:12  Ship appeared: 250F78DAAC0
+22:14:13  Action: ARM SELECTED NEXT RESPAWN
+22:14:13  Custom Stats armed for makichika / Superlifter | every respawn
+22:14:14  Ship appeared: 2508EE79570
+22:14:22  Action: ARM SELECTED NEXT RESPAWN
+22:14:22  Custom Stats armed for makichika / Superlifter | every respawn
+22:14:22  Ship left roster: 2508DCCC010
+22:14:24  Action: CHANGE SHIP NOW
+22:14:24  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:14:25  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x250FA424030 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:14:25  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8
+22:14:25  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:14:25  Ship appeared: 250FA424030
+22:14:25  Ship left roster: 25091B2D560
+22:14:28  Ship left roster: 250FC0C1590
+22:14:31  Ship appeared: 250906DAAC0
+22:14:31  Action: ARM SELECTED NEXT RESPAWN
+22:14:31  Custom Stats armed for makichika / Superlifter | every respawn
+22:14:33  Action: CHANGE SHIP NOW
+22:14:33  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:14:33  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x2508E8CD560 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:14:34  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8
+22:14:34  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:14:34  Ship appeared: 2508E8CD560
+22:14:34  Ship left roster: 250FA424030
+22:14:47  Ship left roster: 25081819570
+22:14:47  Ship left roster: 250FC0CD560
+22:14:51  Ship appeared: 25090F7AAC0
+22:14:56  Ship appeared: 250FAAEAAC0
+22:14:59  Ship left roster: 25080AC6AD0
+22:15:17  Ship appeared: 25080AC9570
+22:15:17  Ship appeared: 250FB979570
+22:15:29  Ship appeared: 250952FAAC0
+22:15:30  Ship left roster: 250FB975580
+22:15:35  Ship left roster: 250906DAAC0
+22:15:56  Ship left roster: 250FB979570
+22:16:05  Ship appeared: 250C0F65580
+22:16:10  Ship appeared: 250906D6AD0
+22:16:17  Ship left roster: 250FC0C0040
+22:16:17  Ship left roster: 250F78DAAC0
+22:16:21  Ship left roster: 250952FAAC0
+22:16:31  Ship appeared: 250DCBE8020
+22:16:38  Ship appeared: 250C114B270
+22:16:38  Ship left roster: 250906D6AD0
+22:16:52  Ship appeared: 250F727EAB0
+22:16:52  Ship left roster: 250C0F65580
+22:16:54  Ship appeared: 250906D9570
+22:16:58  Ship appeared: 250FB97AAC0
+22:17:09  Ship left roster: 25090F7AAC0
+22:17:13  Ship left roster: 250FAAEAAC0
+22:17:15  Ship appeared: 250952FD560
+22:17:15  Ship left roster: 250C114B270
+22:17:29  Ship appeared: 250F78DAAC0
+22:17:29  Ship left roster: 250DCBE8020
+22:17:46  Ship appeared: 250F80C1590
+22:17:52  Ship appeared: 25090F78020
+22:18:07  Ship appeared: 250FAAEAAC0
+22:18:07  Ship left roster: 250F78DAAC0
+22:18:10  Action: CHANGE SHIP NOW
+22:18:10  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:18:11  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x250FC0CEAB0 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:18:11  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8
+22:18:11  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:18:12  Ship appeared: 250FC0CEAB0
+22:18:12  Ship left roster: 2508E8CD560
+22:18:19  Ship left roster: 250FB97AAC0
+22:18:24  Action: CHANGE SHIP NOW
+22:18:24  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:18:24  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x250FC0C9570 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:18:25  Ship appeared: 250FC0C9570
+22:18:25  Ship left roster: 250FC0CEAB0
+22:18:25  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8
+22:18:25  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:18:28  Action: ARM SELECTED NEXT RESPAWN
+22:18:28  Custom Stats armed for makichika / Superlifter | every respawn
+22:18:30  Ship left roster: 250FAAEAAC0
+22:18:30  Action: CHANGE SHIP NOW
+22:18:30  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:18:30  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x250DCBED560 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:18:30  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8
+22:18:30  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:18:31  Ship appeared: 250DCBED560
+22:18:31  Ship left roster: 250FC0C9570
+22:18:33  Action: CHANGE SHIP NOW
+22:18:33  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:18:33  Ship appeared: 250A64A6AD0
+22:18:33  Ship left roster: 250DCBED560
+22:18:33  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x250A64A6AD0 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:18:34  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8
+22:18:34  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:18:39  Ship left roster: 25080AC9570
+22:18:43  Action: CHANGE SHIP NOW
+22:18:43  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:18:43  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x2508E8CC010 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:18:43  Ship appeared: 2508E8CC010
+22:18:43  Ship left roster: 250A64A6AD0
+22:18:43  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8
+22:18:43  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:18:47  Ship appeared: 25080AC5580
+22:18:50  Action: CHANGE SHIP NOW
+22:18:50  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:18:50  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x250F73F1590 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:18:50  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8
+22:18:50  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:18:51  Ship appeared: 250F73F1590
+22:18:51  Ship left roster: 2508E8CC010
+22:18:57  Action: ARM SELECTED NEXT RESPAWN
+22:18:57  Custom Stats armed for makichika / Superlifter | every respawn
+22:18:59  Ship appeared: 250FB972AE0
+22:19:05  Action: CHANGE SHIP NOW
+22:19:05  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:19:05  Ship appeared: 250F78D4030
+22:19:05  Ship left roster: 250F73F1590
+22:19:05  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x250F78D4030 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:19:05  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8
+22:19:05  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:19:10  Ship appeared: 250FC0CC010
+22:19:10  Ship left roster: 250F80C1590
+22:19:16  Action: CHANGE SHIP NOW
+22:19:16  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:19:16  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x25101FD9570 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:19:16  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8
+22:19:16  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:19:17  Ship appeared: 25101FD9570
+22:19:17  Ship left roster: 250F78D4030
+22:19:20  Ship appeared: 250D0274030
+22:19:32  Action: CHANGE SHIP NOW
+22:19:32  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:19:32  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x250F7355580 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:19:32  Ship appeared: 250F7355580
+22:19:32  Ship left roster: 25101FD9570
+22:19:32  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8
+22:19:32  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:19:37  Ship left roster: 250F727EAB0
+22:19:38  Ship left roster: 25080AC5580
+22:19:45  Action: CHANGE SHIP NOW
+22:19:45  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:19:45  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x250F80C1590 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:19:46  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8
+22:19:46  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:19:46  Ship appeared: 250F80C1590
+22:19:46  Ship left roster: 250F7355580
+22:19:49  Ship left roster: 250952FD560
+22:19:52  Ship appeared: 2508E8C4030
+22:19:53  Ship left roster: 250FB972AE0
+22:20:12  Action: DELETE ALL ALLIES
+22:20:13  Ship left roster: 2508E8C4030
+22:20:13  Ship left roster: 250FC0CC010
+22:20:13  Action: DELETE ALL ENEMIES
+22:20:14  Ship left roster: 25090F78020
+22:20:14  Ship left roster: 250906D9570
+22:20:14  Ship left roster: 2509B68EAB0
+22:20:14  Ship left roster: 250D0274030
+22:20:14  Ship left roster: 2508EE79570
+22:21:13  No reversible direct setting was active on this ship. Status-effect Custom Stats end on its next normal respawn.
+22:21:28  Invulnerability enabled.
+22:21:31  Normal settings restored for the selected ship (0 value(s), God Mode off).
+22:21:39  Queued 1 Superlifter (Ally)
+22:21:40  Spawned Superlifter / Ally / Medium 2
+22:21:40  Ship appeared: 2508E8C4030
+22:21:48  Queued 1 Superlifter (Ally)
+22:21:48  Spawned Superlifter / Ally / Medium 2
+22:21:49  Ship appeared: 250F7276AD0
+22:22:37  Action: ARM SELECTED NEXT RESPAWN
+22:22:37  Custom Stats armed for makichika / Superlifter | every respawn
+22:22:41  Action: CHANGE SHIP NOW
+22:22:41  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:22:41  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x25091B2AAC0 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:22:41  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8, MaxThrustSpeedModifier=3
+22:22:41  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:22:41  Ship appeared: 25091B2AAC0
+22:22:41  Ship left roster: 250F80C1590
+22:23:32  Action: ARM SELECTED NEXT RESPAWN
+22:23:32  Custom Stats armed for makichika / Superlifter | every respawn
+22:23:36  Action: CHANGE SHIP NOW
+22:23:36  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:23:36  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x250FAAE4030 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:23:37  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8, MaxThrustSpeedModifier=10
+22:23:37  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:23:37  Ship appeared: 250FAAE4030
+22:23:37  Ship left roster: 25091B2AAC0
+22:23:49  Action: ARM SELECTED NEXT RESPAWN
+22:23:49  Custom Stats armed for makichika / Superlifter | every respawn
+22:23:51  Action: CHANGE SHIP NOW
+22:23:51  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:23:51  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x25091B2C010 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:23:51  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8, MaxThrustSpeedModifier=10
+22:23:51  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:23:51  Ship appeared: 25091B2C010
+22:23:51  Ship left roster: 250FAAE4030
+22:23:59  Action: ARM SELECTED NEXT RESPAWN
+22:23:59  Custom Stats armed for makichika / Superlifter | every respawn
+22:24:01  Action: CHANGE SHIP NOW
+22:24:01  CHANGE SHIP NOW v18 FIX: Superlifter | index=33 | bUseForcedLoadout before=0 | requesting game respawn...
+22:24:01  CHANGE SHIP NOW VERIFIED: Superlifter | new Pawn=0x25090F7AAC0 | live GUID=04F07A294367CA512614BC8A43B052CA | bUseForcedLoadout=0
+22:24:01  Ship appeared: 25090F7AAC0
+22:24:01  Ship left roster: 25091B2C010
+22:24:01  Custom Stats applied to makichika / Superlifter after respawn: RefireRateModifier=-0,8, CooldownModifierSubsystem1=-0,8, CooldownModifierSubsystem2=-0,8, MaxThrustSpeedModifier=5
+22:24:01  Custom Stats respawn profile applied: makichika / Superlifter after respawn
+22:24:49  Ship left roster: 25090F7AAC0
+22:24:50  Ship left roster: 2508E8C4030
+22:24:50  Ship left roster: 250F7276AD0
+22:24:55  Custom Stats profile removed: player state changed for Superlifter
+13:23:43  Solo server verified.
+13:23:43  Ship appeared: 279484E4030
+13:23:43  Ship appeared: 279484EEAB0
+13:23:43  Ship appeared: 279479FEAB0
+13:23:43  Ship appeared: 279484E5580
+13:23:43  Ship appeared: 27947A61590
+13:23:43  Ship appeared: 279479FC010
+13:23:43  Ship appeared: 279484E9570
+13:23:43  Ship appeared: 279484E0040
+13:23:43  Ship appeared: 279484E8020
+13:23:43  Ship appeared: 27947A6AAC0
+13:23:45  Action: DELETE ALL ALLIES
+13:23:45  Ship left roster: 279484E4030
+13:23:45  Ship left roster: 279484EEAB0
+13:23:45  Ship left roster: 279484E5580
+13:23:45  Ship left roster: 279484E0040
+13:23:46  Action: DELETE ALL ENEMIES
+13:23:47  Ship left roster: 279479FEAB0
+13:23:47  Ship left roster: 279479FC010
+13:23:47  Ship left roster: 279484E9570
+13:23:47  Ship left roster: 279484E8020
+13:23:47  Ship left roster: 27947A6AAC0
+13:23:56  Action: ARM SELECTED NEXT RESPAWN
+13:23:56  Custom Stats armed for makichika / Venturer | next respawn
+13:24:08  Action: CHANGE SHIP NOW
+13:24:08  CHANGE SHIP NOW v18 FIX: Venturer | index=34 | bUseForcedLoadout before=1 | requesting game respawn...
+13:24:08  CHANGE SHIP NOW VERIFIED: Venturer | new Pawn=0x279484E2AE0 | live GUID=7AD71B5846A966A6F05844BFFC9D941E | bUseForcedLoadout=0
+13:24:08  Custom Stats applied to makichika / Venturer after respawn [Venturer]: CooldownModifierSubsystem1=-0,85
+13:24:08  Custom Stats respawn profile applied: makichika / Venturer after respawn
+13:24:08  Ship appeared: 279484E2AE0
+13:24:08  Ship left roster: 27947A61590
+13:24:19  Action: ARM SELECTED NEXT RESPAWN
+13:24:19  Custom Stats armed for makichika / Venturer | next respawn
+13:24:21  Action: CHANGE SHIP NOW
+13:24:21  CHANGE SHIP NOW v18 FIX: Venturer | index=34 | bUseForcedLoadout before=0 | requesting game respawn...
+13:24:21  CHANGE SHIP NOW VERIFIED: Venturer | new Pawn=0x27951E7C010 | live GUID=7AD71B5846A966A6F05844BFFC9D941E | bUseForcedLoadout=0
+13:24:21  Custom Stats applied to makichika / Venturer after respawn [Venturer]: CooldownModifierSubsystem1=-1
+13:24:21  Custom Stats respawn profile applied: makichika / Venturer after respawn
+13:24:21  Ship appeared: 27951E7C010
+13:24:21  Ship left roster: 279484E2AE0
+13:25:19  Action: CHANGE SHIP NOW
+13:25:19  CHANGE SHIP NOW v18 FIX: Venturer | index=34 | bUseForcedLoadout before=0 | requesting game respawn...
+13:25:19  CHANGE SHIP NOW VERIFIED: Venturer | new Pawn=0x2792306C010 | live GUID=7AD71B5846A966A6F05844BFFC9D941E | bUseForcedLoadout=0
+13:25:19  Ship appeared: 2792306C010
+13:25:19  Ship left roster: 27951E7C010
+13:25:25  Action: ARM SELECTED NEXT RESPAWN
+13:25:25  Custom Stats armed for makichika / Venturer | next respawn
+13:25:27  Action: CHANGE SHIP NOW
+13:25:27  CHANGE SHIP NOW v18 FIX: Venturer | index=34 | bUseForcedLoadout before=0 | requesting game respawn...
+13:25:27  CHANGE SHIP NOW VERIFIED: Venturer | new Pawn=0x279479FC010 | live GUID=7AD71B5846A966A6F05844BFFC9D941E | bUseForcedLoadout=0
+13:25:28  Custom Stats applied to makichika / Venturer after respawn [Venturer]: CooldownModifierSubsystem1=-1, CooldownModifierSubsystem3=-1
+13:25:28  Custom Stats respawn profile applied: makichika / Venturer after respawn
+13:25:28  Ship appeared: 279479FC010
+13:25:28  Ship left roster: 2792306C010
+13:25:49  Action: ARM SELECTED NEXT RESPAWN
+13:25:49  Custom Stats armed for makichika / Venturer | next respawn
+13:25:52  Action: CHANGE SHIP NOW
+13:25:52  CHANGE SHIP NOW v18 FIX: Venturer | index=34 | bUseForcedLoadout before=0 | requesting game respawn...
+13:25:52  CHANGE SHIP NOW VERIFIED: Venturer | new Pawn=0x2792306EAB0 | live GUID=7AD71B5846A966A6F05844BFFC9D941E | bUseForcedLoadout=0
+13:25:52  Ship appeared: 2792306EAB0
+13:25:52  Ship left roster: 279479FC010
+13:25:52  Custom Stats applied to makichika / Venturer after respawn [Venturer]: CooldownModifierSubsystem1=-1, RefireRateModifierSubsystem2=-0,8, CooldownModifierSubsystem3=-0,8
+13:25:52  Custom Stats respawn profile applied: makichika / Venturer after respawn
+13:26:01  Action: ARM SELECTED NEXT RESPAWN
+13:26:01  Custom Stats armed for makichika / Venturer | next respawn
+13:26:03  Action: CHANGE SHIP NOW
+13:26:03  CHANGE SHIP NOW v18 FIX: Venturer | index=34 | bUseForcedLoadout before=0 | requesting game respawn...
+13:26:03  CHANGE SHIP NOW VERIFIED: Venturer | new Pawn=0x27955222AE0 | live GUID=7AD71B5846A966A6F05844BFFC9D941E | bUseForcedLoadout=0
+13:26:03  Custom Stats applied to makichika / Venturer after respawn [Venturer]: CooldownModifierSubsystem1=-1, RefireRateModifierSubsystem2=-0,8, CooldownModifierSubsystem3=-0,9
+13:26:03  Custom Stats respawn profile applied: makichika / Venturer after respawn
+13:26:04  Ship appeared: 27955222AE0
+13:26:04  Ship left roster: 2792306EAB0
+13:26:13  Action: ARM SELECTED NEXT RESPAWN
+13:26:13  Custom Stats armed for makichika / Venturer | next respawn
+13:26:13  Action: ARM SELECTED NEXT RESPAWN
+13:26:13  Custom Stats armed for makichika / Venturer | next respawn
+13:26:13  Action: ARM SELECTED NEXT RESPAWN
+13:26:13  Custom Stats armed for makichika / Venturer | next respawn
+13:26:15  Action: CHANGE SHIP NOW
+13:26:15  CHANGE SHIP NOW v18 FIX: Venturer | index=34 | bUseForcedLoadout before=0 | requesting game respawn...
+13:26:15  CHANGE SHIP NOW VERIFIED: Venturer | new Pawn=0x27968ABEAB0 | live GUID=7AD71B5846A966A6F05844BFFC9D941E | bUseForcedLoadout=0
+13:26:15  Ship appeared: 27968ABEAB0
+13:26:15  Ship left roster: 27955222AE0
+13:26:15  Custom Stats applied to makichika / Venturer after respawn [Venturer]: CooldownModifierSubsystem1=-1, RefireRateModifierSubsystem2=-0,8, CooldownModifierSubsystem3=-0,85
+13:26:15  Custom Stats respawn profile applied: makichika / Venturer after respawn
+13:26:35  Action: CHANGE SHIP NOW
+13:26:35  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+13:26:35  Ship appeared: 2792306D560
+13:26:35  Ship left roster: 27968ABEAB0
+13:26:36  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x2792306D560 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+13:26:42  Action: ARM SELECTED NEXT RESPAWN
+13:26:42  Custom Stats armed for makichika / Interceptor | next respawn
+13:26:43  Action: CHANGE SHIP NOW
+13:26:43  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+13:26:43  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x279484E4030 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+13:26:44  Custom Stats applied to makichika / Interceptor after respawn [Interceptor]: RefireRateModifierPrimary=-0,8, CooldownModifierSubsystem1=-1, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:26:44  Custom Stats respawn profile applied: makichika / Interceptor after respawn
+13:26:44  Ship appeared: 279484E4030
+13:26:44  Ship left roster: 2792306D560
+13:26:50  Action: ARM SELECTED NEXT RESPAWN
+13:26:50  Custom Stats armed for makichika / Interceptor | next respawn
+13:26:50  Action: ARM SELECTED NEXT RESPAWN
+13:26:50  Custom Stats armed for makichika / Interceptor | next respawn
+13:26:53  Action: CHANGE SHIP NOW
+13:26:53  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+13:26:53  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x2796C274030 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+13:26:54  Custom Stats applied to makichika / Interceptor after respawn [Interceptor]: RefireRateModifierPrimary=-0,8, CooldownModifierSubsystem1=-1, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:26:54  Custom Stats respawn profile applied: makichika / Interceptor after respawn
+13:26:54  Ship appeared: 2796C274030
+13:26:54  Ship left roster: 279484E4030
+13:27:08  Action: ARM SELECTED NEXT RESPAWN
+13:27:08  Custom Stats armed for makichika / Interceptor | next respawn
+13:27:11  Action: CHANGE SHIP NOW
+13:27:11  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+13:27:11  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x27910A94030 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+13:27:11  Custom Stats applied to makichika / Interceptor after respawn [Interceptor]: RefireRateModifierPrimary=-0,8, RefireRateModifierSecondary=-0,8, CooldownModifierSubsystem1=-1, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:27:11  Custom Stats respawn profile applied: makichika / Interceptor after respawn
+13:27:11  Ship appeared: 27910A94030
+13:27:11  Ship left roster: 2796C274030
+13:27:25  Action: ARM SELECTED NEXT RESPAWN
+13:27:25  Custom Stats armed for makichika / Interceptor | next respawn
+13:27:32  Action: ARM SELECTED NEXT RESPAWN
+13:27:33  Custom Stats armed for makichika / Interceptor | next respawn
+13:27:34  Action: CHANGE SHIP NOW
+13:27:34  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+13:27:35  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x27916351590 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+13:27:35  Custom Stats applied to makichika / Interceptor after respawn [Interceptor]: MaxHealth=10000, RefireRateModifierPrimary=-0,8, RefireRateModifierSecondary=-0,8, CooldownModifierSubsystem1=-0,8, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:27:35  Custom Stats respawn profile applied: makichika / Interceptor after respawn
+13:27:35  Ship appeared: 27916351590
+13:27:35  Ship left roster: 27910A94030
+13:27:55  Action: ARM SELECTED NEXT RESPAWN
+13:27:55  Custom Stats armed for makichika / Interceptor | next respawn
+13:27:57  Action: CHANGE SHIP NOW
+13:27:57  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+13:27:57  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x2790FE64030 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+13:27:57  Custom Stats applied to makichika / Interceptor after respawn [Interceptor]: MaxHealth=10000, RefireRateModifierPrimary=-0,8, RefireRateModifierSecondary=-0,8, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:27:57  Custom Stats respawn profile applied: makichika / Interceptor after respawn
+13:27:57  Ship appeared: 2790FE64030
+13:27:57  Ship left roster: 27916351590
+13:28:09  Action: ARM SELECTED NEXT RESPAWN
+13:28:09  Custom Stats armed for makichika / Interceptor | next respawn
+13:28:10  Action: CHANGE SHIP NOW
+13:28:10  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+13:28:11  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x279949A1590 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+13:28:11  Custom Stats applied to makichika / Interceptor after respawn [Interceptor]: RefireRateModifierPrimary=-0,8, RefireRateModifierSecondary=-0,8, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:28:11  Custom Stats respawn profile applied: makichika / Interceptor after respawn
+13:28:11  Ship appeared: 279949A1590
+13:28:11  Ship left roster: 2790FE64030
+13:28:23  Action: APPLY
+13:28:23  Match speed x5
+13:28:28  Action: ARM SELECTED NEXT RESPAWN
+13:28:28  Custom Stats armed for makichika / Interceptor | next respawn
+13:28:30  Action: CHANGE SHIP NOW
+13:28:30  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+13:28:30  Ship appeared: 2799717D560
+13:28:30  Ship left roster: 279949A1590
+13:28:30  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x2799717D560 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+13:28:30  Custom Stats applied to makichika / Interceptor after respawn [Interceptor]: MaxHealth=10000, RefireRateModifierPrimary=-0,8, RefireRateModifierSecondary=-0,8, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:28:30  Custom Stats respawn profile applied: makichika / Interceptor after respawn
+13:28:35  Action: ARM SELECTED NEXT RESPAWN
+13:28:35  Custom Stats armed for makichika / Interceptor | next respawn
+13:28:36  Action: CHANGE SHIP NOW
+13:28:36  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+13:28:36  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x27916358020 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+13:28:36  Ship appeared: 27916358020
+13:28:36  Ship left roster: 2799717D560
+13:28:37  Custom Stats applied to makichika / Interceptor after respawn [Interceptor]: MaxHealth=10000, RefireRateModifierPrimary=-0,8, RefireRateModifierSecondary=-0,8, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:28:37  Custom Stats respawn profile applied: makichika / Interceptor after respawn
+13:28:39  Action: ARM SELECTED NEXT RESPAWN
+13:28:39  Custom Stats armed for makichika / Interceptor | next respawn
+13:28:44  Action: RESTORE MATCH SPEED
+13:28:44  Match speed restored.
+13:28:44  Action: CHANGE SHIP NOW
+13:28:44  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+13:28:45  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x279484E0040 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+13:28:45  Custom Stats applied to makichika / Interceptor after respawn [Interceptor]: MaxHealth=10000, RefireRateModifierPrimary=-0,8, RefireRateModifierSecondary=-0,8, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:28:45  Custom Stats respawn profile applied: makichika / Interceptor after respawn
+13:28:45  Ship appeared: 279484E0040
+13:28:45  Ship left roster: 27916358020
+13:28:48  Action: ARM SELECTED NEXT RESPAWN
+13:28:48  Custom Stats armed for makichika / Interceptor | next respawn
+13:28:48  Action: ARM SELECTED NEXT RESPAWN
+13:28:48  Custom Stats armed for makichika / Interceptor | next respawn
+13:28:49  Action: ARM SELECTED NEXT RESPAWN
+13:28:49  Custom Stats armed for makichika / Interceptor | next respawn
+13:28:49  Action: ARM SELECTED NEXT RESPAWN
+13:28:49  Custom Stats armed for makichika / Interceptor | next respawn
+13:28:52  Action: CHANGE SHIP NOW
+13:28:52  CHANGE SHIP NOW v18 FIX: Interceptor | index=19 | bUseForcedLoadout before=0 | requesting game respawn...
+13:28:52  CHANGE SHIP NOW VERIFIED: Interceptor | new Pawn=0x279949A5580 | live GUID=026A1CF143A04A2320BB1493FC97E2CF | bUseForcedLoadout=0
+13:28:53  Custom Stats applied to makichika / Interceptor after respawn [Interceptor]: MaxHealth=10000, RefireRateModifierPrimary=-0,8, RefireRateModifierSecondary=-0,8, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:28:53  Custom Stats respawn profile applied: makichika / Interceptor after respawn
+13:28:53  Ship appeared: 279949A5580
+13:28:53  Ship left roster: 279484E0040
+13:29:05  Action: APPLY
+13:29:05  Match speed x5
+13:29:29  Action: RESTORE MATCH SPEED
+13:29:29  Match speed restored.
+13:30:37  Action: CHANGE SHIP NOW
+13:30:37  CHANGE SHIP NOW v18 FIX: Reaper | index=31 | bUseForcedLoadout before=0 | requesting game respawn...
+13:30:38  Ship appeared: 2796DD11590
+13:30:38  Ship left roster: 279949A5580
+13:30:38  CHANGE SHIP NOW VERIFIED: Reaper | new Pawn=0x2796DD11590 | live GUID=CD8A513447E61CF2928BB185AE26138B | bUseForcedLoadout=0
+13:30:46  Action: ARM SELECTED NEXT RESPAWN
+13:30:46  Custom Stats armed for makichika / Reaper | next respawn
+13:30:58  Action: CHANGE SHIP NOW
+13:30:58  CHANGE SHIP NOW v18 FIX: Reaper | index=31 | bUseForcedLoadout before=0 | requesting game respawn...
+13:30:58  CHANGE SHIP NOW VERIFIED: Reaper | new Pawn=0x27923062AE0 | live GUID=CD8A513447E61CF2928BB185AE26138B | bUseForcedLoadout=0
+13:30:58  Ship appeared: 27923062AE0
+13:30:58  Ship left roster: 2796DD11590
+13:30:59  Custom Stats applied to makichika / Reaper after respawn [Reaper]: MaxHealth=10000, RefireRateModifierSecondary=-0,8, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:30:59  Custom Stats respawn profile applied: makichika / Reaper after respawn
+13:31:19  Action: CHANGE SHIP NOW
+13:31:19  CHANGE SHIP NOW v18 FIX: Watchman | index=35 | bUseForcedLoadout before=0 | requesting game respawn...
+13:31:20  Ship appeared: 279484EAAC0
+13:31:20  Ship left roster: 27923062AE0
+13:31:20  CHANGE SHIP NOW VERIFIED: Watchman | new Pawn=0x279484EAAC0 | live GUID=3D00470D4738A8FA14F637963FF5CE8A | bUseForcedLoadout=0
+13:31:30  Action: CHANGE SHIP NOW
+13:31:30  CHANGE SHIP NOW v18 FIX: Watchman | index=35 | bUseForcedLoadout before=0 | requesting game respawn...
+13:31:30  CHANGE SHIP NOW VERIFIED: Watchman | new Pawn=0x27955220040 | live GUID=3D00470D4738A8FA14F637963FF5CE8A | bUseForcedLoadout=0
+13:31:30  Ship appeared: 27955220040
+13:31:30  Ship left roster: 279484EAAC0
+13:31:34  Action: ARM SELECTED NEXT RESPAWN
+13:31:34  Custom Stats armed for makichika / Watchman | every respawn
+13:31:36  Action: CHANGE SHIP NOW
+13:31:36  CHANGE SHIP NOW v18 FIX: Watchman | index=35 | bUseForcedLoadout before=0 | requesting game respawn...
+13:31:36  CHANGE SHIP NOW VERIFIED: Watchman | new Pawn=0x27955221590 | live GUID=3D00470D4738A8FA14F637963FF5CE8A | bUseForcedLoadout=0
+13:31:36  Ship appeared: 27955221590
+13:31:36  Ship left roster: 27955220040
+13:31:37  Custom Stats applied to makichika / Watchman after respawn [Watchman]: MaxHealth=10000, RefireRateModifierSecondary=-0,8, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:31:37  Custom Stats respawn profile applied: makichika / Watchman after respawn
+13:31:41  Action: CHANGE SHIP NOW
+13:31:41  CHANGE SHIP NOW v18 FIX: Watchman | index=35 | bUseForcedLoadout before=0 | requesting game respawn...
+13:31:41  Ship appeared: 27968AB0040
+13:31:41  Ship left roster: 27955221590
+13:31:41  CHANGE SHIP NOW VERIFIED: Watchman | new Pawn=0x27968AB0040 | live GUID=3D00470D4738A8FA14F637963FF5CE8A | bUseForcedLoadout=0
+13:31:41  Custom Stats applied to makichika / Watchman after respawn [Watchman]: MaxHealth=10000, RefireRateModifierSecondary=-0,8, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:31:41  Custom Stats respawn profile applied: makichika / Watchman after respawn
+13:31:43  Action: CHANGE SHIP NOW
+13:31:43  CHANGE SHIP NOW v18 FIX: Watchman | index=35 | bUseForcedLoadout before=0 | requesting game respawn...
+13:31:43  CHANGE SHIP NOW VERIFIED: Watchman | new Pawn=0x2796DD12AE0 | live GUID=3D00470D4738A8FA14F637963FF5CE8A | bUseForcedLoadout=0
+13:31:44  Custom Stats applied to makichika / Watchman after respawn [Watchman]: MaxHealth=10000, RefireRateModifierSecondary=-0,8, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:31:44  Custom Stats respawn profile applied: makichika / Watchman after respawn
+13:31:44  Ship appeared: 2796DD12AE0
+13:31:44  Ship left roster: 27968AB0040
+13:32:48  Action: ARM SELECTED NEXT RESPAWN
+13:32:48  Custom Stats armed for makichika / Watchman | every respawn
+13:32:53  Action: ARM SELECTED NEXT RESPAWN
+13:32:53  Custom Stats armed for makichika / Watchman | every respawn
+13:32:55  Action: CHANGE SHIP NOW
+13:32:55  CHANGE SHIP NOW v18 FIX: Watchman | index=35 | bUseForcedLoadout before=0 | requesting game respawn...
+13:32:55  CHANGE SHIP NOW VERIFIED: Watchman | new Pawn=0x2795522EAB0 | live GUID=3D00470D4738A8FA14F637963FF5CE8A | bUseForcedLoadout=0
+13:32:55  Ship appeared: 2795522EAB0
+13:32:55  Ship left roster: 2796DD12AE0
+13:32:55  Custom Stats applied to makichika / Watchman after respawn [Watchman]: MaxHealth=3333, RefireRateModifier=-0,8, RefireRateModifierSecondary=-0,8, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:32:55  Custom Stats respawn profile applied: makichika / Watchman after respawn
+13:33:01  Action: ARM SELECTED NEXT RESPAWN
+13:33:01  Custom Stats armed for makichika / Watchman | every respawn
+13:33:03  Action: CHANGE SHIP NOW
+13:33:03  CHANGE SHIP NOW v18 FIX: Watchman | index=35 | bUseForcedLoadout before=0 | requesting game respawn...
+13:33:03  CHANGE SHIP NOW VERIFIED: Watchman | new Pawn=0x27968AB1590 | live GUID=3D00470D4738A8FA14F637963FF5CE8A | bUseForcedLoadout=0
+13:33:04  Custom Stats applied to makichika / Watchman after respawn [Watchman]: MaxHealth=3333, RefireRateModifier=-0,8, RefireRateModifierSecondary=-0,8, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:33:04  Custom Stats respawn profile applied: makichika / Watchman after respawn
+13:33:04  Ship appeared: 27968AB1590
+13:33:04  Ship left roster: 2795522EAB0
+13:33:44  Action: CHANGE SHIP NOW
+13:33:44  CHANGE SHIP NOW v18 FIX: Hunter | index=17 | bUseForcedLoadout before=0 | requesting game respawn...
+13:33:45  Custom Stats applied to makichika / Watchman after respawn [Hunter]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifierSecondary=-0,8, RefireRateModifierSubsystem2=-0,8, RefireRateModifierSubsystem3=-0,8
+13:33:45  Custom Stats respawn profile applied: makichika / Watchman after respawn
+13:33:45  CHANGE SHIP NOW VERIFIED: Hunter | new Pawn=0x2795522C010 | live GUID=04F456694A1981252D1370B0D7CFCE94 | bUseForcedLoadout=0
+13:33:46  Ship appeared: 2795522C010
+13:33:46  Ship left roster: 27968AB1590
+13:33:58  Solo server verified.
+13:33:58  Ship appeared: 2795522C010
+13:34:05  Action: SET ALL VISIBLE RATES
+13:34:05  Visible ship rate fields set to 0%.
+13:34:18  Action: APPLY NOW (LIVE)
+13:34:18  Custom Stats applied to makichika / Hunter live [Hunter]: MaxHealth=3333
+13:34:21  Action: APPLY NOW (LIVE)
+13:34:21  Custom Stats applied to makichika / Hunter live [Hunter]: MaxHealth=3333
+13:34:22  Action: APPLY NOW (LIVE)
+13:34:22  Custom Stats applied to makichika / Hunter live [Hunter]: MaxHealth=3333
+13:34:22  Action: APPLY NOW (LIVE)
+13:34:22  Custom Stats applied to makichika / Hunter live [Hunter]: MaxHealth=3333
+13:34:32  Action: APPLY NOW (LIVE)
+13:34:32  Custom Stats applied to makichika / Hunter live [Hunter]: MaxHealth=3333, MaxThrustSpeedModifier=1
+13:34:44  Action: APPLY NOW (LIVE)
+13:34:45  Custom Stats applied to makichika / Hunter live [Hunter]: MaxHealth=3333, MaxThrustSpeedModifier=1, CooldownModifierSecondary=-0,5
+13:35:00  Action: APPLY NOW (LIVE)
+13:35:00  Custom Stats applied to makichika / Hunter live [Hunter]: MaxHealth=3333, RefireRateModifier=-0,8, MaxThrustSpeedModifier=1, CooldownModifierSecondary=-0,5
+13:35:24  Action: APPLY NOW (LIVE)
+13:35:24  Custom Stats applied to makichika / Hunter live [Hunter]: MaxHealth=3333, RefireRateModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3, CooldownModifierSecondary=-0,5
+13:35:49  Action: APPLY NOW (LIVE)
+13:35:49  Custom Stats applied to makichika / Hunter live [Hunter]: MaxHealth=3333, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:36:02  Action: APPLY NOW (LIVE)
+13:36:02  Custom Stats applied to makichika / Hunter live [Hunter]: MaxHealth=3333, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:36:06  Action: CHANGE SHIP NOW
+13:36:06  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:36:06  Ship appeared: 27968AB5580
+13:36:06  Ship left roster: 2795522C010
+13:36:07  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27968AB5580 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:36:15  Action: APPLY NOW (LIVE)
+13:36:15  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:36:31  Action: APPLY NOW (LIVE)
+13:36:31  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:36:55  Action: APPLY NOW (LIVE)
+13:36:55  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:36:55  Live Custom Stats also armed for every future respawn.
+13:36:59  Action: APPLY NOW (LIVE)
+13:36:59  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:36:59  Live Custom Stats also armed for every future respawn.
+13:36:59  Action: APPLY NOW (LIVE)
+13:36:59  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:36:59  Live Custom Stats also armed for every future respawn.
+13:36:59  Action: APPLY NOW (LIVE)
+13:36:59  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:36:59  Live Custom Stats also armed for every future respawn.
+13:37:00  Action: APPLY NOW (LIVE)
+13:37:00  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:37:00  Live Custom Stats also armed for every future respawn.
+13:37:01  Action: APPLY NOW (LIVE)
+13:37:01  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:37:01  Live Custom Stats also armed for every future respawn.
+13:37:04  Action: APPLY NOW (LIVE)
+13:37:04  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:37:04  Live Custom Stats also armed for every future respawn.
+13:37:04  Action: APPLY NOW (LIVE)
+13:37:04  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:37:04  Live Custom Stats also armed for every future respawn.
+13:37:05  Action: APPLY NOW (LIVE)
+13:37:05  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:37:05  Live Custom Stats also armed for every future respawn.
+13:37:05  Action: APPLY NOW (LIVE)
+13:37:05  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:37:05  Live Custom Stats also armed for every future respawn.
+13:37:05  Action: APPLY NOW (LIVE)
+13:37:05  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:37:05  Live Custom Stats also armed for every future respawn.
+13:37:05  Action: APPLY NOW (LIVE)
+13:37:05  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:37:05  Live Custom Stats also armed for every future respawn.
+13:37:05  Action: APPLY NOW (LIVE)
+13:37:05  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:37:05  Live Custom Stats also armed for every future respawn.
+13:37:47  Action: APPLY NOW (LIVE)
+13:37:48  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3
+13:37:48  Live Custom Stats also armed for every future respawn.
+13:37:51  Action: ARM SELECTED NEXT RESPAWN
+13:37:51  Custom Stats armed for makichika / Punisher | every respawn
+13:38:01  Action: APPLY NOW (LIVE)
+13:38:01  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=3333, RefireRateModifier=-0,8, CooldownModifier=-0,8, EnergyRegenRateModifier=3, MaxThrustSpeedModifier=3, MaxReverseThrustSpeedModifier=3, MaxVerticalSpeedModifier=3, RefireRateModifierPrimary=-0,8
+13:38:01  Live Custom Stats also armed for every future respawn.
+13:38:19  Solo server verified.
+13:38:19  Ship appeared: 27968AB5580
+13:38:27  Action: APPLY NOW (LIVE)
+13:38:27  Custom Stats applied to makichika / Punisher live [Punisher]: MaxThrustSpeedModifier=1
+13:38:40  Action: APPLY NOW (LIVE)
+13:38:40  Custom Stats applied to makichika / Punisher live [Punisher]: MaxThrustSpeedModifier=1, RefireRateModifierPrimary=-0,8
+13:38:53  Action: APPLY NOW (LIVE)
+13:38:53  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifier=-0,8, MaxThrustSpeedModifier=1, RefireRateModifierPrimary=-0,8
+13:38:59  Action: ARM SELECTED NEXT RESPAWN
+13:38:59  Custom Stats armed for makichika / Punisher | next respawn
+13:39:02  Action: CHANGE SHIP NOW
+13:39:02  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:39:02  Ship appeared: 27947A66AD0
+13:39:02  Ship left roster: 27968AB5580
+13:39:02  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27947A66AD0 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:39:02  Custom Stats applied to makichika / Punisher after respawn [Punisher]: RefireRateModifier=-0,8, MaxThrustSpeedModifier=1, RefireRateModifierPrimary=-0,8
+13:39:02  Custom Stats respawn profile applied: makichika / Punisher after respawn
+13:39:11  Action: ARM SELECTED NEXT RESPAWN
+13:39:11  Custom Stats armed for makichika / Punisher | next respawn
+13:39:12  Action: ARM SELECTED NEXT RESPAWN
+13:39:12  Custom Stats armed for makichika / Punisher | next respawn
+13:39:12  Action: ARM SELECTED NEXT RESPAWN
+13:39:12  Custom Stats armed for makichika / Punisher | next respawn
+13:39:12  Action: ARM SELECTED NEXT RESPAWN
+13:39:12  Custom Stats armed for makichika / Punisher | next respawn
+13:39:12  Action: ARM SELECTED NEXT RESPAWN
+13:39:13  Custom Stats armed for makichika / Punisher | next respawn
+13:39:19  Action: SET ALL VISIBLE RATES
+13:39:19  Visible ship rate fields set to 0%.
+13:39:24  Action: ARM SELECTED NEXT RESPAWN
+13:39:24  Custom Stats armed for makichika / Punisher | next respawn
+13:39:24  Action: ARM SELECTED NEXT RESPAWN
+13:39:24  Custom Stats armed for makichika / Punisher | next respawn
+13:39:25  Action: CHANGE SHIP NOW
+13:39:25  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:39:25  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27947820040 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:39:25  Ship appeared: 27947820040
+13:39:25  Ship left roster: 27947A66AD0
+13:39:26  Custom Stats applied to makichika / Punisher after respawn [Punisher]: RefireRateModifier=-0,8, MaxThrustSpeedModifier=1
+13:39:26  Custom Stats respawn profile applied: makichika / Punisher after respawn
+13:39:38  Action: CHANGE SHIP NOW
+13:39:38  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:39:38  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27997179570 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:39:39  Ship appeared: 27997179570
+13:39:39  Ship left roster: 27947820040
+13:39:43  Action: APPLY NOW (LIVE)
+13:39:43  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifier=-0,8, MaxThrustSpeedModifier=1
+13:39:48  Action: APPLY NOW (LIVE)
+13:39:48  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifier=-0,8, MaxThrustSpeedModifier=1
+13:39:48  Action: APPLY NOW (LIVE)
+13:39:48  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifier=-0,8, MaxThrustSpeedModifier=1
+13:39:48  Action: APPLY NOW (LIVE)
+13:39:48  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifier=-0,8, MaxThrustSpeedModifier=1
+13:39:48  Action: APPLY NOW (LIVE)
+13:39:48  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifier=-0,8, MaxThrustSpeedModifier=1
+13:39:49  Action: APPLY NOW (LIVE)
+13:39:49  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifier=-0,8, MaxThrustSpeedModifier=1
+13:39:49  Action: APPLY NOW (LIVE)
+13:39:49  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifier=-0,8, MaxThrustSpeedModifier=1
+13:39:49  Action: APPLY NOW (LIVE)
+13:39:49  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifier=-0,8, MaxThrustSpeedModifier=1
+13:39:49  Action: APPLY NOW (LIVE)
+13:39:49  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifier=-0,8, MaxThrustSpeedModifier=1
+13:39:59  Action: SET ALL VISIBLE RATES
+13:39:59  Visible ship rate fields set to 0%.
+13:40:07  Action: ARM SELECTED NEXT RESPAWN
+13:40:07  Custom Stats armed for makichika / Punisher | next respawn
+13:40:09  Action: CHANGE SHIP NOW
+13:40:09  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:40:09  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27947A64030 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:40:09  Ship appeared: 27947A64030
+13:40:09  Ship left roster: 27997179570
+13:40:09  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxThrustSpeedModifier=1, RefireRateModifierPrimary=-0,8
+13:40:09  Custom Stats respawn profile applied: makichika / Punisher after respawn
+13:40:15  Action: ARM SELECTED NEXT RESPAWN
+13:40:15  Custom Stats armed for makichika / Punisher | next respawn
+13:40:15  Action: ARM SELECTED NEXT RESPAWN
+13:40:15  Custom Stats armed for makichika / Punisher | next respawn
+13:40:15  Action: ARM SELECTED NEXT RESPAWN
+13:40:15  Custom Stats armed for makichika / Punisher | next respawn
+13:40:15  Action: ARM SELECTED NEXT RESPAWN
+13:40:15  Custom Stats armed for makichika / Punisher | next respawn
+13:40:17  Action: CHANGE SHIP NOW
+13:40:17  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:40:17  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27947821590 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:40:18  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxThrustSpeedModifier=1, RefireRateModifierPrimary=-0,8
+13:40:18  Custom Stats respawn profile applied: makichika / Punisher after respawn
+13:40:18  Ship appeared: 27947821590
+13:40:18  Ship left roster: 27947A64030
+13:40:53  Solo server verified.
+13:40:53  Ship appeared: 27947821590
+13:41:21  Action: CHANGE SHIP NOW
+13:41:21  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:41:21  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27947A6C010 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:41:22  Ship appeared: 27947A6C010
+13:41:22  Ship left roster: 27947821590
+13:41:32  Action: APPLY NOW (LIVE)
+13:41:32  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifierPrimary=-0,8
+13:41:34  Action: APPLY NOW (LIVE)
+13:41:34  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifierPrimary=-0,8
+13:41:34  Action: APPLY NOW (LIVE)
+13:41:34  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifierPrimary=-0,8
+13:41:34  Action: APPLY NOW (LIVE)
+13:41:34  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifierPrimary=-0,8
+13:41:34  Action: APPLY NOW (LIVE)
+13:41:34  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifierPrimary=-0,8
+13:41:34  Action: APPLY NOW (LIVE)
+13:41:34  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifierPrimary=-0,8
+13:41:34  Action: APPLY NOW (LIVE)
+13:41:34  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifierPrimary=-0,8
+13:41:35  Action: APPLY NOW (LIVE)
+13:41:35  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifierPrimary=-0,8
+13:41:35  Action: APPLY NOW (LIVE)
+13:41:35  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifierPrimary=-0,8
+13:41:35  Action: APPLY NOW (LIVE)
+13:41:35  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifierPrimary=-0,8
+13:41:35  Action: APPLY NOW (LIVE)
+13:41:35  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifierPrimary=-0,8
+13:41:35  Action: APPLY NOW (LIVE)
+13:41:35  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifierPrimary=-0,8
+13:41:40  Action: ARM SELECTED NEXT RESPAWN
+13:41:41  Custom Stats armed for makichika / Punisher | next respawn
+13:41:44  Action: CHANGE SHIP NOW
+13:41:44  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:41:44  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x2795522AAC0 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:41:45  Custom Stats applied to makichika / Punisher after respawn [Punisher]: RefireRateModifierPrimary=-0,8
+13:41:45  Custom Stats respawn profile applied: makichika / Punisher after respawn
+13:41:45  Ship appeared: 2795522AAC0
+13:41:45  Ship left roster: 27947A6C010
+13:46:52  Solo server verified.
+13:46:52  Ship appeared: 2795522AAC0
+13:47:01  Action: APPLY NOW (LIVE)
+13:47:01  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifierPrimary=-0,8
+13:47:07  Action: CHANGE SHIP NOW
+13:47:07  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:47:07  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27968ABC010 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:47:07  Ship appeared: 27968ABC010
+13:47:07  Ship left roster: 2795522AAC0
+13:47:10  Action: APPLY NOW (LIVE)
+13:47:10  Custom Stats applied to makichika / Punisher live [Punisher]: RefireRateModifierPrimary=-0,8
+13:47:17  Action: APPLY NOW (LIVE)
+13:47:17  Custom Stats applied to makichika / Punisher live [Punisher]: MaxThrustSpeedModifier=3, RefireRateModifierPrimary=-0,8
+13:47:36  Action: CHANGE SHIP NOW
+13:47:36  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:47:37  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27947824030 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:47:37  Ship appeared: 27947824030
+13:47:37  Ship left roster: 27968ABC010
+13:47:42  Action: ARM SELECTED NEXT RESPAWN
+13:47:42  Custom Stats armed for makichika / Punisher | every respawn
+13:47:44  Action: CHANGE SHIP NOW
+13:47:44  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:47:44  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x2791D66EAB0 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:47:44  Ship appeared: 2791D66EAB0
+13:47:44  Ship left roster: 27947824030
+13:47:45  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxThrustSpeedModifier=3, RefireRateModifierPrimary=-0,8
+13:47:45  Custom Stats respawn profile applied: makichika / Punisher after respawn
+13:47:58  Action: CHANGE SHIP NOW
+13:47:58  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:47:58  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27968AB4030 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:47:58  Ship appeared: 27968AB4030
+13:47:58  Ship left roster: 2791D66EAB0
+13:47:59  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxThrustSpeedModifier=3, RefireRateModifierPrimary=-0,8
+13:47:59  Custom Stats respawn profile applied: makichika / Punisher after respawn
+13:48:17  Action: CHANGE SHIP NOW
+13:48:17  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:48:17  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27955226AD0 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:48:18  Ship appeared: 27955226AD0
+13:48:18  Ship left roster: 27968AB4030
+13:48:19  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxThrustSpeedModifier=3, RefireRateModifierPrimary=-0,8
+13:48:19  Custom Stats respawn profile applied: makichika / Punisher after respawn
+13:48:24  Action: ARM SELECTED NEXT RESPAWN
+13:48:24  Custom Stats armed for makichika / Punisher | every respawn
+13:48:26  Action: CHANGE SHIP NOW
+13:48:26  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:48:26  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x2794782AAC0 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:48:27  Ship appeared: 2794782AAC0
+13:48:27  Ship left roster: 27955226AD0
+13:48:28  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxHealth=3333, MaxThrustSpeedModifier=3, RefireRateModifierPrimary=-0,8
+13:48:28  Custom Stats respawn profile applied: makichika / Punisher after respawn
+13:49:28  Action: CHANGE SHIP NOW
+13:49:28  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:49:28  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27947A6EAB0 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:49:28  Ship appeared: 27947A6EAB0
+13:49:28  Ship left roster: 2794782AAC0
+13:49:29  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxHealth=3333, MaxThrustSpeedModifier=3, RefireRateModifierPrimary=-0,8
+13:49:29  Custom Stats respawn profile applied: makichika / Punisher after respawn
+13:49:35  Action: ARM SELECTED NEXT RESPAWN
+13:49:35  Custom Stats armed for makichika / Punisher | every respawn
+13:49:37  Action: CHANGE SHIP NOW
+13:49:37  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:49:38  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27951C0D560 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:49:38  Ship appeared: 27951C0D560
+13:49:38  Ship left roster: 27947A6EAB0
+13:49:39  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxHealth=3333, MaxThrustSpeedModifier=3, RefireRateModifierPrimary=-0,8, RefireRateModifierSecondary=-0,8
+13:49:39  Custom Stats respawn profile applied: makichika / Punisher after respawn
+13:49:51  Action: ARM SELECTED NEXT RESPAWN
+13:49:51  Custom Stats armed for makichika / Punisher | every respawn
+13:49:53  Action: CHANGE SHIP NOW
+13:49:53  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:49:53  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x2791E126AD0 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:49:54  Ship appeared: 2791E126AD0
+13:49:54  Ship left roster: 27951C0D560
+13:49:55  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxHealth=3333, RefireRateModifier=-0,1, MaxThrustSpeedModifier=3, RefireRateModifierPrimary=-0,8, RefireRateModifierSecondary=-0,8
+13:49:55  Custom Stats respawn profile applied: makichika / Punisher after respawn
+13:51:41  Action: SET ALL VISIBLE RATES
+13:51:41  Visible ship rate fields set to 0%.
+13:51:47  Action: CHANGE SHIP NOW
+13:51:47  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:51:47  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27947A6D560 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:51:48  Ship appeared: 27947A6D560
+13:51:48  Ship left roster: 2791E126AD0
+13:51:49  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxHealth=3333, RefireRateModifier=-0,1, MaxThrustSpeedModifier=3, RefireRateModifierPrimary=-0,8, RefireRateModifierSecondary=-0,8
+13:51:49  Custom Stats respawn profile applied: makichika / Punisher after respawn
+13:51:57  Action: ARM SELECTED NEXT RESPAWN
+13:51:57  Custom Stats armed for makichika / Punisher | every respawn
+13:52:02  Action: CHANGE SHIP NOW
+13:52:02  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:52:02  Ship appeared: 2792DDE5580
+13:52:02  Ship left roster: 27947A6D560
+13:52:02  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x2792DDE5580 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:52:03  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxHealth=3333, MaxThrustSpeedModifier=3
+13:52:03  Custom Stats respawn profile applied: makichika / Punisher after respawn
+13:52:18  Action: CHANGE SHIP NOW
+13:52:18  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+13:52:18  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27955228020 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+13:52:18  Ship appeared: 27955228020
+13:52:18  Ship left roster: 2792DDE5580
+13:52:19  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxHealth=3333, MaxThrustSpeedModifier=3
+13:52:19  Custom Stats respawn profile applied: makichika / Punisher after respawn
+13:52:38  Action: RESET VALUES
+14:13:17  Solo server verified.
+14:13:17  Ship appeared: 27955228020
+14:13:51  Action: CHANGE SHIP NOW
+14:13:51  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+14:13:51  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27947A6AAC0 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+14:13:51  Ship appeared: 27947A6AAC0
+14:13:51  Ship left roster: 27955228020
+14:13:52  Ship appeared: 27947A6AAC0
+14:13:52  Ship left roster: 27955228020
+14:13:52  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxHealth=3333, MaxThrustSpeedModifier=3
+14:13:52  Custom Stats respawn profile applied: makichika / Punisher after respawn
+14:13:52  Every-respawn profile enabled for makichika / Punisher
+14:13:53  Action: CHANGE SHIP NOW
+14:13:53  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+14:13:53  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27947829570 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+14:13:53  Ship appeared: 27947829570
+14:13:53  Ship left roster: 27947A6AAC0
+14:13:54  Ship appeared: 27947829570
+14:13:54  Ship left roster: 27947A6AAC0
+14:13:54  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxHealth=3333, MaxThrustSpeedModifier=3
+14:13:54  Custom Stats respawn profile applied: makichika / Punisher after respawn
+14:13:54  Custom Stats applied to makichika / Punisher after respawn [Punisher]: RefireRateModifierPrimary=-0,8
+14:13:54  Custom Stats respawn profile applied: makichika / Punisher after respawn
+14:14:09  Action: CHANGE SHIP NOW
+14:14:09  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+14:14:09  Ship appeared: 2791D66D560
+14:14:09  Ship left roster: 27947829570
+14:14:10  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x2791D66D560 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+14:14:10  Ship appeared: 2791D66D560
+14:14:10  Ship left roster: 27947829570
+14:14:11  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxHealth=3333, MaxThrustSpeedModifier=3
+14:14:11  Custom Stats respawn profile applied: makichika / Punisher after respawn
+14:14:11  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxHealth=15324, RefireRateModifierPrimary=-0,8
+14:14:11  Custom Stats respawn profile applied: makichika / Punisher after respawn
+14:14:36  Action: QUEUE SPAWN
+14:14:36  Queued 1 Punisher (Ally)
+14:14:36  Spawned Punisher / Ally / Easy 1
+14:14:37  Ship appeared: 27947A69570
+14:14:38  Ship appeared: 27947A69570
+14:14:49  Action: APPLY NOW (LIVE)
+14:14:49  Custom Stats applied to Sandbox_141436846 / Punisher live [Punisher]: MaxHealth=15324, RefireRateModifierPrimary=-0,8
+14:14:59  Every-respawn profile enabled for Sandbox_141436846 / Punisher
+14:15:07  Lethal damage applied.
+14:15:07  Ship left roster: 27947A69570
+14:15:08  Ship left roster: 27947A69570
+14:15:13  Action: APPLY
+14:15:13  Match speed x5
+14:15:23  Action: RESTORE MATCH SPEED
+14:15:23  Match speed restored.
+14:15:27  Ship appeared: 27947A69570
+14:15:28  Ship appeared: 27947A69570
+14:15:28  Custom Stats applied to Sandbox_141436846 / Punisher after respawn [Punisher]: MaxHealth=15324, RefireRateModifierPrimary=-0,8
+14:15:28  Custom Stats respawn profile applied: Sandbox_141436846 / Punisher after respawn
+14:15:49  Lethal damage applied.
+14:15:49  Ship left roster: 27947A69570
+14:15:50  Ship left roster: 27947A69570
+14:15:51  Action: APPLY
+14:15:51  Match speed x5
+14:16:03  Action: RESTORE MATCH SPEED
+14:16:03  Match speed restored.
+14:16:03  Ship appeared: 27951C04030
+14:16:04  Ship appeared: 27951C04030
+14:16:05  Custom Stats applied to Sandbox_141436846 / Punisher after respawn [Punisher]: MaxHealth=1, RefireRateModifierPrimary=-0,8
+14:16:05  Custom Stats respawn profile applied: Sandbox_141436846 / Punisher after respawn
+14:16:24  Lethal damage applied.
+14:16:24  Ship left roster: 27951C04030
+14:16:25  Ship left roster: 27951C04030
+14:16:40  Action: APPLY
+14:16:40  Match speed x5
+14:16:47  Action: RESTORE MATCH SPEED
+14:16:47  Match speed restored.
+14:16:56  Ship appeared: 27947A69570
+14:16:56  Ship appeared: 27947A69570
+14:16:57  Custom Stats applied to Sandbox_141436846 / Punisher after respawn [Punisher]: MaxHealth=33333, RefireRateModifierPrimary=-0,8
+14:16:57  Custom Stats respawn profile applied: Sandbox_141436846 / Punisher after respawn
+14:17:15  Lethal damage applied.
+14:17:16  Ship left roster: 27947A69570
+14:17:16  Ship left roster: 27947A69570
+14:17:18  Action: APPLY
+14:17:18  Match speed x5
+14:17:29  Ship appeared: 27947A69570
+14:17:30  Ship appeared: 27947A69570
+14:17:31  Custom Stats applied to Sandbox_141436846 / Punisher after respawn [Punisher]: MaxHealth=33333, RefireRateModifierPrimary=-0,8
+14:17:31  Custom Stats respawn profile applied: Sandbox_141436846 / Punisher after respawn
+14:17:43  Lethal damage applied.
+14:17:43  Ship left roster: 2791D66D560
+14:17:44  Ship left roster: 2791D66D560
+14:17:50  Action: RESTORE MATCH SPEED
+14:17:50  Match speed restored.
+14:18:15  Ship appeared: 27910A99570
+14:18:16  Ship appeared: 27910A99570
+14:18:17  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxHealth=3333, MaxThrustSpeedModifier=3
+14:18:17  Custom Stats respawn profile applied: makichika / Punisher after respawn
+14:18:17  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxHealth=15324, RefireRateModifierPrimary=-0,8
+14:18:17  Custom Stats respawn profile applied: makichika / Punisher after respawn
+14:18:33  Lethal damage applied.
+14:18:33  Ship left roster: 27910A99570
+14:18:34  Ship left roster: 27910A99570
+14:19:06  Action: APPLY
+14:19:06  Match speed x5
+14:19:11  Action: RESTORE MATCH SPEED
+14:19:11  Match speed restored.
+14:19:14  Ship appeared: 27951E78020
+14:19:15  Ship appeared: 27951E78020
+14:19:15  Custom Stats applied to makichika / Punisher after respawn [Punisher]: MaxHealth=3333, MaxThrustSpeedModifier=3
+14:19:15  Custom Stats respawn profile applied: makichika / Punisher after respawn
+14:19:15  Custom Stats applied to makichika / Punisher after respawn [Punisher]: RefireRateModifierPrimary=-0,8
+14:19:15  Custom Stats respawn profile applied: makichika / Punisher after respawn
+14:20:54  Solo server verified.
+14:20:54  Ship appeared: 27947A69570
+14:20:54  Ship appeared: 27951E78020
+14:23:11  Solo server verified.
+14:23:11  Ship appeared: 27947A69570
+14:23:11  Ship appeared: 27951E78020
+14:33:43  Solo server verified.
+14:33:43  Ship appeared: 27947A69570
+14:33:43  Ship appeared: 27951E78020
+14:33:57  Action: APPLY NOW (LIVE)
+14:33:57  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=-11799
+14:34:07  Action: APPLY NOW (LIVE)
+14:34:07  Custom Stats applied to Sandbox_141436846 / Punisher live [Punisher]: MaxHealth=-46108
+14:34:32  Ship left roster: 27947A69570
+14:34:33  Ship appeared: 27947A69570
+14:34:59  Action: APPLY NOW (LIVE)
+14:34:59  Error: Selected ship is not currently alive.
+14:35:12  Error: Ship no longer alive.
+14:35:13  Error: Ship no longer alive.
+14:35:17  Error: Ship no longer alive.
+14:35:19  Error: Ship no longer alive.
+14:35:22  Action: DELETE SELECTED
+14:35:26  Action: DELETE ALL ALLIES
+14:35:26  Ship left roster: 27947A69570
+14:35:33  Action: QUEUE SPAWN
+14:35:34  Queued 1 Punisher (Ally)
+14:35:34  Spawned Punisher / Ally / Medium 2
+14:35:34  Ship appeared: 27955229570
+14:35:35  Custom Stats applied to Punisher [Punisher]: MaxHealth=-9535
+14:36:48  Action: DELETE SELECTED
+14:36:50  Action: DELETE SELECTED
+14:36:51  Ship left roster: 27955229570
+14:55:22  Action: CHANGE SHIP NOW
+14:55:22  CHANGE SHIP NOW v18 FIX: Punisher | index=27 | bUseForcedLoadout before=0 | requesting game respawn...
+14:55:23  CHANGE SHIP NOW VERIFIED: Punisher | new Pawn=0x27951C0EAB0 | live GUID=43F6918449A10D489FB8948394814C10 | bUseForcedLoadout=0
+14:55:23  Ship appeared: 27951C0EAB0
+14:55:23  Ship left roster: 27951E78020
+14:58:12  Solo server verified.
+14:58:12  Ship appeared: 27951C0EAB0
+14:58:36  Action: QUEUE SPAWN
+14:58:36  Queued 5 Punisher (Ally)
+14:58:36  Spawned Punisher / Ally / Easy 1
+14:58:36  Ship appeared: 27951E7EAB0
+14:58:37  Spawned Punisher / Ally / Easy 1
+14:58:38  Ship appeared: 2792DDEC010
+14:58:38  Ship appeared: 27951E7EAB0
+14:58:38  Ship appeared: 2792DDEC010
+14:58:38  Spawned Punisher / Ally / Easy 1
+14:58:39  Ship appeared: 27997172AE0
+14:58:39  Spawned Punisher / Ally / Easy 1
+14:58:40  Ship appeared: 2796DD19570
+14:58:40  Ship appeared: 2796DD19570
+14:58:40  Ship appeared: 27997172AE0
+14:58:40  Spawned Punisher / Ally / Easy 1
+14:58:41  Ship appeared: 279949A6AD0
+14:58:41  Ship appeared: 279949A6AD0
+14:58:52  Action: APPLY NOW (LIVE)
+14:58:52  Custom Stats applied to Sandbox_145840502 / Punisher live [Punisher]: MaxHealth=-10750
+14:58:54  Action: APPLY NOW (LIVE)
+14:58:54  Error: Set at least one Custom Stats value.
+14:58:59  Action: APPLY NOW (LIVE)
+14:58:59  Custom Stats applied to Sandbox_145837545 / Punisher live [Punisher]: MaxHealth=-10750
+14:59:02  Action: APPLY NOW (LIVE)
+14:59:02  Custom Stats applied to Sandbox_145836568 / Punisher live [Punisher]: MaxHealth=-10750
+14:59:06  Action: APPLY NOW (LIVE)
+14:59:06  Custom Stats applied to Sandbox_145836568 / Punisher live [Punisher]: MaxHealth=-10750
+14:59:09  Action: APPLY NOW (LIVE)
+14:59:09  Custom Stats applied to Sandbox_145836568 / Punisher live [Punisher]: MaxHealth=-10750
+14:59:16  Action: APPLY NOW (LIVE)
+14:59:16  Custom Stats applied to Sandbox_145836568 / Punisher live [Punisher]: MaxHealth=-10760
+14:59:32  Action: QUEUE SPAWN
+14:59:32  Queued 5 Punisher (Enemy)
+14:59:32  Spawned Punisher / Enemy / Easy 1
+14:59:33  Spawned Punisher / Enemy / Easy 1
+14:59:33  Ship appeared: 27980412AE0
+14:59:33  Ship appeared: 2792AFE5580
+14:59:33  Ship appeared: 2792AFE5580
+14:59:34  Spawned Punisher / Enemy / Easy 1
+14:59:34  Ship appeared: 279825B8020
+14:59:35  Spawned Punisher / Enemy / Easy 1
+14:59:35  Ship appeared: 2798470EAB0
+14:59:36  Ship appeared: 279825B8020
+14:59:36  Ship appeared: 27980412AE0
+14:59:36  Spawned Punisher / Enemy / Easy 1
+14:59:36  Ship appeared: 279847E5580
+14:59:37  Ship appeared: 2798470EAB0
+14:59:37  Ship appeared: 279847E5580
+14:59:43  Action: APPLY NOW (LIVE)
+14:59:43  Error: Set at least one Custom Stats value.
+14:59:46  Action: APPLY NOW (LIVE)
+14:59:46  Custom Stats applied to Sandbox_145836568 / Punisher live [Punisher]: MaxHealth=-10700
+14:59:51  Action: APPLY NOW (LIVE)
+14:59:51  Custom Stats applied to makichika / Punisher live [Punisher]: MaxHealth=-14130
+15:00:41  Ship left roster: 27951E7EAB0
+15:00:42  Ship left roster: 27951E7EAB0
+15:01:02  Ship left roster: 2792DDEC010
+15:01:02  Ship left roster: 2792DDEC010
+15:01:41  Ship appeared: 27951E79570
+15:01:42  Ship appeared: 27951E79570
+15:02:02  Ship appeared: 27947822AE0
+15:02:03  Ship appeared: 27947822AE0
+15:04:12  Ship left roster: 279949A6AD0
+15:04:12  Ship left roster: 279949A6AD0
+15:05:16  Solo server verified.
+15:05:16  Ship appeared: 279825B8020
+15:05:16  Ship appeared: 27997172AE0
+15:05:16  Ship appeared: 27980412AE0
+15:05:16  Ship appeared: 279847E5580
+15:05:16  Ship appeared: 2792AFE5580
+15:05:16  Ship appeared: 27918529570
+15:05:16  Ship appeared: 27947822AE0
+15:05:16  Ship appeared: 27951C0EAB0
+15:05:16  Ship appeared: 2798470EAB0
+15:05:16  Ship appeared: 2796DD19570
+15:05:16  Ship appeared: 27951E79570
+15:11:30  Solo server verified.
+15:11:30  Ship appeared: 279847EEAB0
+15:11:30  Ship appeared: 279825B8020
+15:11:30  Ship appeared: 27997172AE0
+15:11:30  Ship appeared: 27980412AE0
+15:11:30  Ship appeared: 2796DD19570
+15:11:30  Ship appeared: 2792AFE5580
+15:11:30  Ship appeared: 27918529570
+15:11:30  Ship appeared: 27947822AE0
+15:11:30  Ship appeared: 27951C0EAB0
+15:11:30  Ship appeared: 2798470EAB0
+15:11:30  Ship appeared: 27951E79570
+15:19:06  Solo server verified.
+15:19:06  Ship appeared: 279847EEAB0
+15:19:06  Ship appeared: 279825B8020
+15:19:06  Ship appeared: 27997172AE0
+15:19:06  Ship appeared: 27980412AE0
+15:19:06  Ship appeared: 2792AFE5580
+15:19:06  Ship appeared: 27918529570
+15:19:06  Ship appeared: 27947822AE0
+15:19:06  Ship appeared: 27951C0EAB0
+15:19:06  Ship appeared: 2796DD19570
+15:19:06  Ship appeared: 2798470EAB0
+15:19:06  Ship appeared: 27951E79570
+15:20:13  Action: QUEUE SPAWN
+15:20:13  Queued 5 Punisher (Ally)
+15:20:13  Spawned Punisher / Ally / Easy 1
+15:20:13  Ship appeared: 279863EAAC0
+15:20:14  Spawned Punisher / Ally / Easy 1
+15:20:14  Ship appeared: 27983AB2AE0
+15:20:15  Spawned Punisher / Ally / Easy 1
+15:20:15  Ship appeared: 2798BB79570
+15:20:16  Spawned Punisher / Ally / Easy 1
+15:20:16  Ship appeared: 2798B000040
+15:20:17  Spawned Punisher / Ally / Easy 1
+15:20:17  Ship appeared: 2798BDC6AD0
+15:20:49  Solo server verified.
+15:20:50  Ship appeared: 27918529570
+15:20:50  Ship appeared: 27951E79570
+15:20:50  Ship appeared: 2796DD19570
+15:20:50  Ship appeared: 279825B8020
+15:20:50  Ship appeared: 279847EEAB0
+15:20:50  Ship appeared: 2798BDC6AD0
+15:20:50  Ship appeared: 27980412AE0
+15:20:50  Ship appeared: 279863EAAC0
+15:20:50  Ship appeared: 2798470EAB0
+15:20:50  Ship appeared: 27997172AE0
+15:20:50  Ship appeared: 2798B000040
+15:20:50  Ship appeared: 2792AFE5580
+15:20:50  Ship appeared: 27983AB2AE0
+15:20:50  Ship appeared: 2798BB79570
+15:20:50  Ship appeared: 27951C0EAB0
+15:20:50  Ship appeared: 27947822AE0
+15:23:39  Action: QUEUE SPAWN
+15:23:39  Queued 7 Punisher (Enemy)
+15:23:39  Spawned Punisher / Enemy / Easy 1
+15:23:40  Ship appeared: 2798C03C010
+15:23:40  Spawned Punisher / Enemy / Easy 1
+15:23:41  Ship appeared: 27983D05580
+15:23:41  Spawned Punisher / Enemy / Easy 1
+15:23:42  Ship appeared: 2798D40C010
+15:23:42  Spawned Punisher / Enemy / Easy 1
+15:23:43  Ship appeared: 2798CF52AE0
+15:23:43  Spawned Punisher / Enemy / Easy 1
+15:23:44  Ship appeared: 2798CB49570
+15:23:44  Spawned Punisher / Enemy / Easy 1
+15:23:45  Ship appeared: 27983D10040
+15:23:46  Spawned Punisher / Enemy / Easy 1
+15:23:47  Ship appeared: 2798CDF6AD0
+15:26:49  Solo server verified.
+15:26:49  Ship appeared: 27918529570
+15:26:49  Ship appeared: 27951E79570
+15:26:49  Ship appeared: 2796DD19570
+15:26:49  Ship appeared: 279825B8020
+15:26:49  Ship appeared: 2798BDC6AD0
+15:26:49  Ship appeared: 279847EEAB0
+15:26:49  Ship appeared: 2798D40C010
+15:26:49  Ship appeared: 2798C03C010
+15:26:49  Ship appeared: 27980412AE0
+15:26:49  Ship appeared: 2798CDF6AD0
+15:26:49  Ship appeared: 2798CB49570
+15:26:49  Ship appeared: 279863EAAC0
+15:26:49  Ship appeared: 2798470EAB0
+15:26:49  Ship appeared: 27997172AE0
+15:26:49  Ship appeared: 27983D05580
+15:26:49  Ship appeared: 2798B000040
+15:26:49  Ship appeared: 2792AFE5580
+15:26:49  Ship appeared: 27983D10040
+15:26:49  Ship appeared: 27983AB2AE0
+15:26:49  Ship appeared: 2798BB79570
+15:26:49  Ship appeared: 27951C0EAB0
+15:26:49  Ship appeared: 27947822AE0
+15:26:49  Ship appeared: 2798CF52AE0
+15:27:35  Invulnerability enabled.
+15:27:36  Invulnerability disabled.
+15:29:51  Solo server verified.
+15:29:52  Ship appeared: 27918529570
+15:29:52  Ship appeared: 27951E79570
+15:29:52  Ship appeared: 2796DD19570
+15:29:52  Ship appeared: 279825B8020
+15:29:52  Ship appeared: 2798BDC6AD0
+15:29:52  Ship appeared: 279847EEAB0
+15:29:52  Ship appeared: 2798D40C010
+15:29:52  Ship appeared: 2798C03C010
+15:29:52  Ship appeared: 27980412AE0
+15:29:52  Ship appeared: 2798CDF6AD0
+15:29:52  Ship appeared: 2798CB49570
+15:29:52  Ship appeared: 279863EAAC0
+15:29:52  Ship appeared: 2798470EAB0
+15:29:52  Ship appeared: 27997172AE0
+15:29:52  Ship appeared: 27983D05580
+15:29:52  Ship appeared: 2798B000040
+15:29:52  Ship appeared: 2792AFE5580
+15:29:52  Ship appeared: 27983D10040
+15:29:52  Ship appeared: 27983AB2AE0
+15:29:52  Ship appeared: 2798BB79570
+15:29:52  Ship appeared: 27951C0EAB0
+15:29:52  Ship appeared: 27947822AE0
+15:29:52  Ship appeared: 2798CF52AE0
+15:35:10  Solo server verified.
+15:35:10  Ship appeared: 27918529570
+15:35:10  Ship appeared: 27951E79570
+15:35:10  Ship appeared: 2796DD19570
+15:35:10  Ship appeared: 279825B8020
+15:35:10  Ship appeared: 2798BDC6AD0
+15:35:10  Ship appeared: 279847EEAB0
+15:35:10  Ship appeared: 2798D40C010
+15:35:10  Ship appeared: 2798C03C010
+15:35:10  Ship appeared: 27980412AE0
+15:35:10  Ship appeared: 2798CDF6AD0
+15:35:10  Ship appeared: 2798CB49570
+15:35:10  Ship appeared: 279863EAAC0
+15:35:10  Ship appeared: 2798470EAB0
+15:35:10  Ship appeared: 27997172AE0
+15:35:10  Ship appeared: 27983D05580
+15:35:10  Ship appeared: 2798B000040
+15:35:10  Ship appeared: 2792AFE5580
+15:35:10  Ship appeared: 27983D10040
+15:35:10  Ship appeared: 27983AB2AE0
+15:35:10  Ship appeared: 2798BB79570
+15:35:10  Ship appeared: 27951C0EAB0
+15:35:10  Ship appeared: 27947822AE0
+15:35:10  Ship appeared: 2798CF52AE0
+15:37:36  Solo server verified.
+15:37:36  Ship appeared: 27918529570
+15:37:36  Ship appeared: 27951E79570
+15:37:36  Ship appeared: 2796DD19570
+15:37:36  Ship appeared: 279825B8020
+15:37:36  Ship appeared: 2798BDC6AD0
+15:37:36  Ship appeared: 279847EEAB0
+15:37:36  Ship appeared: 2798D40C010
+15:37:36  Ship appeared: 2798C03C010
+15:37:36  Ship appeared: 27980412AE0
+15:37:36  Ship appeared: 2798CDF6AD0
+15:37:36  Ship appeared: 2798CB49570
+15:37:36  Ship appeared: 279863EAAC0
+15:37:36  Ship appeared: 2798470EAB0
+15:37:36  Ship appeared: 27997172AE0
+15:37:36  Ship appeared: 27983D05580
+15:37:36  Ship appeared: 2798B000040
+15:37:36  Ship appeared: 2792AFE5580
+15:37:36  Ship appeared: 27983D10040
+15:37:36  Ship appeared: 27983AB2AE0
+15:37:36  Ship appeared: 2798BB79570
+15:37:36  Ship appeared: 27951C0EAB0
+15:37:36  Ship appeared: 27947822AE0
+15:37:36  Ship appeared: 2798CF52AE0
+15:40:36  Solo server verified.
+15:40:36  Ship appeared: 27918529570
+15:40:36  Ship appeared: 27951E79570
+15:40:36  Ship appeared: 2796DD19570
+15:40:36  Ship appeared: 279825B8020
+15:40:36  Ship appeared: 2798BDC6AD0
+15:40:36  Ship appeared: 279847EEAB0
+15:40:36  Ship appeared: 2798D40C010
+15:40:36  Ship appeared: 2798C03C010
+15:40:36  Ship appeared: 27980412AE0
+15:40:36  Ship appeared: 2798CDF6AD0
+15:40:36  Ship appeared: 2798CB49570
+15:40:36  Ship appeared: 279863EAAC0
+15:40:36  Ship appeared: 2798470EAB0
+15:40:36  Ship appeared: 27997172AE0
+15:40:36  Ship appeared: 27983D05580
+15:40:36  Ship appeared: 2798B000040
+15:40:36  Ship appeared: 2792AFE5580
+15:40:36  Ship appeared: 27983D10040
+15:40:36  Ship appeared: 27983AB2AE0
+15:40:36  Ship appeared: 2798BB79570
+15:40:36  Ship appeared: 27951C0EAB0
+15:40:36  Ship appeared: 27947822AE0
+15:40:36  Ship appeared: 2798CF52AE0
+17:18:02  Solo server verified.
+17:18:02  Ship appeared: 1CEFE99C010
+17:18:02  Ship appeared: 1CEFE996AD0
+17:18:02  Ship appeared: 1CEFEA52AE0
+17:18:02  Ship appeared: 1CEFEA50040
+17:18:02  Ship appeared: 1CEFEA51590
+17:18:02  Ship appeared: 1CEFE999570
+17:18:02  Ship appeared: 1CEFE998020
+17:18:02  Ship appeared: 1CEFE99D560
+17:18:02  Ship appeared: 1CEFE99AAC0
+17:18:02  Ship appeared: 1CEFE99EAB0
+17:18:20  Ship appeared: 1CE85AC8020
+17:18:20  Ship appeared: 1CE85AC2AE0
+17:18:20  Ship appeared: 1CE85AC5580
+17:18:20  Ship appeared: 1CE85AC6AD0
+17:18:20  Ship appeared: 1CE85AC9570
+17:18:20  Ship appeared: 1CE85ACEAB0
+17:18:20  Ship appeared: 1CE85ACC010
+17:18:20  Ship appeared: 1CE85ACAAC0
+17:18:20  Ship appeared: 1CE85ACD560
+17:18:20  Ship appeared: 1CE85AC4030
+17:18:20  Ship left roster: 1CEFE99C010
+17:18:20  Ship left roster: 1CEFE996AD0
+17:18:20  Ship left roster: 1CEFEA52AE0
+17:18:20  Ship left roster: 1CEFEA50040
+17:18:20  Ship left roster: 1CEFEA51590
+17:18:20  Ship left roster: 1CEFE999570
+17:18:20  Ship left roster: 1CEFE998020
+17:18:20  Ship left roster: 1CEFE99D560
+17:18:20  Ship left roster: 1CEFE99AAC0
+17:18:20  Ship left roster: 1CEFE99EAB0
+17:18:47  Action: DELETE ALL ENEMIES
+17:18:49  Ship left roster: 1CE85AC8020
+17:18:49  Ship left roster: 1CE85AC9570
+17:18:49  Ship left roster: 1CE85ACC010
+17:18:49  Ship left roster: 1CE85ACAAC0
+17:18:49  Ship left roster: 1CE85ACD560
+17:18:50  Action: DELETE ALL ALLIES
+17:18:51  Ship left roster: 1CE85AC5580
+17:18:51  Ship left roster: 1CE85AC2AE0
+17:18:51  Ship left roster: 1CE85AC6AD0
+17:18:51  Ship left roster: 1CE85AC4030
+17:19:23  Action: QUEUE SPAWN
+17:19:23  Queued 1 Punisher (Ally)
+17:19:23  Spawned Punisher / Ally / Easy 1
+17:19:24  Ship appeared: 1CE973CD560
+17:22:26  Action: QUEUE SPAWN
+17:22:26  Queued 5 Punisher (Enemy)
+17:22:26  Spawned Punisher / Enemy / Easy 1
+17:22:26  Ship appeared: 1CE90C95580
+17:22:27  Spawned Punisher / Enemy / Easy 1
+17:22:27  Ship appeared: 1CE90C99570
+17:22:28  Spawned Punisher / Enemy / Easy 1
+17:22:29  Ship appeared: 1CEA1BB0040
+17:22:29  Spawned Punisher / Enemy / Easy 1
+17:22:30  Spawned Punisher / Enemy / Easy 1
+17:22:30  Ship appeared: 1CE85ACD560
+17:22:31  Ship appeared: 1CED6032AE0
+17:22:31  Action: QUEUE SPAWN
+17:22:31  Queued 4 Punisher (Ally)
+17:22:31  Spawned Punisher / Ally / Easy 1
+17:22:32  Ship appeared: 1CEFEF1C010
+17:22:32  Spawned Punisher / Ally / Easy 1
+17:22:33  Ship appeared: 1CEFECE2AE0
+17:22:33  Spawned Punisher / Ally / Easy 1
+17:22:34  Ship appeared: 1CE80891590
+17:22:34  Spawned Punisher / Ally / Easy 1
+17:22:35  Ship appeared: 1CE80938020
+17:22:53  Solo server verified.
+17:22:53  Ship appeared: 1CE85ACEAB0
+17:22:53  Ship appeared: 1CE80938020
+17:22:53  Ship appeared: 1CEFEF1C010
+17:22:53  Ship appeared: 1CE85ACD560
+17:22:53  Ship appeared: 1CEFECE2AE0
+17:22:53  Ship appeared: 1CE80891590
+17:22:53  Ship appeared: 1CE90C99570
+17:22:53  Ship appeared: 1CEA1BB0040
+17:22:53  Ship appeared: 1CED6032AE0
+17:22:53  Ship appeared: 1CE973CD560
+17:22:53  Ship appeared: 1CE90C95580
+17:23:23  Action: DELETE ALL ENEMIES
+17:23:25  Action: DELETE ALL ALLIES
+17:23:25  Ship left roster: 1CE85ACD560
+17:23:25  Ship left roster: 1CE90C99570
+17:23:25  Ship left roster: 1CEA1BB0040
+17:23:25  Ship left roster: 1CED6032AE0
+17:23:25  Ship left roster: 1CE90C95580
+17:23:26  Ship left roster: 1CE80938020
+17:23:26  Ship left roster: 1CEFEF1C010
+17:23:26  Ship left roster: 1CEFECE2AE0
+17:23:26  Ship left roster: 1CE80891590
+17:23:26  Ship left roster: 1CE973CD560
+17:23:35  Action: QUEUE SPAWN
+17:23:35  Queued 5 Punisher (Ally)
+17:23:35  The term 'return$name' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+17:25:17  Solo server verified.
+17:25:17  Ship appeared: 1CE85ACEAB0
+17:25:28  Action: QUEUE SPAWN
+17:25:28  Queued 5 Punisher (Ally)
+17:25:28  Spawned Punisher / Ally / Easy 1
+17:25:28  Ship appeared: 1CED6032AE0
+17:25:29  Spawned Punisher / Ally / Easy 1
+17:27:23  Solo server verified.
+17:27:23  Ship appeared: 269F8B6C010
+17:27:27  Ship appeared: 269F9618020
+17:27:27  Ship appeared: 269C2AE4030
+17:27:27  Ship appeared: 269F961C010
+17:27:27  Ship appeared: 269F9616AD0
+17:27:27  Ship appeared: 269C2AE9570
+17:27:27  Ship appeared: 269F961D560
+17:27:27  Ship appeared: 269F9612AE0
+17:27:27  Ship appeared: 269F9611590
+17:27:27  Ship appeared: 269F9615580
+17:27:28  Action: DELETE ALL ENEMIES
+17:27:30  Ship left roster: 269F9618020
+17:27:30  Ship left roster: 269F961C010
+17:27:30  Ship left roster: 269F961D560
+17:27:30  Ship left roster: 269F9611590
+17:27:30  Ship left roster: 269F9615580
+17:27:30  Action: DELETE SELECTED
+17:27:30  Error: Select a live bot.
+17:27:31  Action: DELETE ALL ALLIES
+17:27:33  Ship left roster: 269F9616AD0
+17:27:33  Ship left roster: 269C2AE4030
+17:27:33  Ship left roster: 269F9612AE0
+17:27:33  Ship left roster: 269C2AE9570
+17:27:38  Action: QUEUE SPAWN
+17:27:38  Queued 5 Punisher (Ally)
+17:27:38  Spawned Punisher / Ally / Easy 1 / Zane_Aegis
+17:27:38  Ship appeared: 269C2AE8020
+17:27:39  Spawned Punisher / Ally / Easy 1 / Aria_Specter
+17:27:39  Ship appeared: 2698A2AD560
+17:27:40  Spawned Punisher / Ally / Easy 1 / Iris_Comet
+17:27:41  Ship appeared: 26999045580
+17:27:41  Spawned Punisher / Ally / Easy 1 / Jace_Nomad
+17:27:42  Ship appeared: 269A3072AE0
+17:27:42  Spawned Punisher / Ally / Easy 1 / Cass_Kestrel
+17:27:43  Ship appeared: 269C578AAC0
+17:27:44  Action: QUEUE SPAWN
+17:27:44  Queued 5 Punisher (Enemy)
+17:27:44  Spawned Punisher / Enemy / Easy 1 / Cass_Vortex
+17:27:45  Spawned Punisher / Enemy / Easy 1 / Blake_Raptor
+17:27:45  Ship appeared: 2699EDF9570
+17:27:45  Ship appeared: 26987B70040
+17:27:46  Spawned Punisher / Enemy / Easy 1 / Lena_Specter
+17:27:46  Ship appeared: 269CBAF5580
+17:27:47  Spawned Punisher / Enemy / Easy 1 / Vera_Drifter
+17:27:47  Ship appeared: 26992350040
+17:27:48  Spawned Punisher / Enemy / Easy 1 / Lena_Ghost
+17:27:48  Ship appeared: 26993CD8020
+17:32:07  Lethal damage applied.
+17:32:07  Ship left roster: 26992350040
+17:32:13  Lethal damage applied.
+17:32:13  Ship left roster: 2698A2AD560
+17:32:43  Ship appeared: 2699DED9570
+17:32:49  Ship appeared: 26986C3D560
+17:36:30  Action: DELETE ALL ENEMIES
+17:36:32  Ship left roster: 2699EDF9570
+17:36:32  Ship left roster: 26993CD8020
+17:36:32  Ship left roster: 26987B70040
+17:36:32  Ship left roster: 269CBAF5580
+17:36:32  Ship left roster: 2699DED9570
+17:36:32  Action: DELETE ALL ALLIES
+17:36:34  Ship left roster: 269C578AAC0
+17:36:34  Ship left roster: 269A3072AE0
+17:36:34  Ship left roster: 26986C3D560
+17:36:34  Ship left roster: 269C2AE8020
+17:36:34  Ship left roster: 26999045580
+17:36:51  Error: Set at least one Custom Stats value.
+17:36:51  Error: Set at least one Custom Stats value.
+17:36:53  Error: Set at least one Custom Stats value.
+17:36:55  Error: Set at least one Custom Stats value.
+17:36:55  Error: Set at least one Custom Stats value.
+17:36:55  Error: Set at least one Custom Stats value.
+17:36:55  Error: Set at least one Custom Stats value.
+17:36:56  Error: Set at least one Custom Stats value.
+17:36:59  Error: Set at least one Custom Stats value.
+17:36:59  Error: Set at least one Custom Stats value.
+17:36:59  Error: Set at least one Custom Stats value.
+17:37:01  Error: Set at least one Custom Stats value.
+17:37:01  Error: Set at least one Custom Stats value.
+17:37:03  Error: Set at least one Custom Stats value.
+17:37:08  Every-respawn profile enabled for makichika / Reaper
+17:37:55  Every-respawn profile disabled for makichika / Reaper
+17:37:55  Every-respawn profile enabled for makichika / Reaper
+17:38:10  Action: GENERATE BATTLE
+17:38:10  Queued 1 Ghost (Ally)
+17:38:10  Queued 1 Punisher (Ally)
+17:38:10  Queued 1 Watchman (Ally)
+17:38:10  Queued 1 Pioneer (Ally)
+17:38:10  Queued 1 Gladiator (Ally)
+17:38:10  Queued 1 Paladin (Ally)
+17:38:10  Queued 1 Basilisk (Ally)
+17:38:10  Queued 1 Equalizer (Ally)
+17:38:10  Queued 1 Basilisk (Ally)
+17:38:10  Queued 1 Sentinel (Ally)
+17:38:10  Queued 1 Basilisk (Ally)
+17:38:10  Queued 1 Enforcer (Enemy)
+17:38:10  Queued 1 Raider (Enemy)
+17:38:10  Queued 1 Persecutor (Enemy)
+17:38:10  Queued 1 Destroyer (Enemy)
+17:38:10  Queued 1 Furion (Enemy)
+17:38:10  Queued 1 Superlifter (Enemy)
+17:38:10  Queued 1 Executioner (Enemy)
+17:38:10  Queued 1 Executioner (Enemy)
+17:38:10  Queued 1 Basilisk (Enemy)
+17:38:10  Queued 1 Hunter (Enemy)
+17:38:10  Spawned Ghost / Ally / Easy 3 / Iris_Lancer
+17:38:11  Ship appeared: 2699235AAC0
+17:38:11  Custom Stats applied to Ghost [Ghost]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=12220
+17:38:11  Every-respawn Custom Stats profile kept for Iris_Lancer / Ghost
+17:38:11  Spawned Punisher / Ally / Easy 3 / Cass_Specter
+17:38:12  Ship appeared: 2699DEDD560
+17:38:12  Custom Stats applied to Punisher [Punisher]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=10460
+17:38:12  Every-respawn Custom Stats profile kept for Cass_Specter / Punisher
+17:38:12  Spawned Watchman / Ally / Easy 3 / Zane_Raptor
+17:38:13  Ship appeared: 2699DF30040
+17:38:14  Custom Stats applied to Watchman [Watchman]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=11676
+17:38:14  Every-respawn Custom Stats profile kept for Zane_Raptor / Watchman
+17:38:14  Spawned Pioneer / Ally / Easy 3 / Silas_Javelin
+17:38:14  Ship appeared: 269F9611590
+17:38:15  Custom Stats applied to Pioneer [Basilisk]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=10460
+17:38:15  Every-respawn Custom Stats profile kept for Silas_Javelin / Pioneer
+17:38:15  Spawned Gladiator / Ally / Easy 3 / Orion_Raptor
+17:38:15  Ship appeared: 269F8F88020
+17:38:16  Custom Stats applied to Gladiator [Gladiator]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=19800
+17:38:16  Every-respawn Custom Stats profile kept for Orion_Raptor / Gladiator
+17:38:16  Spawned Paladin / Ally / Easy 3 / Wade_Phantom
+17:38:17  Ship appeared: 26998632AE0
+17:38:18  Custom Stats applied to Paladin [Paladin]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=13700
+17:38:18  Every-respawn Custom Stats profile kept for Wade_Phantom / Paladin
+17:38:18  Spawned Basilisk / Ally / Easy 3 / Talia_Havoc
+17:38:18  Ship appeared: 2699EDFD560
+17:38:19  Custom Stats applied to Basilisk [Basilisk]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=11220
+17:38:19  Every-respawn Custom Stats profile kept for Talia_Havoc / Basilisk
+17:38:19  Spawned Equalizer / Ally / Easy 3 / Marek_Warden
+17:38:20  Ship appeared: 269A3070040
+17:38:20  Custom Stats applied to Equalizer [Equalizer]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=13700
+17:38:20  Every-respawn Custom Stats profile kept for Marek_Warden / Equalizer
+17:38:20  Spawned Basilisk / Ally / Easy 3 / Hana_Icarus
+17:38:21  Ship appeared: 269CEA38020
+17:38:22  Custom Stats applied to Basilisk [Basilisk]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=11220
+17:38:22  Every-respawn Custom Stats profile kept for Hana_Icarus / Basilisk
+17:38:22  Spawned Sentinel / Ally / Easy 3 / Iris_Drifter
+17:38:23  Ship appeared: 26A060DC010
+17:38:23  Custom Stats applied to Sentinel [Sentinel]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=10460
+17:38:23  Every-respawn Custom Stats profile kept for Iris_Drifter / Sentinel
+17:38:23  Spawned Basilisk / Ally / Easy 3 / Alex_Ghost
+17:38:24  Ship appeared: 26A1CB9AAC0
+17:38:25  Custom Stats applied to Basilisk [Basilisk]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=11220
+17:38:25  Every-respawn Custom Stats profile kept for Alex_Ghost / Basilisk
+17:38:25  Spawned Enforcer / Enemy / Easy 3 / Nadia_Phantom
+17:38:25  Ship appeared: 26A1CED4030
+17:38:26  Custom Stats applied to Enforcer [Enforcer]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=10220
+17:38:26  Every-respawn Custom Stats profile kept for Nadia_Phantom / Enforcer
+17:38:26  Spawned Raider / Enemy / Easy 3 / Petra_Echo
+17:38:27  Ship appeared: 26A1EA50040
+17:38:28  Custom Stats applied to Raider [Raider]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=13772
+17:38:28  Every-respawn Custom Stats profile kept for Petra_Echo / Raider
+17:38:28  Spawned Persecutor / Enemy / Easy 3 / Vera_Echo
+17:38:29  Ship appeared: 269FC238020
+17:38:29  Custom Stats applied to Persecutor [Persecutor]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=10460
+17:38:29  Every-respawn Custom Stats profile kept for Vera_Echo / Persecutor
+17:38:29  Spawned Destroyer / Enemy / Easy 3 / Jace_Vortex
+17:38:30  Ship appeared: 26A26B54030
+17:38:31  Custom Stats applied to Destroyer [Destroyer]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=4700
+17:38:31  Every-respawn Custom Stats profile kept for Jace_Vortex / Destroyer
+17:38:31  Spawned Furion / Enemy / Easy 3 / Marek_Zenith
+17:38:32  Ship appeared: 26A22D92AE0
+17:38:33  Custom Stats applied to Furion [Furion]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=10460
+17:38:33  Every-respawn Custom Stats profile kept for Marek_Zenith / Furion
+17:38:33  Spawned Superlifter / Enemy / Easy 3 / Petra_Zenith
+17:38:34  Ship appeared: 26A1EA4EAB0
+17:38:34  Custom Stats applied to Superlifter [Superlifter]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=12700
+17:38:34  Every-respawn Custom Stats profile kept for Petra_Zenith / Superlifter
+17:38:34  Spawned Executioner / Enemy / Easy 3 / Talia_Lancer
+17:38:35  Ship appeared: 26A0C295580
+17:38:36  Custom Stats applied to Executioner [Executioner]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=10460
+17:38:36  Every-respawn Custom Stats profile kept for Talia_Lancer / Executioner
+17:38:36  Spawned Executioner / Enemy / Easy 3 / Kael_Icarus
+17:38:37  Ship appeared: 269FFB0D560
+17:38:37  Custom Stats applied to Executioner [Executioner]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=10460
+17:38:37  Every-respawn Custom Stats profile kept for Kael_Icarus / Executioner
+17:38:38  Spawned Basilisk / Enemy / Easy 3 / Orion_Meteor
+17:38:38  Ship appeared: 26A0D35EAB0
+17:38:39  Custom Stats applied to Basilisk [Basilisk]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=11220
+17:38:39  Every-respawn Custom Stats profile kept for Orion_Meteor / Basilisk
+17:38:39  Spawned Hunter / Enemy / Easy 3 / Rhea_Drifter
+17:38:40  Ship appeared: 269D0E88020
+17:38:41  Custom Stats applied to Hunter [Hunter]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=8960
+17:38:41  Every-respawn Custom Stats profile kept for Rhea_Drifter / Hunter
+17:38:51  Ship left roster: 26A1EA50040
+17:38:53  Ship appeared: 269D1083BD0
+17:38:53  Ship left roster: 269CEA38020
+17:38:55  Ship left roster: 2699EDFD560
+17:38:59  Ship left roster: 26A1CB9AAC0
+17:39:14  Ship left roster: 26A060DC010
+17:39:42  Ship appeared: 26987B74030
+17:39:43  Custom Stats applied to Petra_Echo / Raider after respawn [Raider]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=12822
+17:39:43  Custom Stats respawn profile applied: Petra_Echo / Raider after respawn
+17:39:44  Ship appeared: 269FC235580
+17:39:44  Ship left roster: 269D1083BD0
+17:39:45  Custom Stats applied to Hana_Icarus / Basilisk after respawn [Basilisk]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=8360
+17:39:45  Custom Stats respawn profile applied: Hana_Icarus / Basilisk after respawn
+17:39:46  Ship appeared: 26A060D2AE0
+17:39:48  Custom Stats applied to Talia_Havoc / Basilisk after respawn [Basilisk]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=8360
+17:39:48  Custom Stats respawn profile applied: Talia_Havoc / Basilisk after respawn
+17:39:51  Ship appeared: 2699904C010
+17:39:52  Custom Stats applied to Alex_Ghost / Basilisk after respawn [Basilisk]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=8360
+17:39:52  Custom Stats respawn profile applied: Alex_Ghost / Basilisk after respawn
+17:39:57  Ship left roster: 269FFB0D560
+17:40:05  Ship appeared: 269F9B81590
+17:40:06  Custom Stats applied to Iris_Drifter / Sentinel after respawn [Sentinel]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=8480
+17:40:06  Custom Stats respawn profile applied: Iris_Drifter / Sentinel after respawn
+17:40:21  Ship left roster: 269A3070040
+17:40:35  Ship left roster: 26A22D92AE0
+17:40:42  Ship left roster: 269FC238020
+17:40:51  Ship appeared: 26A0D35C010
+17:40:52  Custom Stats applied to Kael_Icarus / Executioner after respawn [Executioner]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=7940
+17:40:52  Custom Stats respawn profile applied: Kael_Icarus / Executioner after respawn
+17:41:06  Ship left roster: 269F8F88020
+17:41:11  Ship appeared: 269C2AC8960
+17:41:13  Ship appeared: 26A1EA4C010
+17:41:13  Ship left roster: 269C2AC8960
+17:41:15  Custom Stats applied to Marek_Warden / Equalizer after respawn [Equalizer]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=12450
+17:41:15  Custom Stats respawn profile applied: Marek_Warden / Equalizer after respawn
+17:41:30  Ship appeared: 269FC23EAB0
+17:41:32  Custom Stats applied to Marek_Zenith / Furion after respawn [Furion]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=7940
+17:41:32  Custom Stats respawn profile applied: Marek_Zenith / Furion after respawn
+17:41:37  Ship left roster: 269FC235580
+17:41:40  Ship appeared: 269A3070040
+17:41:40  Custom Stats applied to Vera_Echo / Persecutor after respawn [Equalizer]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=7940
+17:41:40  Custom Stats respawn profile applied: Vera_Echo / Persecutor after respawn
+17:42:01  Ship appeared: 26A15246AD0
+17:42:02  Ship left roster: 2699235AAC0
+17:42:03  Custom Stats applied to Orion_Raptor / Gladiator after respawn [Gladiator]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=-4300
+17:42:03  Custom Stats respawn profile applied: Orion_Raptor / Gladiator after respawn
+17:42:05  Ship left roster: 26A0D35EAB0
+17:42:30  Ship left roster: 269F9611590
+17:42:36  Ship appeared: 269FC234030
+17:42:37  Custom Stats applied to Hana_Icarus / Basilisk after respawn [Basilisk]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=7970
+17:42:37  Custom Stats respawn profile applied: Hana_Icarus / Basilisk after respawn
+17:42:58  Ship left roster: 26A26B54030
+17:43:02  Ship appeared: 269D0E85580
+17:43:03  Custom Stats applied to Iris_Lancer / Ghost after respawn [Ghost]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=8970
+17:43:03  Custom Stats respawn profile applied: Iris_Lancer / Ghost after respawn
+17:43:05  Ship appeared: 269F8B69570
+17:43:06  Custom Stats applied to Orion_Meteor / Basilisk after respawn [Basilisk]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=7580
+17:43:06  Custom Stats respawn profile applied: Orion_Meteor / Basilisk after respawn
+17:43:06  Ship left roster: 2699DEDD560
+17:43:19  Ship left roster: 2699904C010
+17:43:30  Ship appeared: 269C604C010
+17:43:31  Custom Stats applied to Silas_Javelin / Pioneer after respawn [Pioneer]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=7940
+17:43:31  Custom Stats respawn profile applied: Silas_Javelin / Pioneer after respawn
+17:43:57  Ship appeared: 2699904C010
+17:43:58  Custom Stats applied to Jace_Vortex / Destroyer after respawn [Basilisk]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=-3700
+17:43:58  Custom Stats respawn profile applied: Jace_Vortex / Destroyer after respawn
+17:44:06  Ship appeared: 26998635580
+17:44:08  Custom Stats applied to Cass_Specter / Punisher after respawn [Punisher]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=7940
+17:44:08  Custom Stats respawn profile applied: Cass_Specter / Punisher after respawn
+17:44:12  Ship left roster: 26A060D2AE0
+17:44:13  Ship left roster: 2699DF30040
+17:44:19  Ship appeared: 269F9B80040
+17:44:21  Custom Stats applied to Alex_Ghost / Basilisk after respawn [Basilisk]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=7580
+17:44:21  Custom Stats respawn profile applied: Alex_Ghost / Basilisk after respawn
+17:44:30  Ship left roster: 269F9B81590
+17:44:30  Ship left roster: 26998632AE0
+17:44:46  Ship left roster: 269FC23EAB0
+17:45:11  Ship appeared: 26A060D2AE0
+17:45:13  Ship appeared: 26987B7C010
+17:45:13  Custom Stats applied to Talia_Havoc / Basilisk after respawn [Basilisk]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=7580
+17:45:13  Custom Stats respawn profile applied: Talia_Havoc / Basilisk after respawn
+17:45:15  Custom Stats applied to Zane_Raptor / Watchman after respawn [Watchman]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=10164
+17:45:15  Custom Stats respawn profile applied: Zane_Raptor / Watchman after respawn
+17:45:15  Ship left roster: 26A15246AD0
+17:45:30  Ship appeared: 26993CDAAC0
+17:45:31  Ship appeared: 269F9616AD0
+17:45:31  Custom Stats applied to Iris_Drifter / Sentinel after respawn [Sentinel]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=7940
+17:45:31  Custom Stats respawn profile applied: Iris_Drifter / Sentinel after respawn
+17:45:32  Custom Stats applied to Wade_Phantom / Paladin after respawn [Destroyer]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=12300
+17:45:32  Custom Stats respawn profile applied: Wade_Phantom / Paladin after respawn
+17:45:33  Ship left roster: 2699904C010
+17:45:46  Ship appeared: 2699EDF0040
+17:45:48  Custom Stats applied to Marek_Zenith / Furion after respawn [Furion]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=7220
+17:45:48  Custom Stats respawn profile applied: Marek_Zenith / Furion after respawn
+17:46:14  Ship left roster: 26A0D35C010
+17:46:15  Ship appeared: 269C0FE6AD0
+17:46:16  Custom Stats applied to Orion_Raptor / Gladiator after respawn [Gladiator]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=-5200
+17:46:16  Custom Stats respawn profile applied: Orion_Raptor / Gladiator after respawn
+17:46:33  Ship appeared: 26A1CED0040
+17:46:34  Custom Stats applied to Jace_Vortex / Destroyer after respawn [Destroyer]: MaxThrustSpeedModifier=1, MaxReverseThrustSpeedModifier=1, MaxHealth=-6100
+17:46:34  Custom Stats respawn profile applied: Jace_Vortex / Destroyer after respawn
+17:46:41  Ship left roster: 26A060D2AE0
+17:46:49  Ship left roster: 26A0C295580

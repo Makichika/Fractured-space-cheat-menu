@@ -1,0 +1,1730 @@
+{
+  "Aegis": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "ABSORB SMART CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "TRANSFERENCE PROJECTOR",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "TRANSFERENCE SHIELD",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "E870DDB34078501BE87FB6A28CCF0501"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "PARTICLE ACCELERATOR",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "E7FFCFF74F13535ECB65319C64C7B4C2"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "BLINK SHIFT BUOY",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "74EBB0144998C7D4C56650AC323AB800"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "66A701A242A01CC6AC5CEA8F3FBDF5BB"
+    }
+  ],
+  "Basilisk": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "PLASMA CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "GRAVITON ANCHOR",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "CLOAK",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "823740A14D750705563D9C94E163FA28"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "PULSAR CHARGE",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "35F23C9E4AFE9FC72C8CAB85FB519DB4"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "GRAVITY WELL",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "86727E3848D6201BB48750A9C7D96D25"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "42C9588B4EFDC580E37792AB25688E7E"
+    }
+  ],
+  "Black Widow": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "DUAL ROCKETS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "WEAPON INTERRUPT",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "QUICK CLOAK",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "2C4CFD8D421965CF733A7FA1991F4D9D"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "DRAIN MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "BC6374FA452032E1B100C2984E287088"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "ARMOR MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "91559D8D4A654DCC927B0BBDF778F76A"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "1C4379864590472A4BE0B19D0FB60294"
+    }
+  ],
+  "Brawler": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "THUMPER",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "HARPOON",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "CONCUSS",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "3CBE3FB047368A63C0634F8C1BBD2BD9"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "HARPOON PULL",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem2",
+      "partGuid": "0576A7844D89DF1A430169B899D24ACD"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "BRAWLER FIGHTERS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "0C0389D242A4BA5DB3380BBA5B2289A6"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "C5F937A6431ECE2DFA0DCF826FAC669A"
+    }
+  ],
+  "Centurion": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "ANTI-MATERIAL CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "SHIELD BARRICADE",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "ENERGY OVERLOAD",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem1",
+      "partGuid": "07DD7DC8400726DB326572B355F11127"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "BOOST",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem2",
+      "partGuid": "02C8A6AB46DD3EED10365DBD299CE184"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "ABSORB DRONES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "0A0088074DE30A566BE4F2A21F00269C"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "057E0490429BDF92C0DE8A906CE6665A"
+    }
+  ],
+  "Colossus": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "FLAK",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "ENGINE SHUTDOWN",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "BOOST",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "946F78534BFF16E5D354CC8D22A625B6"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "COLOSSUS MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "058804F1458C79A4C09692825EDC4665"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "COLOSSUS FIGHTERS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "9B7C901E4A9D9C91A393F2AD44E057E3"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "353F084645A3A166BB914AAB76780BD2"
+    }
+  ],
+  "Destroyer": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "ARTILLERY CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "EXPLOSIVE CHARGES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "JAMMING SYSTEM",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "64A722844160551497E4B586654B47FA"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "DESTROYER MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "7774C4D54BCA1AF209CF6DABF259F575"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "DESTROYER BOMBERS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "44AB92A349976BB046DD81B8F89E1C14"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "058B7A7C4B3D64CB9A365CB8045F3E0F"
+    }
+  ],
+  "Displacer": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "LINEAR CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "DISPLACE MARKER",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "REPULSE",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "1B38AC0940BC307CD52AA48A6E60108E"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "DISPLACE",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "B76E40614761E38060FA28B5E7A03287"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "DISPLACER FIGHTERS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "7DF8C3DA4F8C6B5CD89FA5B8B40193C5"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "CB0A1A8E4284CC33F4B8C1B72BDFD3E7"
+    }
+  ],
+  "Disruptor": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "DISRUPTOR BLASTER",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "DISARM",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "DETECT/SLOW",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "9239109942DEAA88BDD8399C4093CDAA"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "BLINK TO ALLY",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem2",
+      "partGuid": "E05E8849449AA761EC0A249B7A8AB857"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "REPAIR DRONES",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "1ED3E75B4309D03CE68889947CEEC920"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "AC96E65241EB81FEFBACD288F1CEC802"
+    }
+  ],
+  "Endeavor": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "VOID CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "SENTRY TURRETS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "CONCUSSION MINES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem1",
+      "partGuid": "D991410B4D91B321DE32FD80A08D7A80"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "SENTRY MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "9C3F8C0F4BD394D0B3C3B2B01ACC15B2"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "GRAVITY CHARGE",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "937849484D0A0E1DC2C91980F6143DCC"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "086F30084BAF4364076C3F927934F1AA"
+    }
+  ],
+  "Enforcer": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "ESCALATE",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "CONCUSS SHOT",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "BOOST",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "50058BD748150C1B9C5CDB8D21415FC0"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "TARGET BLINK",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem2",
+      "partGuid": "4461E5FF44149FBB411FB588511D7BED"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "CAPMOD BUOY",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "7DF4F42E40AA8E0B0044E08EE8BCB46A"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "C6D6E0374CAFC9AB47F09F800AD1E9B0"
+    }
+  ],
+  "Equalizer": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "SYPHON SMART GUN",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "BOOST GATE",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "PURGE PULSE",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "5A1C67AC4E89BA9322B0B09F73DF5D74"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "PLASMA TORPEDO",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "F79BF72D4B5D3E3F09884BBB85B023B8"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "NEGATIVE CAP MOD BUOY",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "2C7EAA35413A4FA057DDF48C90640CB5"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "969A3A9343FB18F293A7778BD0CDF3FF"
+    }
+  ],
+  "Executioner": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "GAUSS CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "CHRONO BLINK",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "OVERDRIVE",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "F5D7FDE2402BB8B954B8E2BDECA75EDA"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "EXECUTIONER MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "A0E486D749CF1B94373173957AFC89BD"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "STASIS FIELD",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "2EE7E560436E197F88B6EEAF581D4D25"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "B87748AA4F3FEFE9C20B9F87827B6816"
+    }
+  ],
+  "Furion": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "AUG CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "PLASMA THROWER",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "BOOST",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "2FCACCE8430986B15BDFF0AAFC6C68C5"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "FURION MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "744817A9431DE23DAE1DF689E35F8DCD"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "CORRODE DRONES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "D898A6714658DE430F688DB75059C463"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "C0AF69EE4CE82220927F9AB24E81B91C"
+    }
+  ],
+  "Ghost": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "GHOST ROCKETS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "AMBUSH",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "CLOAK",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "BECA297B47B4D0672D1AFBB43728DD38"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "TARGET BLINK",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem2",
+      "partGuid": "2FE530174C9EFB94C8136BA843F012D6"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "DECOY",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "208AEDAC45BA3C24484B2E97E0250707"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "F33954B54E5EFDD43230468D4C341813"
+    }
+  ],
+  "Gladiator": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "GLADIUS CANNONS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "GLADIUS MINES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "PHALANX ARMOR",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "B8629A1D48F6036B534DBC980EF24AE8"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "GLADIUS MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "97BA32D447B455B2292FD295DB35E91C"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "GLADIUS BOMBERS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "4A1546F842DB00B8E97C7EAADE3286CF"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "DDB7564040434592759981A1279A7DF2"
+    }
+  ],
+  "Guardian": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "VOID ROCKETS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "GUARDIAN CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "COMBAT BLINK BUOY",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "1865D205472BFDDD54039BA01441D1EE"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "BLINK TO BUOY",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem2",
+      "partGuid": "D0864ACE48F2DB9CD4FD3B80A8C8627A"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "ABILITY BOOST DRONES",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "AF9FFC3342EA970380842B8575EACD74"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "58FE0A99443F237CCE500EACE5AC42EF"
+    }
+  ],
+  "Hunter": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "HUNTER CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "BLINK",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "DETECT PULSE",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "73874CD1497704A74FD18EA439E98F00"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "HUNTER MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "FADDC9F942B8EB688EEEB0AFF7D7353C"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "SYPHON DRONES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "72183D8348798B496E2E2B9BA25AB153"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "DA5D6009466A77A4197A2E8FB8164988"
+    }
+  ],
+  "Infiltrator": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "SLUG THROWER",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "ION BLAST",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "CLOAK",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "42AE65F64D9F85C6F862DD9E6A1482F0"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "DISARM PULSE",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem2",
+      "partGuid": "E8C7AD374233D16541F1F1956F3CB334"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "ION DRONES",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "FBC8FF4B4658819E37849796F9BCA831"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "154210A7459534134334A1BFDC40D362"
+    }
+  ],
+  "Interceptor": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "ROTARY CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "GAUSS CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "TARGETING INHIBITOR",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "101CB70540BCDB382CE12D8F477FAA52"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "CONCUSSION MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "9616D2C045102BCFBEA2CDA89575BBB6"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "INTERCEPTOR FIGHTERS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "D9B3F94E412216B617A1A1B15C593D68"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "FD64FEC747024C9BB9737EA528460EFD"
+    }
+  ],
+  "Leviathan": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "TEMPEST CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "FUSION BEAM",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "JUMP BUOY",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "602D95D7433BC459347EDE986D0F1E7E"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "MAGMA LANCE",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "8F4BFE3E482BA812F2CC7C815B6F23E9"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "LEVIATHAN FIGHTERS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "03785D1840522C5F27DF2CB449D27739"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "431F67D54910A2757CC1F0B3B77180EA"
+    }
+  ],
+  "Overseer": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "VECTOR CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "FLUX BEAM",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "MAG THRUST",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "D3146A6D440C4FDE5EA8B3BBEB8924DA"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "SLOW TORPEDO",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem2",
+      "partGuid": "1AB9E877415E95FC05CB5D8786FDFE69"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "SHIELD WALL BUOY",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "E78D5BB84518C8996FFAAFA7DE897451"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "F62D8C91457C65D2187928B8C578007C"
+    }
+  ],
+  "Paladin": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "SYPHON SMARTGUN",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "REPAIR BALLISTA",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "PLASMA FIELD",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem1",
+      "partGuid": "4B87289945712C5690E526BC8E9F5BF9"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "PURGE TORPEDO",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem2",
+      "partGuid": "00243B284D7763E1701F63B9E9B116CB"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "DEFENSE DRONES",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "EB2276B74D9AFDF3A85B9F988F93350A"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "53E9B0744F386D09BB4B15891D73578F"
+    }
+  ],
+  "Paragon": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "MINICANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "CAPMOD WAYPOINT",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "PARAGON FIGHTERS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem1",
+      "partGuid": "D256B2BB497D70FA02D279A87A997CD3"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "CHARGE BOMBERS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "3D1C9ABA4EF99C37F8699CA2EB115710"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "DEFENSE DRONES",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "DE5554504FB04E93DEC25DA5A5C848AB"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "3DA68F064AB088B3231815A48207935E"
+    }
+  ],
+  "Persecutor": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "RAIL REPEATER",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "ENERGY BLINK",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "MOBILITY SUPPRESSION",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "22AC25E747A06E63BF6A38B6CCDC8FD2"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "ABSORB BEAM",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem2",
+      "partGuid": "BFCE5E8A49B28C113D2BFEA620A7EB3E"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "FUSION CHARGE",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "212FBCE94043B3007EB266937D0CFEFF"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "19B0FCFE4F73F6AB964DC39FE7D3C8F0"
+    }
+  ],
+  "Pioneer": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "VOID CHARGES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "GRAVITY NUKE",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "REVEAL SECTOR",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "08595DB14988457616110B986EB42CC1"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "PIONEER MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "2C5EEA52403BB836BB00D69558BEEB95"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "DETECTION BUOY",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "5B9E30EB4EC24190750E3BA97EDDFAC7"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "3655B3BE4BAC0E8336DB918ED8EDFC0E"
+    }
+  ],
+  "Protector": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "PROTECTOR SMARTGUN",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "REPAIR BEAM",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "DEFENSIVE SHIELD",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "22AE6F7D4998AB2B26533888AC792789"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "DISARM",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem2",
+      "partGuid": "F0346A974ED667E175FCD0AC4D154885"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "SYPHON DRONES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "290FDD934567E1DF5C7C2F93B3D01C20"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "6572072A436B4550275607950BB2E0E0"
+    }
+  ],
+  "Punisher": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "PUNISHER CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "PLASMA ORB",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "ENVIRON SHIELD",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "6839ADB94ACDD29F611C228BA3929C59"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "PUNISHER MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "F3F6D189454C777167C0A382B180DFFE"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "DETECT/SLOW",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "07C3839D46A85ECEAC82D0BCB8C36831"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "1209D9DF4C3F3FDFF4F8A6AED324F68B"
+    }
+  ],
+  "Raider": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "SCALPEL BEAM",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "SHIELDWALL",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "RAIDER MINES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem1",
+      "partGuid": "5D4AAAE745EC6035CDD24F937F20FF2D"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "RAIDER MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "8DA046AC4FA763E53D59AEA99FA62979"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "DETECTION BUOY",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "696721244A866F477574C796014F5CDE"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "6075016C4FA16A01D07F2D966EE5ED5B"
+    }
+  ],
+  "Ranger": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "LONGBOW CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "RANGER MINES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "DETECT/SLOW",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "C02FB35947886842EE8555B3FD07FE6D"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "RANGER MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "20A3E7F74F27143ECFBAADABD85E3119"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "SHUT DOWN & REPAIR",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "2FB5155E41AEFF6C5D4B19B4D431AB98"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "46B3CE1749EDBC570EBE22BF2A5D9391"
+    }
+  ],
+  "Raven": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "ABSORB SMARTGUN",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "OVERCHARGE BEAM",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "ABSORB CHARGE",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "844B6E2B40F3509EDF27249A70467671"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "RAVEN MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "5819183846D0740D6EAF9A9A55029B83"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "RAVEN FIGHTERS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "1FD57C6A43186E05307ABDA5CCFF317C"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "9196FDDC4E6ECA3290D7E8BB77ECA02D"
+    }
+  ],
+  "Reaper": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "REAPER CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "SCYTHE BEAM",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "SHROUD",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "E9358E194AED101DBA1A96BA3A2819C3"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "REAPER MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "B228D24B494CD1781C2EDE897BD3C4BC"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "REAPER FIGHTERS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "EDE2854A40B174FE8CBD3F9BC91E567E"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "2D809E264EFC1B139DF46E95FAD9C9A3"
+    }
+  ],
+  "Sentinel": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "SENTINEL SMARTGUN",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "RAIL ROCKETS",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "THRUSTER PULSE",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "91E56D554784B4CD4F1314937B50D380"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "SLOW MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "68AE849E4DB232C872049AB26A43DCC6"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "PROPULSION BUOY",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "BC424372411122D77DDFC391B9112B26"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "10097CC14B82F6FC49753BAF39C8802B"
+    }
+  ],
+  "Superlifter": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "RIPPLE CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "REPAIR BUOYS",
+      "type": "ability",
+      "modifier": "CooldownModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "DISABLE ENGINES",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "D1A283F34B942E924A9E8F8174F47B2F"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "LIFTER MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "0CD28F3349D75CB9C73DFD8E19BF4069"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "TUGBOAT DRONES",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "0F4913E74DD1D7CB8087E7A6DCFF567D"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "76479008478C28A82DE3499E03B2450B"
+    }
+  ],
+  "Venturer": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "MINING LASER",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "ARMOR BREAKER",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "HEAL PULSE",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "9550DD64453635F0D2D63EA1B24F9BFA"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "PLASMA MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "7FEDE0E14A4A6A63ECC893A3B3B3199A"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "SHIELDING BUOY",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem3",
+      "partGuid": "FA025F95453048F3193AB28B29054B04"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "65BAB2C64D2F786A3F1381B07D7B3F18"
+    }
+  ],
+  "Watchman": [
+    {
+      "position": "primary",
+      "slot": 0,
+      "name": "RAILGUN",
+      "type": "weapon",
+      "modifier": "RefireRateModifierPrimary"
+    },
+    {
+      "position": "secondary",
+      "slot": 0,
+      "name": "SR VOID CANNON",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSecondary"
+    },
+    {
+      "position": "system",
+      "slot": 1,
+      "name": "SLOW SHIELD",
+      "type": "ability",
+      "modifier": "CooldownModifierSubsystem1",
+      "partGuid": "E84425A947409B1A1A6CC3BA78AD2C71"
+    },
+    {
+      "position": "system",
+      "slot": 2,
+      "name": "WATCHMAN MISSILES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem2",
+      "partGuid": "DC348DF648845639C4DA218D38C9D9C6"
+    },
+    {
+      "position": "system",
+      "slot": 3,
+      "name": "CORRODE DRONES",
+      "type": "weapon",
+      "modifier": "RefireRateModifierSubsystem3",
+      "partGuid": "B9412CB14DFDCE2FF618D98A74309F08"
+    },
+    {
+      "position": "system",
+      "slot": 4,
+      "name": "Auto PD",
+      "type": "passive",
+      "modifier": "",
+      "partGuid": "6EA5284649481888E01ACD95521561D8"
+    }
+  ]
+}

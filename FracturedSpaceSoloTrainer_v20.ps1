@@ -1,4 +1,4 @@
-﻿# Fractured Space SOLO Trainer - allied + enemy team manager FIX13
+# Fractured Space SOLO Trainer - allied + enemy team manager FIX13
 # Targets only the local spserver.exe process.
 
 param(
@@ -12,6 +12,7 @@ Add-Type -AssemblyName System.Drawing
 
 $nativeCode = @"
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -64,6 +65,11 @@ public static class NativeMemoryV4
     [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
     [return: MarshalAs(UnmanagedType.Bool)]
     public static extern bool FlushInstructionCache(IntPtr hProcess, IntPtr lpBaseAddress, UIntPtr dwSize);
+
+    [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool VirtualProtectEx(
+        IntPtr hProcess, IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
 
     [DllImport("kernel32.dll", SetLastError = true)]
     public static extern UIntPtr VirtualQueryEx(
@@ -1288,6 +1294,774 @@ public static class NativeMemoryV4
         }
     }
 
+    public static int LastTrainerActionError = 0;
+
+    static bool HasSignature(IntPtr hProcess, ulong address, byte[] expected)
+    {
+        byte[] actual = new byte[expected.Length];
+        IntPtr got;
+        return ReadProcessMemory(hProcess, new IntPtr(unchecked((long)address)), actual, actual.Length, out got) &&
+               got.ToInt64() == actual.Length && StructuralComparisons.StructuralEqualityComparer.Equals(actual, expected);
+    }
+
+    static bool RunTrainerAction(IntPtr hProcess, Func<ulong, byte[]> buildPayload, int codeLength, int resultOffset, int blockSize = 0x300)
+    {
+        const uint MEM_COMMIT_RESERVE = 0x3000;
+        const uint MEM_RELEASE = 0x8000;
+        const uint PAGE_EXECUTE_READWRITE = 0x40;
+        const uint WAIT_OBJECT_0 = 0x00000000;
+        const uint WAIT_TIMEOUT = 0x00000102;
+
+        IntPtr remote = VirtualAllocEx(hProcess, IntPtr.Zero, new UIntPtr((uint)blockSize), MEM_COMMIT_RESERVE, PAGE_EXECUTE_READWRITE);
+        if (remote == IntPtr.Zero) { LastTrainerActionError = 1; return false; }
+
+        bool safeToFree = true;
+        IntPtr thread = IntPtr.Zero;
+        try
+        {
+            ulong remoteBase = unchecked((ulong)remote.ToInt64());
+            byte[] payload = buildPayload(remoteBase);
+            if (payload == null || payload.Length != blockSize || codeLength <= 0 || codeLength >= resultOffset)
+            { LastTrainerActionError = 2; return false; }
+
+            IntPtr wrote;
+            if (!WriteProcessMemory(hProcess, remote, payload, payload.Length, out wrote) || wrote.ToInt64() != payload.Length)
+            { LastTrainerActionError = 3; return false; }
+
+            FlushInstructionCache(hProcess, remote, new UIntPtr((uint)codeLength));
+            uint threadId;
+            thread = CreateRemoteThread(hProcess, IntPtr.Zero, UIntPtr.Zero, remote, IntPtr.Zero, 0, out threadId);
+            if (thread == IntPtr.Zero) { LastTrainerActionError = 4; return false; }
+
+            uint wait = WaitForSingleObject(thread, 6000);
+            if (wait == WAIT_TIMEOUT) { safeToFree = false; LastTrainerActionError = 5; return false; }
+            if (wait != WAIT_OBJECT_0) { safeToFree = false; LastTrainerActionError = 6; return false; }
+
+            byte[] result = new byte[1];
+            IntPtr got;
+            if (!ReadProcessMemory(hProcess, new IntPtr(unchecked((long)(remoteBase + (ulong)resultOffset))), result, 1, out got) || got.ToInt64() != 1)
+            { LastTrainerActionError = 7; return false; }
+            if (result[0] == 0) { LastTrainerActionError = 8; return false; }
+            return true;
+        }
+        catch { LastTrainerActionError = 9; return false; }
+        finally
+        {
+            if (thread != IntPtr.Zero) CloseHandle(thread);
+            if (safeToFree && remote != IntPtr.Zero) VirtualFreeEx(hProcess, remote, UIntPtr.Zero, MEM_RELEASE);
+        }
+    }
+
+    static ulong RunTrainerQueryU64(IntPtr hProcess, Func<ulong, byte[]> buildPayload, int codeLength, int resultOffset)
+    {
+        const uint MEM_COMMIT_RESERVE = 0x3000;
+        const uint MEM_RELEASE = 0x8000;
+        const uint PAGE_EXECUTE_READWRITE = 0x40;
+        const uint WAIT_OBJECT_0 = 0x00000000;
+        const uint WAIT_TIMEOUT = 0x00000102;
+        const int blockSize = 0x300;
+
+        IntPtr remote = VirtualAllocEx(hProcess, IntPtr.Zero, new UIntPtr(blockSize), MEM_COMMIT_RESERVE, PAGE_EXECUTE_READWRITE);
+        if (remote == IntPtr.Zero) { LastTrainerActionError = 1; return 0; }
+
+        bool safeToFree = true;
+        IntPtr thread = IntPtr.Zero;
+        try
+        {
+            ulong remoteBase = unchecked((ulong)remote.ToInt64());
+            byte[] payload = buildPayload(remoteBase);
+            if (payload == null || payload.Length != blockSize || codeLength <= 0 || codeLength >= resultOffset)
+            { LastTrainerActionError = 2; return 0; }
+
+            IntPtr wrote;
+            if (!WriteProcessMemory(hProcess, remote, payload, payload.Length, out wrote) || wrote.ToInt64() != payload.Length)
+            { LastTrainerActionError = 3; return 0; }
+
+            FlushInstructionCache(hProcess, remote, new UIntPtr((uint)codeLength));
+            uint threadId;
+            thread = CreateRemoteThread(hProcess, IntPtr.Zero, UIntPtr.Zero, remote, IntPtr.Zero, 0, out threadId);
+            if (thread == IntPtr.Zero) { LastTrainerActionError = 4; return 0; }
+
+            uint wait = WaitForSingleObject(thread, 6000);
+            if (wait == WAIT_TIMEOUT) { safeToFree = false; LastTrainerActionError = 5; return 0; }
+            if (wait != WAIT_OBJECT_0) { safeToFree = false; LastTrainerActionError = 6; return 0; }
+
+            byte[] result = new byte[8];
+            IntPtr got;
+            if (!ReadProcessMemory(hProcess, new IntPtr(unchecked((long)(remoteBase + (ulong)resultOffset))), result, result.Length, out got) || got.ToInt64() != result.Length)
+            { LastTrainerActionError = 7; return 0; }
+            ulong value = BitConverter.ToUInt64(result, 0);
+            if (value == 0) LastTrainerActionError = 8;
+            return value;
+        }
+        catch { LastTrainerActionError = 9; return 0; }
+        finally
+        {
+            if (thread != IntPtr.Zero) CloseHandle(thread);
+            if (safeToFree && remote != IntPtr.Zero) VirtualFreeEx(hProcess, remote, UIntPtr.Zero, MEM_RELEASE);
+        }
+    }
+
+    static void EmitMovFloatXmm1(List<byte> code, float value)
+    {
+        code.Add(0xB8); // mov eax, immediate float bits
+        code.AddRange(BitConverter.GetBytes(value));
+        code.AddRange(new byte[] { 0x66, 0x0F, 0x6E, 0xC8 }); // movd xmm1,eax
+    }
+
+    static void EmitMovFloatXmm2(List<byte> code, float value)
+    {
+        code.Add(0xB8); // mov eax, immediate float bits
+        code.AddRange(BitConverter.GetBytes(value));
+        code.AddRange(new byte[] { 0x66, 0x0F, 0x6E, 0xD0 }); // movd xmm2,eax
+    }
+
+    static void EmitSuccessAndReturn(List<byte> code, ulong resultAddress)
+    {
+        code.AddRange(new byte[] { 0x48, 0xBA }); EmitU64(code, resultAddress);
+        code.AddRange(new byte[] { 0xC6, 0x02, 0x01, 0x31, 0xC0, 0x48, 0x83, 0xC4, 0x28, 0xC3 });
+    }
+
+    public static bool SetShipHealthNative(IntPtr hProcess, ulong moduleBase, ulong healthComponent, float value)
+    {
+        LastTrainerActionError = 0;
+        if (hProcess == IntPtr.Zero || moduleBase < 0x10000UL || healthComponent < 0x10000UL ||
+            Single.IsNaN(value) || Single.IsInfinity(value) || value < 0.0f || value > 10000000.0f)
+        { LastTrainerActionError = 100; return false; }
+
+        ulong setHealth = moduleBase + 0x002A6690UL;
+        if (!HasSignature(hProcess, setHealth, new byte[] { 0x40, 0x53, 0x48, 0x83, 0xEC, 0x50 }))
+        { LastTrainerActionError = 10; return false; }
+
+        const int resultOffset = 0x160;
+        const int codeLength = 0x120;
+        return RunTrainerAction(hProcess, delegate(ulong rb)
+        {
+            byte[] payload = new byte[0x300];
+            List<byte> code = new List<byte>();
+            code.AddRange(new byte[] { 0x48, 0x83, 0xEC, 0x28 });
+            code.AddRange(new byte[] { 0x48, 0xB9 }); EmitU64(code, healthComponent);
+            EmitMovFloatXmm1(code, value);
+            code.AddRange(new byte[] { 0x48, 0xB8 }); EmitU64(code, setHealth);
+            code.AddRange(new byte[] { 0xFF, 0xD0 });
+            EmitSuccessAndReturn(code, rb + resultOffset);
+            Buffer.BlockCopy(code.ToArray(), 0, payload, 0, code.Count);
+            return payload;
+        }, codeLength, resultOffset);
+    }
+
+    public static bool KillShipWithDamageNative(IntPtr hProcess, ulong moduleBase, ulong healthComponent, ulong instigatorPlayerState)
+    {
+        LastTrainerActionError = 0;
+        if (hProcess == IntPtr.Zero || moduleBase < 0x10000UL || healthComponent < 0x10000UL || instigatorPlayerState < 0x10000UL)
+        { LastTrainerActionError = 100; return false; }
+
+        ulong setHealth = moduleBase + 0x002A6690UL;
+        ulong applySimpleDamage = moduleBase + 0x0027C8D0UL;
+        if (!HasSignature(hProcess, setHealth, new byte[] { 0x40, 0x53, 0x48, 0x83, 0xEC, 0x50 }) ||
+            !HasSignature(hProcess, applySimpleDamage, new byte[] { 0x48, 0x89, 0x5C, 0x24, 0x10, 0x48, 0x89, 0x6C, 0x24, 0x18, 0x48, 0x89, 0x74, 0x24, 0x20, 0x57 }))
+        { LastTrainerActionError = 10; return false; }
+
+        const int resultOffset = 0x140;
+        const int codeLength = 0x100;
+        return RunTrainerAction(hProcess, delegate(ulong rb)
+        {
+            byte[] payload = new byte[0x300];
+            List<byte> code = new List<byte>();
+            code.AddRange(new byte[] { 0x48, 0x83, 0xEC, 0x28 });
+            code.AddRange(new byte[] { 0x48, 0xB9 }); EmitU64(code, healthComponent);
+            EmitMovFloatXmm1(code, 1.0f);
+            code.AddRange(new byte[] { 0x48, 0xB8 }); EmitU64(code, setHealth);
+            code.AddRange(new byte[] { 0xFF, 0xD0 });
+            code.AddRange(new byte[] { 0x48, 0xB9 }); EmitU64(code, healthComponent);
+            EmitMovFloatXmm1(code, 2.0f);
+            code.AddRange(new byte[] { 0x49, 0xB8 }); EmitU64(code, instigatorPlayerState);
+            code.AddRange(new byte[] { 0x48, 0xB8 }); EmitU64(code, applySimpleDamage);
+            code.AddRange(new byte[] { 0xFF, 0xD0 });
+            EmitSuccessAndReturn(code, rb + resultOffset);
+            Buffer.BlockCopy(code.ToArray(), 0, payload, 0, code.Count);
+            return payload;
+        }, codeLength, resultOffset);
+    }
+
+    // Read the sector through ShipPawn's SectorPositionableInterface. This is
+    // the same virtual query used by the game and does not change server state.
+    public static ulong GetShipSectorNative(IntPtr hProcess, ulong moduleBase, ulong shipPawn)
+    {
+        LastTrainerActionError = 0;
+        if (hProcess == IntPtr.Zero || moduleBase < 0x10000UL || shipPawn < 0x10000UL)
+        { LastTrainerActionError = 100; return 0; }
+
+        ulong sectorInterface = shipPawn + 0x4B0UL;
+        ulong vtable, getCurrentSector;
+        if (!ReadU64Internal(hProcess, sectorInterface, out vtable) ||
+            !ReadU64Internal(hProcess, vtable + 0x10UL, out getCurrentSector) ||
+            getCurrentSector < moduleBase + 0x1000UL || getCurrentSector >= moduleBase + 0x2200000UL)
+        { LastTrainerActionError = 20; return 0; }
+
+        const int resultOffset = 0x140;
+        const int codeLength = 0x100;
+        return RunTrainerQueryU64(hProcess, delegate(ulong rb)
+        {
+            byte[] payload = new byte[0x300];
+            List<byte> code = new List<byte>();
+            code.AddRange(new byte[] { 0x48, 0x83, 0xEC, 0x28 });
+            code.AddRange(new byte[] { 0x48, 0xB9 }); EmitU64(code, sectorInterface);
+            code.AddRange(new byte[] { 0x48, 0xB8 }); EmitU64(code, getCurrentSector);
+            code.AddRange(new byte[] { 0xFF, 0xD0 });
+            code.AddRange(new byte[] { 0x48, 0xBA }); EmitU64(code, rb + resultOffset);
+            code.AddRange(new byte[] { 0x48, 0x89, 0x02, 0x31, 0xC0, 0x48, 0x83, 0xC4, 0x28, 0xC3 });
+            Buffer.BlockCopy(code.ToArray(), 0, payload, 0, code.Count);
+            return payload;
+        }, codeLength, resultOffset);
+    }
+
+    // Apply one replicated ShipPawn data-store float modifier through the game's
+    // ShipPawnCheatsComponent server implementation. The UFUNCTION thunk at
+    // spserver.exe+0x63C540 dispatches its Implementation through vtable +0x438.
+    // The shipping build's Validate path rejects these trainer-originated calls,
+    // so this local/offline trainer calls the server implementation directly.
+    public static bool SetShipDataStoreModifierFloatNative(
+        IntPtr hProcess,
+        ulong moduleBase,
+        ulong cheatsComponent,
+        string modifier,
+        float value)
+    {
+        LastTrainerActionError = 0;
+        if (hProcess == IntPtr.Zero || moduleBase < 0x10000UL || cheatsComponent < 0x10000UL ||
+            String.IsNullOrWhiteSpace(modifier) || modifier.Length > 64 ||
+            Single.IsNaN(value) || Single.IsInfinity(value))
+        { LastTrainerActionError = 100; return false; }
+
+        ulong vtable, implementationFn;
+        if (!ReadU64Internal(hProcess, cheatsComponent, out vtable) ||
+            !ReadU64Internal(hProcess, vtable + 0x438UL, out implementationFn) ||
+            implementationFn < moduleBase + 0x1000UL || implementationFn >= moduleBase + 0x2200000UL)
+        { LastTrainerActionError = 20; return false; }
+
+        const int resultOffset = 0x140;
+        const int fStringOffset = 0x180;
+        const int textOffset = 0x1A0;
+        const int codeLength = 0x100;
+
+        return RunTrainerAction(hProcess, delegate(ulong rb)
+        {
+            byte[] payload = new byte[0x300];
+            PutFString(payload, fStringOffset, textOffset, rb, modifier);
+
+            List<byte> code = new List<byte>();
+            code.AddRange(new byte[] { 0x48, 0x83, 0xEC, 0x28 }); // sub rsp,28
+
+            // Server Implementation(const FString& Modifier, float FloatValue)
+            code.AddRange(new byte[] { 0x48, 0xB9 }); EmitU64(code, cheatsComponent);
+            code.AddRange(new byte[] { 0x48, 0xBA }); EmitU64(code, rb + (ulong)fStringOffset);
+            EmitMovFloatXmm2(code, value);
+            code.AddRange(new byte[] { 0x48, 0xB8 }); EmitU64(code, implementationFn);
+            code.AddRange(new byte[] { 0xFF, 0xD0 });
+
+            EmitSuccessAndReturn(code, rb + resultOffset);
+            Buffer.BlockCopy(code.ToArray(), 0, payload, 0, code.Count);
+            return payload;
+        }, codeLength, resultOffset);
+    }
+
+
+
+    // Apply the boss modifier through the exact mechanism used by Final Stand:
+    // ShipPawn.StatusEffectReceiverComponent::AddSimpleStatusEffect.
+    // Verified offsets in this spserver build:
+    //   ShipPawn.StatusEffectReceiverComponent = +0x650
+    //   GenericStatusModifier.FloatModifierArray = +0x08
+    //   GenericFloatModifierKeyValue size = 0x18
+    //   StatusEffectInfo size = 0xC0
+    //   StatusEffectInflictorData size = 0x18
+    public static bool ApplyLastStandBossStatusNative(
+        IntPtr hProcess,
+        ulong moduleBase,
+        ulong shipPawn,
+        byte teamId,
+        bool endeavor)
+    {
+        LastTrainerActionError = 0;
+        if (hProcess == IntPtr.Zero || moduleBase < 0x10000UL || shipPawn < 0x10000UL)
+        { LastTrainerActionError = 100; return false; }
+
+        ulong receiver;
+        if (!ReadU64Internal(hProcess, shipPawn + 0x650UL, out receiver) || receiver < 0x10000UL)
+        { LastTrainerActionError = 21; return false; }
+
+        ulong addSimpleStatusEffect = moduleBase + 0x002F6280UL;
+        if (!HasSignature(hProcess, addSimpleStatusEffect,
+            new byte[] { 0x48,0x89,0x5C,0x24,0x08,0x48,0x89,0x6C,0x24,0x10,0x56,0x57,0x41,0x54,0x41,0x56,0x41,0x57 }))
+        { LastTrainerActionError = 10; return false; }
+
+        const int resultOffset = 0x140;
+        const int infoOff = 0x180;       // FStatusEffectInfo, 0xC0 bytes
+        const int modifierOff = 0x240;   // FGenericStatusModifier, 0x68 bytes
+        const int inflictorDataOff = 0x2B0; // FStatusEffectInflictorData, 0x18 bytes
+        const int floatArrayOff = 0x300; // 4 * 0x18
+        const int bossNameTextOff = 0x380;
+        const int text0 = 0x3C0;
+        const int text1 = 0x420;
+        const int text2 = 0x4A0;
+        const int text3 = 0x560;
+        const int codeLength = 0x100;
+        const int blockSize = 0x1000;
+
+        return RunTrainerAction(hProcess, delegate(ulong rb)
+        {
+            byte[] payload = new byte[blockSize];
+
+            // Minimal valid StatusEffectInfo. Zero defaults map to Everyone /
+            // NoStacking / infinite duration in this build. Keep the real boss name.
+            PutFString(payload, infoOff + 0x00, bossNameTextOff, rb, "BOSS BUFF");
+            // Match the cooked Final Stand sentinel metadata values.
+            payload[infoOff + 0xBA] = 0xFF;
+            payload[infoOff + 0xBB] = 0xFF;
+            PutI32(payload, infoOff + 0xBC, unchecked((int)0xFFFFFFFF));
+
+            // GenericStatusModifier.FloatModifierArray at +0x08.
+            PutU64(payload, modifierOff + 0x08, rb + (ulong)floatArrayOff);
+            PutI32(payload, modifierOff + 0x10, 4);
+            PutI32(payload, modifierOff + 0x14, 4);
+
+            float maxHealth = endeavor ? 7500.0f : 10000.0f;
+            float secondaryCd = endeavor ? -0.10f : -0.50f;
+
+            // GenericFloatModifierKeyValue = FString ModifierName @ +0x00,
+            // float FloatValue @ +0x10, total size 0x18.
+            PutFString(payload, floatArrayOff + 0x00, text0, rb, "MaxHealth");
+            Buffer.BlockCopy(BitConverter.GetBytes(maxHealth), 0, payload, floatArrayOff + 0x10, 4);
+
+            PutFString(payload, floatArrayOff + 0x18, text1, rb, "RefireRateModifier");
+            Buffer.BlockCopy(BitConverter.GetBytes(-0.15f), 0, payload, floatArrayOff + 0x28, 4);
+
+            PutFString(payload, floatArrayOff + 0x30, text2, rb, "CooldownModifierSecondary");
+            Buffer.BlockCopy(BitConverter.GetBytes(secondaryCd), 0, payload, floatArrayOff + 0x40, 4);
+
+            PutFString(payload, floatArrayOff + 0x48, text3, rb, "DamageModifier");
+            Buffer.BlockCopy(BitConverter.GetBytes(1.0f), 0, payload, floatArrayOff + 0x58, 4);
+
+            // StatusEffectInflictorData:
+            //   Inflictor UObject* +0x00
+            //   InflictorPlayerState weak ptr +0x08 (left empty)
+            //   Team +0x10
+            PutU64(payload, inflictorDataOff + 0x00, shipPawn);
+            payload[inflictorDataOff + 0x10] = teamId;
+
+            List<byte> code = new List<byte>();
+            code.AddRange(new byte[] { 0x48, 0x83, 0xEC, 0x28 });
+
+            code.AddRange(new byte[] { 0x48, 0xB9 }); EmitU64(code, receiver);                 // rcx=this
+            code.AddRange(new byte[] { 0x48, 0xBA }); EmitU64(code, rb + (ulong)infoOff);     // rdx=StatusEffectInfo*
+            code.AddRange(new byte[] { 0x49, 0xB8 }); EmitU64(code, rb + (ulong)modifierOff); // r8=StatusModifier*
+            code.AddRange(new byte[] { 0x49, 0xB9 }); EmitU64(code, rb + (ulong)inflictorDataOff); // r9=InflictorData*
+            code.AddRange(new byte[] { 0x48, 0xB8 }); EmitU64(code, shipPawn);
+            code.AddRange(new byte[] { 0x48, 0x89, 0x44, 0x24, 0x20 }); // [rsp+20]=Inflictor
+            code.AddRange(new byte[] { 0x48, 0xB8 }); EmitU64(code, addSimpleStatusEffect);
+            code.AddRange(new byte[] { 0xFF, 0xD0 });
+
+            EmitSuccessAndReturn(code, rb + resultOffset);
+            Buffer.BlockCopy(code.ToArray(), 0, payload, 0, code.Count);
+            return payload;
+        }, codeLength, resultOffset, blockSize);
+    }
+
+
+    // Custom stats use the SAME real status-effect path and StatusEffectInfo
+    // container as the working Last Stand boss implementation above.
+    // Only real engine modifier names are supplied by the PowerShell UI.
+    public static bool ApplyCustomStatusNative(
+        IntPtr hProcess,
+        ulong moduleBase,
+        ulong shipPawn,
+        byte teamId,
+        string[] modifierNames,
+        float[] modifierValues)
+    {
+        LastTrainerActionError = 0;
+        if (hProcess == IntPtr.Zero || moduleBase < 0x10000UL || shipPawn < 0x10000UL)
+        { LastTrainerActionError = 100; return false; }
+        if (modifierNames == null || modifierValues == null ||
+            modifierNames.Length == 0 || modifierNames.Length != modifierValues.Length ||
+            modifierNames.Length > 32)
+        { LastTrainerActionError = 101; return false; }
+
+        for (int i = 0; i < modifierNames.Length; i++)
+        {
+            if (String.IsNullOrWhiteSpace(modifierNames[i]) ||
+                Single.IsNaN(modifierValues[i]) || Single.IsInfinity(modifierValues[i]))
+            { LastTrainerActionError = 102; return false; }
+        }
+
+        ulong receiver;
+        if (!ReadU64Internal(hProcess, shipPawn + 0x650UL, out receiver) || receiver < 0x10000UL)
+        { LastTrainerActionError = 21; return false; }
+
+        ulong addSimpleStatusEffect = moduleBase + 0x002F6280UL;
+        if (!HasSignature(hProcess, addSimpleStatusEffect,
+            new byte[] { 0x48,0x89,0x5C,0x24,0x08,0x48,0x89,0x6C,0x24,0x10,0x56,0x57,0x41,0x54,0x41,0x56,0x41,0x57 }))
+        { LastTrainerActionError = 10; return false; }
+
+        const int resultOffset = 0x140;
+        const int infoOff = 0x180;
+        const int modifierOff = 0x240;
+        const int inflictorDataOff = 0x2B0;
+        const int floatArrayOff = 0x300;
+        const int statusNameTextOff = 0x800;
+        const int textBase = 0x900;
+        const int textStride = 0xA0;
+        const int codeLength = 0x100;
+        const int blockSize = 0x3000;
+
+        return RunTrainerAction(hProcess, delegate(ulong rb)
+        {
+            byte[] payload = new byte[blockSize];
+
+            // Keep Custom Stats separate from the real Last Stand boss effect.
+            // SelfStacking +0x95 uses ReplaceExisting (enum value 1), so APPLY
+            // NOW replaces the previous trainer values instead of being ignored.
+            PutFString(payload, infoOff + 0x00, statusNameTextOff, rb, "TRAINER CUSTOM STATS");
+            payload[infoOff + 0x95] = 0x01;
+            payload[infoOff + 0xBA] = 0xFF;
+            payload[infoOff + 0xBB] = 0xFF;
+            PutI32(payload, infoOff + 0xBC, unchecked((int)0xFFFFFFFF));
+
+            // GenericStatusModifier.FloatModifierArray
+            PutU64(payload, modifierOff + 0x08, rb + (ulong)floatArrayOff);
+            PutI32(payload, modifierOff + 0x10, modifierNames.Length);
+            PutI32(payload, modifierOff + 0x14, modifierNames.Length);
+
+            for (int i = 0; i < modifierNames.Length; i++)
+            {
+                int entryOff = floatArrayOff + (i * 0x18);
+                int textOff = textBase + (i * textStride);
+                PutFString(payload, entryOff + 0x00, textOff, rb, modifierNames[i]);
+                Buffer.BlockCopy(BitConverter.GetBytes(modifierValues[i]), 0, payload, entryOff + 0x10, 4);
+            }
+
+            PutU64(payload, inflictorDataOff + 0x00, shipPawn);
+            payload[inflictorDataOff + 0x10] = teamId;
+
+            List<byte> code = new List<byte>();
+            code.AddRange(new byte[] { 0x48, 0x83, 0xEC, 0x28 });
+            code.AddRange(new byte[] { 0x48, 0xB9 }); EmitU64(code, receiver);
+            code.AddRange(new byte[] { 0x48, 0xBA }); EmitU64(code, rb + (ulong)infoOff);
+            code.AddRange(new byte[] { 0x49, 0xB8 }); EmitU64(code, rb + (ulong)modifierOff);
+            code.AddRange(new byte[] { 0x49, 0xB9 }); EmitU64(code, rb + (ulong)inflictorDataOff);
+            code.AddRange(new byte[] { 0x48, 0xB8 }); EmitU64(code, shipPawn);
+            code.AddRange(new byte[] { 0x48, 0x89, 0x44, 0x24, 0x20 });
+            code.AddRange(new byte[] { 0x48, 0xB8 }); EmitU64(code, addSimpleStatusEffect);
+            code.AddRange(new byte[] { 0xFF, 0xD0 });
+
+            EmitSuccessAndReturn(code, rb + resultOffset);
+            Buffer.BlockCopy(code.ToArray(), 0, payload, 0, code.Count);
+            return payload;
+        }, codeLength, resultOffset, blockSize);
+    }
+
+    // Safe v18 ship-change path.
+    //
+    // v15 already proved that the game's own post-gate sequence can commit the
+    // desired ship index + GUID and force an immediate respawn:
+    //   1) ServerUpdateDesiredShipIndexAndGUID(index, GUID)  @ +0x00648370
+    //   2) ServerForceRespawn()                             @ +0x00647790
+    //   3) BP_OnShipSelectionConfirmed(GUID string)         @ +0x00644090
+    //
+    // The missing condition was SpaceGamePlayerState.bUseForcedLoadout (+0x4BD).
+    // While it is 1, respawn can keep rebuilding the old forced ship even though
+    // desiredShipIndex/GUID were successfully changed.
+    //
+    // v18 therefore clears ONLY bUseForcedLoadout, then uses the already-proven
+    // v15 core. It never edits the ForcedLoadout struct, Pawn, or ShipBuilderHandle.
+    public static int LastShipSelectionIndex = -1;
+
+    public static bool ChangeShipViaForceRespawnCoreNative(
+        IntPtr hProcess,
+        ulong moduleBase,
+        ulong playerController,
+        int desiredIndex,
+        string shipGuid)
+    {
+        LastTrainerActionError = 0;
+        LastShipSelectionIndex = desiredIndex;
+
+        if (hProcess == IntPtr.Zero || moduleBase < 0x10000UL || playerController < 0x10000UL)
+        { LastTrainerActionError = 100; return false; }
+
+        if (desiredIndex < 0 || desiredIndex > 255)
+        { LastTrainerActionError = 60; return false; }
+
+        uint ga, gb, gc, gd;
+        if (!TryParseGuid32(shipGuid, out ga, out gb, out gc, out gd))
+        { LastTrainerActionError = 11; return false; }
+
+        ulong serverUpdate   = moduleBase + 0x00648370UL;
+        ulong serverRespawn  = moduleBase + 0x00647790UL;
+        ulong shipConfirmed  = moduleBase + 0x00644090UL;
+
+        // Exact signatures from this supplied spserver.exe.
+        if (!HasSignature(hProcess, serverUpdate,
+            new byte[] { 0x48,0x89,0x5C,0x24,0x08,0x57,0x48,0x83,0xEC,0x40,0x41,0x0F,0x10,0x00 }))
+        { LastTrainerActionError = 61; return false; }
+
+        if (!HasSignature(hProcess, serverRespawn,
+            new byte[] { 0x48,0x89,0x5C,0x24,0x08,0x57,0x48,0x83,0xEC,0x20 }))
+        { LastTrainerActionError = 62; return false; }
+
+        if (!HasSignature(hProcess, shipConfirmed,
+            new byte[] { 0x48,0x89,0x5C,0x24,0x08,0x57,0x48,0x83,0xEC,0x40,0x33,0xC0 }))
+        { LastTrainerActionError = 63; return false; }
+
+        ulong playerState;
+        if (!ReadU64Internal(hProcess, playerController + 0x320UL, out playerState) || playerState < 0x10000UL)
+        { LastTrainerActionError = 20; return false; }
+
+        const int resultOffset = 0x140;
+        const int guidStructOff = 0x180;
+        const int guidFStringOff = 0x1C0;
+        const int guidTextOff = 0x220;
+        const int codeLength = 0x100;
+        const int blockSize = 0x700;
+
+        bool called = RunTrainerAction(hProcess, delegate(ulong rb)
+        {
+            byte[] payload = new byte[blockSize];
+
+            // FGuid for ServerUpdateDesiredShipIndexAndGUID.
+            PutI32(payload, guidStructOff + 0, unchecked((int)ga));
+            PutI32(payload, guidStructOff + 4, unchecked((int)gb));
+            PutI32(payload, guidStructOff + 8, unchecked((int)gc));
+            PutI32(payload, guidStructOff + 12, unchecked((int)gd));
+
+            // FString used by BP_OnShipSelectionConfirmed, exactly like the
+            // built-in ForceRespawn path after converting the selected FGuid.
+            PutFString(payload, guidFStringOff, guidTextOff, rb, shipGuid.ToUpperInvariant());
+
+            List<byte> code = new List<byte>();
+            code.AddRange(new byte[] { 0x48,0x83,0xEC,0x28 });
+
+            // Disable only the forced-loadout selector flag.
+            // C6 80 BD 04 00 00 00 => mov byte ptr [rax+0x4BD], 0
+            code.AddRange(new byte[] { 0x48,0xB8 }); EmitU64(code, playerState);
+            code.AddRange(new byte[] { 0xC6,0x80,0xBD,0x04,0x00,0x00,0x00 });
+
+            // 1) ServerUpdateDesiredShipIndexAndGUID(index, FGuid)
+            code.AddRange(new byte[] { 0x48,0xB9 }); EmitU64(code, playerController);
+            code.Add(0xBA); code.AddRange(BitConverter.GetBytes(unchecked((uint)desiredIndex)));
+            code.AddRange(new byte[] { 0x49,0xB8 }); EmitU64(code, rb + (ulong)guidStructOff);
+            code.AddRange(new byte[] { 0x48,0xB8 }); EmitU64(code, serverUpdate);
+            code.AddRange(new byte[] { 0xFF,0xD0 });
+
+            // 2) ServerForceRespawn(), through the SAME reflected ProcessEvent
+            // wrapper called by module+0x515990 (not the direct implementation).
+            code.AddRange(new byte[] { 0x48,0xB9 }); EmitU64(code, playerController);
+            code.AddRange(new byte[] { 0x48,0xB8 }); EmitU64(code, serverRespawn);
+            code.AddRange(new byte[] { 0xFF,0xD0 });
+
+            // 3) BP_OnShipSelectionConfirmed(GUID string), also exactly like
+            // the built-in path. This is intentionally after ServerForceRespawn.
+            code.AddRange(new byte[] { 0x48,0xB9 }); EmitU64(code, playerController);
+            code.AddRange(new byte[] { 0x48,0xBA }); EmitU64(code, rb + (ulong)guidFStringOff);
+            code.AddRange(new byte[] { 0x48,0xB8 }); EmitU64(code, shipConfirmed);
+            code.AddRange(new byte[] { 0xFF,0xD0 });
+
+            EmitSuccessAndReturn(code, rb + resultOffset);
+            Buffer.BlockCopy(code.ToArray(), 0, payload, 0, code.Count);
+            return payload;
+        }, codeLength, resultOffset, blockSize);
+
+        if (!called) return false;
+
+        // Confirm bUseForcedLoadout really stayed disabled.
+        byte[] forcedFlag = new byte[1];
+        IntPtr forcedRead;
+        if (!ReadProcessMemory(hProcess,
+            new IntPtr(unchecked((long)(playerState + 0x4BDUL))),
+            forcedFlag, 1, out forcedRead) ||
+            forcedRead.ToInt64() != 1 ||
+            forcedFlag[0] != 0)
+        {
+            LastTrainerActionError = 65;
+            return false;
+        }
+
+        // The working v18 RPC sequence has been accepted and the forced-loadout
+        // selector is disabled. Do not treat PlayerState+0x5A0 as the selected
+        // ship index: live testing showed it remains at 38 while the ship really
+        // changes correctly. The replacement Pawn is verified by its own GUID
+        // from PowerShell after this method returns.
+        LastShipSelectionIndex = desiredIndex;
+        LastTrainerActionError = 0;
+        return true;
+    }
+
+    // SpaceGamePlayerController::ServerForceRespawn
+    //
+    // The generated UE4 exec thunk in this exact spserver build is
+    // module+0x00650ED0. Reverse engineering of that thunk shows:
+    //   controller vtable +0xDA0 = ServerForceRespawn_Validate()
+    //   controller vtable +0xDA8 = ServerForceRespawn_Implementation()
+    //
+    // Calling those virtual functions reproduces the game's RPC execution
+    // path without editing Pawn, ShipBuilderHandle or ForcedLoadout manually.
+    public static bool ForceRespawnPlayerNative(
+        IntPtr hProcess,
+        ulong moduleBase,
+        ulong playerController)
+    {
+        LastTrainerActionError = 0;
+
+        if (hProcess == IntPtr.Zero || moduleBase < 0x10000UL || playerController < 0x10000UL)
+        { LastTrainerActionError = 100; return false; }
+
+        ulong execThunk = moduleBase + 0x00650ED0UL;
+        if (!HasSignature(hProcess, execThunk,
+            new byte[] { 0x40,0x53,0x48,0x83,0xEC,0x20,0x48,0x8B,0x42,0x20 }))
+        { LastTrainerActionError = 40; return false; }
+
+        ulong vtable;
+        ulong validateFn;
+        ulong implementationFn;
+
+        if (!ReadU64Internal(hProcess, playerController, out vtable) || vtable < 0x10000UL)
+        { LastTrainerActionError = 41; return false; }
+
+        if (!ReadU64Internal(hProcess, vtable + 0xDA0UL, out validateFn) ||
+            !ReadU64Internal(hProcess, vtable + 0xDA8UL, out implementationFn))
+        { LastTrainerActionError = 42; return false; }
+
+        // Both virtual targets must belong to this executable's .text.
+        ulong textStart = moduleBase + 0x1000UL;
+        ulong textEnd   = moduleBase + 0x02198300UL;
+        if (validateFn < textStart || validateFn >= textEnd ||
+            implementationFn < textStart || implementationFn >= textEnd)
+        { LastTrainerActionError = 43; return false; }
+
+        const int resultOffset = 0x140;
+        const int codeLength = 0x100;
+        const int blockSize = 0x300;
+
+        bool ok = RunTrainerAction(hProcess, delegate(ulong rb)
+        {
+            byte[] payload = new byte[blockSize];
+            List<byte> code = new List<byte>();
+
+            code.AddRange(new byte[] { 0x48,0x83,0xEC,0x28 });
+
+            // ServerForceRespawn_Validate()
+            code.AddRange(new byte[] { 0x48,0xB9 }); EmitU64(code, playerController);
+            code.AddRange(new byte[] { 0x48,0xB8 }); EmitU64(code, validateFn);
+            code.AddRange(new byte[] { 0xFF,0xD0 });
+            code.AddRange(new byte[] { 0x84,0xC0 }); // test al,al
+            int validationFail = EmitJzRel32(code);
+
+            // ServerForceRespawn_Implementation()
+            code.AddRange(new byte[] { 0x48,0xB9 }); EmitU64(code, playerController);
+            code.AddRange(new byte[] { 0x48,0xB8 }); EmitU64(code, implementationFn);
+            code.AddRange(new byte[] { 0xFF,0xD0 });
+
+            EmitSuccessAndReturn(code, rb + resultOffset);
+
+            int failPos = code.Count;
+            // result byte remains 0
+            code.AddRange(new byte[] { 0x31,0xC0,0x48,0x83,0xC4,0x28,0xC3 });
+            PatchRel32(code, validationFail, failPos);
+
+            Buffer.BlockCopy(code.ToArray(), 0, payload, 0, code.Count);
+            return payload;
+        }, codeLength, resultOffset, blockSize);
+
+        return ok;
+    }
+
+    public static bool ApplyBeamTimeDilationFix(IntPtr hProcess, ulong moduleBase)
+    {
+        LastTrainerActionError = 0;
+        if (hProcess == IntPtr.Zero || moduleBase < 0x10000UL)
+        { LastTrainerActionError = 100; return false; }
+
+        ulong instruction = moduleBase + 0x002AA3DCUL;
+        byte[] expected = new byte[] {
+            0xF3,0x0F,0x10,0x80,0x08,0x09,0x00,0x00,
+            0x0F,0x2F,0x87,0xB8,0x0B,0x00,0x00,0x72,0x6B
+        };
+        byte[] current = new byte[expected.Length];
+        IntPtr transferred;
+        if (!ReadProcessMemory(hProcess, new IntPtr(unchecked((long)instruction)), current, current.Length, out transferred) ||
+            transferred.ToInt64() != current.Length)
+        { LastTrainerActionError = 20; return false; }
+
+        bool patched = true;
+        for (int i = 0; i < current.Length; i++)
+        {
+            byte wanted = i == 4 ? (byte)0x00 : expected[i];
+            if (current[i] != wanted) { patched = false; break; }
+        }
+        if (patched) return true;
+
+        for (int i = 0; i < current.Length; i++)
+        {
+            if (current[i] != expected[i])
+            { LastTrainerActionError = 10; return false; }
+        }
+
+        IntPtr patchAddress = new IntPtr(unchecked((long)(instruction + 4UL)));
+        uint oldProtect;
+        if (!VirtualProtectEx(hProcess, patchAddress, new UIntPtr(1), 0x40, out oldProtect))
+        { LastTrainerActionError = 21; return false; }
+
+        bool writeOk = false;
+        try
+        {
+            byte[] value = new byte[] { 0x00 };
+            writeOk = WriteProcessMemory(hProcess, patchAddress, value, 1, out transferred) && transferred.ToInt64() == 1;
+            if (writeOk) FlushInstructionCache(hProcess, patchAddress, new UIntPtr(1));
+        }
+        finally
+        {
+            uint ignored;
+            VirtualProtectEx(hProcess, patchAddress, new UIntPtr(1), oldProtect, out ignored);
+        }
+        if (!writeOk)
+        { LastTrainerActionError = 22; return false; }
+
+        byte[] verify = new byte[1];
+        if (!ReadProcessMemory(hProcess, patchAddress, verify, 1, out transferred) ||
+            transferred.ToInt64() != 1 || verify[0] != 0x00)
+        { LastTrainerActionError = 23; return false; }
+        return true;
+    }
+
+    public static bool SetBotDifficultyNative(IntPtr hProcess, ulong moduleBase, ulong botController, byte difficulty)
+    {
+        LastTrainerActionError = 0;
+        if (hProcess == IntPtr.Zero || moduleBase < 0x10000UL || botController < 0x10000UL || difficulty > 9)
+        { LastTrainerActionError = 100; return false; }
+
+        ulong setter = moduleBase + 0x002DC5F0UL;
+        if (!HasSignature(hProcess, setter, new byte[] { 0x48, 0x89, 0x5C, 0x24, 0x20, 0x55, 0x48, 0x83, 0xEC, 0x70, 0x0F, 0xB6, 0xEA }))
+        { LastTrainerActionError = 10; return false; }
+
+        const int resultOffset = 0x140;
+        const int codeLength = 0x100;
+        return RunTrainerAction(hProcess, delegate(ulong rb)
+        {
+            byte[] payload = new byte[0x300];
+            List<byte> code = new List<byte>();
+            code.AddRange(new byte[] { 0x48, 0x83, 0xEC, 0x28 });
+            code.AddRange(new byte[] { 0x48, 0xB9 }); EmitU64(code, botController);
+            code.Add(0xBA); code.AddRange(BitConverter.GetBytes((uint)difficulty));
+            code.AddRange(new byte[] { 0x48, 0xB8 }); EmitU64(code, setter);
+            code.AddRange(new byte[] { 0xFF, 0xD0 });
+            EmitSuccessAndReturn(code, rb + resultOffset);
+            Buffer.BlockCopy(code.ToArray(), 0, payload, 0, code.Count);
+            return payload;
+        }, codeLength, resultOffset);
+    }
+
+
 }
 "@
 
@@ -1311,10 +2085,14 @@ $DEREF_TO_SHIP_OFFSETS = @(
 # Offsets verified directly from the supplied spserver.exe reflection tables.
 $ACTOR_OWNER_OFFSET = [int64]0x108
 $UOBJECT_OUTER_OFFSET = [int64]0x20
-$LEVEL_ACTORS_OFFSET = [int64]0x28
+$LEVEL_ACTORS_OFFSET = [int64]0xA0
 $LEVEL_OWNING_WORLD_OFFSET = [int64]0xC0
 $WORLD_PERSISTENT_LEVEL_OFFSET = [int64]0x30
 $WORLD_GAMESTATE_OFFSET = [int64]0xF8
+$WORLD_LEVELS_OFFSET = [int64]0x110
+$ACTOR_ROOT_COMPONENT_OFFSET = [int64]0x158
+$SCENE_COMPONENT_WORLD_LOCATION_OFFSET = [int64]0x15C
+$GNAMES_OFFSET = [int64]0x34CFDF8
 $GAMESTATE_PLAYERARRAY_OFFSET = [int64]0x330
 $CONTROLLER_PLAYERSTATE_OFFSET = [int64]0x320
 $CONTROLLER_PAWN_OFFSET = [int64]0x348
@@ -1388,6 +2166,7 @@ $script:EnemyGodEnabled = $false
 $script:PlayerStateAddresses = @()
 $script:TeamLocks = @{}
 $script:EnemyLocks = @{}
+$script:TeamGodExclusions = @{ Allies = @{}; Enemies = @{} }
 $script:LastEnemyTeamId = -1
 $script:ScanningPlayers = $false
 $script:ScanAttempted = $false
@@ -1402,6 +2181,7 @@ $script:PawnCache = @{}
 $script:PawnClassNameCache = @{}
 $script:ShipGuidCache = @{}
 $script:CurrentLevelAddress = [int64]0
+$script:CurrentWorldAddress = [int64]0
 $script:LastDirectDiscoveryDetail = "not run"
 $script:SpawnedBotNames = @{}
 $script:PendingSpawnControllers = @()
@@ -1416,6 +2196,7 @@ function Clear-TeamState {
     $script:PlayerStateAddresses = @()
     $script:TeamLocks = @{}
     $script:EnemyLocks = @{}
+    $script:TeamGodExclusions = @{ Allies = @{}; Enemies = @{} }
     $script:LastEnemyTeamId = -1
     $script:ScanningPlayers = $false
     $script:ScanAttempted = $false
@@ -1430,6 +2211,7 @@ function Clear-TeamState {
     $script:PawnClassNameCache = @{}
     $script:ShipGuidCache = @{}
     $script:CurrentLevelAddress = [int64]0
+$script:CurrentWorldAddress = [int64]0
     $script:LastDirectDiscoveryDetail = "not run"
     $script:SpawnedBotNames = @{}
     $script:PendingSpawnControllers = @()
@@ -1442,7 +2224,7 @@ function Clear-TeamState {
 }
 
 function Close-ServerHandle {
-    if ($script:ProcessHandle -ne [IntPtr]::Zero) {
+    if ($null -ne $script:ProcessHandle -and $script:ProcessHandle -ne [IntPtr]::Zero) {
         [void][NativeMemoryV4]::CloseHandle($script:ProcessHandle)
     }
     $script:ServerProcess = $null
@@ -1481,6 +2263,7 @@ function Connect-Server {
     } catch {
         return $false
     }
+    if ($null -eq $base -or $base -eq [IntPtr]::Zero) { return $false }
 
     $handle = [NativeMemoryV4]::OpenProcess($PROCESS_ACCESS, $false, $proc.Id)
     if ($handle -eq [IntPtr]::Zero) {
@@ -1550,6 +2333,19 @@ function Write-F32([IntPtr]$Address, [single]$Value) {
         4,
         [ref]$bytesWritten)
     return ($ok -and $bytesWritten.ToInt64() -eq 4)
+}
+
+function Write-U8([IntPtr]$Address, [byte]$Value) {
+    if ($script:ProcessHandle -eq [IntPtr]::Zero) { return $false }
+    [byte[]]$buffer = @($Value)
+    [IntPtr]$bytesWritten = [IntPtr]::Zero
+    $ok = [NativeMemoryV4]::WriteProcessMemory(
+        $script:ProcessHandle,
+        $Address,
+        $buffer,
+        1,
+        [ref]$bytesWritten)
+    return ($ok -and $bytesWritten.ToInt64() -eq 1)
 }
 
 function Read-I32([IntPtr]$Address) {
@@ -1730,7 +2526,10 @@ function Get-ShipNameFromPlayerState([int64]$PlayerStateAddress, [int64]$ShipAdd
 
 function Is-PlausiblePointer($Value) {
     if ($null -eq $Value) { return $false }
-    try { return ([uint64]$Value -ge [uint64]0x10000) } catch { return $false }
+    try {
+        [uint64]$v = [uint64]$Value
+        return ($v -ge [uint64]0x10000 -and $v -le [uint64]0x00007FFFFFFFFFFF)
+    } catch { return $false }
 }
 
 function Is-PlausibleHealth($Value) {
@@ -1741,7 +2540,7 @@ function Is-PlausibleHealth($Value) {
 }
 
 function Resolve-PlayerShipAddress {
-    if ($script:ModuleBase -eq [IntPtr]::Zero) { return $null }
+    if ($null -eq $script:ModuleBase -or $script:ModuleBase -eq [IntPtr]::Zero) { return $null }
 
     $baseAddress = [IntPtr]($script:ModuleBase.ToInt64() + $BASE_OFFSET)
     $ptr = Read-U64 $baseAddress
@@ -1790,6 +2589,10 @@ function Get-LocalPlayerStateInfo {
 
 function Get-EnemyTeamId {
     $local = Get-LocalPlayerStateInfo
+    if ($null -eq $local -and $null -ne $script:Sb -and (Is-PlausiblePointer $script:Sb.LocalPlayerState)) {
+        $cachedTeam = Read-U8 ([IntPtr]([int64]$script:Sb.LocalPlayerState + $PLAYERSTATE_TEAM_OFFSET))
+        if ($null -ne $cachedTeam) { $local = [pscustomobject]@{Ship=0L;PlayerState=[int64]$script:Sb.LocalPlayerState;Team=[int]$cachedTeam;ClassPtr=[uint64]$script:Sb.LocalClassPtr} }
+    }
     if ($null -eq $local) { return -1 }
 
     # Prefer the real GameState.PlayerArray so we do not guess team ids.
@@ -1893,13 +2696,20 @@ function Resolve-ShipFromPlayerState([int64]$PlayerStateAddress) {
 
 function Get-DirectPlayerStateSnapshot {
     $local = Get-LocalPlayerStateInfo
+    $level = [uint64]0
     if ($null -eq $local) {
-        return [pscustomobject]@{ Success=$false; States=@(); Level=[int64]0; Detail="local ship/player state not ready" }
+        if ($null -ne $script:Sb -and (Is-PlausiblePointer $script:Sb.LocalPlayerState) -and (Is-PlausiblePointer $script:Sb.Level)) {
+            $cachedTeam = Read-U8 ([IntPtr]([int64]$script:Sb.LocalPlayerState + $PLAYERSTATE_TEAM_OFFSET))
+            $local = [pscustomobject]@{Ship=0L;PlayerState=[int64]$script:Sb.LocalPlayerState;Team=[int]$cachedTeam;ClassPtr=[uint64]$script:Sb.LocalClassPtr}
+            $level = [uint64]$script:Sb.Level
+        } else {
+            return [pscustomobject]@{ Success=$false; States=@(); Level=[int64]0; Detail="local player context not ready" }
+        }
+    } else {
+        $level = Read-U64 ([IntPtr]([int64]$local.Ship + $UOBJECT_OUTER_OFFSET))
     }
-
-    $level = Read-U64 ([IntPtr]([int64]$local.Ship + $UOBJECT_OUTER_OFFSET))
     if (-not (Is-PlausiblePointer $level)) {
-        return [pscustomobject]@{ Success=$false; States=@([int64]$local.PlayerState); Level=[int64]0; Detail="ship -> level failed" }
+        return [pscustomobject]@{ Success=$false; States=@([int64]$local.PlayerState); Level=[int64]0; Detail="player context -> level failed" }
     }
 
     $world = Read-U64 ([IntPtr]([int64]$level + $LEVEL_OWNING_WORLD_OFFSET))
@@ -2081,10 +2891,14 @@ function Poll-PlayerStateDiscovery {
     return
 }
 
-function Update-TeamGod([int]$TargetTeam, $Locks, $InfoLabel, [string]$Prefix, [bool]$Enabled, [bool]$MajorOnly = $false) {
+function Update-TeamGod([int]$TargetTeam, $Locks, $Exclusions, $InfoLabel, [string]$Prefix, [bool]$Enabled, [bool]$MajorOnly = $false) {
     if (-not $Enabled) { return }
 
     $local = Get-LocalPlayerStateInfo
+    if ($null -eq $local -and $null -ne $script:Sb -and (Is-PlausiblePointer $script:Sb.LocalPlayerState)) {
+        $cachedTeam = Read-U8 ([IntPtr]([int64]$script:Sb.LocalPlayerState + $PLAYERSTATE_TEAM_OFFSET))
+        if ($null -ne $cachedTeam) { $local = [pscustomobject]@{Ship=0L;PlayerState=[int64]$script:Sb.LocalPlayerState;Team=[int]$cachedTeam;ClassPtr=[uint64]$script:Sb.LocalClassPtr} }
+    }
     if ($null -eq $local) {
         $InfoLabel.Text = "$Prefix bots: waiting for your ship..."
         $InfoLabel.ForeColor = [System.Drawing.Color]::Khaki
@@ -2115,6 +2929,8 @@ function Update-TeamGod([int]$TargetTeam, $Locks, $InfoLabel, [string]$Prefix, [
 
         $team = Read-U8 ([IntPtr]($psAddr + $PLAYERSTATE_TEAM_OFFSET))
         if ($null -eq $team -or [int]$team -ne $TargetTeam) { continue }
+        $key = "{0:X}" -f [uint64]$psAddr
+        if ($Exclusions.ContainsKey($key)) { [void]$Locks.Remove($key); continue }
 
         $ship = Resolve-ShipFromPlayerState $psAddr
         if ($null -eq $ship) { $waitingForShip++; continue }
@@ -2128,7 +2944,6 @@ function Update-TeamGod([int]$TargetTeam, $Locks, $InfoLabel, [string]$Prefix, [
         $hp = Read-F32 ([IntPtr]$healthAddress)
         if (-not (Is-PlausibleHealth $hp)) { $waitingForShip++; continue }
 
-        $key = "{0:X}" -f [uint64]$psAddr
         $lock = $Locks[$key]
         if ($null -eq $lock -or [int64]$lock.HealthAddress -ne $healthAddress) {
             $lock = [pscustomobject]@{
@@ -2161,6 +2976,10 @@ function Update-TeamGod([int]$TargetTeam, $Locks, $InfoLabel, [string]$Prefix, [
 
 function Update-AllyGod {
     $local = Get-LocalPlayerStateInfo
+    if ($null -eq $local -and $null -ne $script:Sb -and (Is-PlausiblePointer $script:Sb.LocalPlayerState)) {
+        $cachedTeam = Read-U8 ([IntPtr]([int64]$script:Sb.LocalPlayerState + $PLAYERSTATE_TEAM_OFFSET))
+        if ($null -ne $cachedTeam) { $local = [pscustomobject]@{Ship=0L;PlayerState=[int64]$script:Sb.LocalPlayerState;Team=[int]$cachedTeam;ClassPtr=[uint64]$script:Sb.LocalClassPtr} }
+    }
     if ($null -eq $local) {
         if ($script:AllyGodEnabled) {
             $allyInfoLabel.Text = "Allied bots: waiting for your ship..."
@@ -2168,12 +2987,12 @@ function Update-AllyGod {
         }
         return
     }
-    Update-TeamGod ([int]$local.Team) $script:TeamLocks $allyInfoLabel "Allied" $script:AllyGodEnabled
+    Update-TeamGod ([int]$local.Team) $script:TeamLocks $script:TeamGodExclusions.Allies $allyInfoLabel "Allied" $script:AllyGodEnabled
 }
 
 function Update-EnemyGod {
     $enemyTeam = Get-EnemyTeamId
-    Update-TeamGod ([int]$enemyTeam) $script:EnemyLocks $enemyInfoLabel "Enemy" $script:EnemyGodEnabled $true
+    Update-TeamGod ([int]$enemyTeam) $script:EnemyLocks $script:TeamGodExclusions.Enemies $enemyInfoLabel "Enemy" $script:EnemyGodEnabled $true
 }
 
 function Register-TrackedAlly([int64]$Controller, [string]$ShipName, [int]$Team, [string]$BotName) {
@@ -2707,6 +3526,10 @@ function Get-LiveTeamRows([int]$TargetTeam, [bool]$GodEnabled, $Locks) {
     if ($TargetTeam -lt 0) { return @($rows) }
     if (-not (Connect-Server)) { return @($rows) }
     $local = Get-LocalPlayerStateInfo
+    if ($null -eq $local -and $null -ne $script:Sb -and (Is-PlausiblePointer $script:Sb.LocalPlayerState)) {
+        $cachedTeam = Read-U8 ([IntPtr]([int64]$script:Sb.LocalPlayerState + $PLAYERSTATE_TEAM_OFFSET))
+        if ($null -ne $cachedTeam) { $local = [pscustomobject]@{Ship=0L;PlayerState=[int64]$script:Sb.LocalPlayerState;Team=[int]$cachedTeam;ClassPtr=[uint64]$script:Sb.LocalClassPtr} }
+    }
     if ($null -eq $local) { return @($rows) }
 
     $seenControllers = @{}
@@ -2789,6 +3612,10 @@ function Get-LiveTeamRows([int]$TargetTeam, [bool]$GodEnabled, $Locks) {
 
 function Get-LiveAllyRows {
     $local = Get-LocalPlayerStateInfo
+    if ($null -eq $local -and $null -ne $script:Sb -and (Is-PlausiblePointer $script:Sb.LocalPlayerState)) {
+        $cachedTeam = Read-U8 ([IntPtr]([int64]$script:Sb.LocalPlayerState + $PLAYERSTATE_TEAM_OFFSET))
+        if ($null -ne $cachedTeam) { $local = [pscustomobject]@{Ship=0L;PlayerState=[int64]$script:Sb.LocalPlayerState;Team=[int]$cachedTeam;ClassPtr=[uint64]$script:Sb.LocalClassPtr} }
+    }
     if ($null -eq $local) { return @() }
     return @(Get-LiveTeamRows ([int]$local.Team) $script:AllyGodEnabled $script:TeamLocks)
 }
@@ -3087,7 +3914,7 @@ function Invoke-DeleteAllEnemies {
 
 # ---------------- UI ----------------
 $form = New-Object System.Windows.Forms.Form
-$form.Text = "Fractured Space - Solo Trainer (Team Manager FIX13)"
+$form.Text = "Fractured Space - v20 LOADING"
 $form.Size = New-Object System.Drawing.Size(940, 890)
 $form.StartPosition = "CenterScreen"
 $form.FormBorderStyle = "FixedSingle"
@@ -3100,15 +3927,15 @@ $title = New-Object System.Windows.Forms.Label
 $title.Text = "FRACTURED SPACE - SOLO TRAINER"
 $title.Font = New-Object System.Drawing.Font("Segoe UI", 15, [System.Drawing.FontStyle]::Bold)
 $title.Location = New-Object System.Drawing.Point(20, 18)
-$title.Size = New-Object System.Drawing.Size(870, 32)
+$title.Size = New-Object System.Drawing.Size(380, 32)
 $form.Controls.Add($title)
 
 $subtitle = New-Object System.Windows.Forms.Label
-$subtitle.Text = "Local spserver.exe only"
+$subtitle.Text = ""
 $subtitle.Font = New-Object System.Drawing.Font("Segoe UI", 9)
 $subtitle.ForeColor = [System.Drawing.Color]::FromArgb(170, 175, 185)
 $subtitle.Location = New-Object System.Drawing.Point(22, 51)
-$subtitle.Size = New-Object System.Drawing.Size(870, 22)
+$subtitle.Size = New-Object System.Drawing.Size(380, 22)
 $form.Controls.Add($subtitle)
 
 $statusLabel = New-Object System.Windows.Forms.Label
@@ -3116,7 +3943,7 @@ $statusLabel.Text = "Server: waiting for spserver.exe..."
 $statusLabel.Font = New-Object System.Drawing.Font("Segoe UI", 10, [System.Drawing.FontStyle]::Bold)
 $statusLabel.ForeColor = [System.Drawing.Color]::Orange
 $statusLabel.Location = New-Object System.Drawing.Point(22, 83)
-$statusLabel.Size = New-Object System.Drawing.Size(870, 24)
+$statusLabel.Size = New-Object System.Drawing.Size(380, 24)
 $form.Controls.Add($statusLabel)
 
 $healthLabel = New-Object System.Windows.Forms.Label
@@ -3461,10 +4288,11 @@ $godButton.Add_Click({
     }
 })
 
-$allyButton.Add_Click({
+function Toggle-AlliedBotGodMode {
     if (-not $script:AllyGodEnabled) {
         if (-not (Connect-Server)) { return }
         $local = Get-LocalPlayerStateInfo
+        if ($null -eq $local -and $null -ne $script:Sb) { try { $local = Sb-GetLocalContext } catch { } }
         if ($null -eq $local) { return }
         $script:AllyGodEnabled = $true
         $script:TeamLocks = @{}
@@ -3485,12 +4313,14 @@ $allyButton.Add_Click({
         $allyInfoLabel.ForeColor = [System.Drawing.Color]::FromArgb(170, 175, 185)
         $script:LastRosterSignature = ""
     }
-})
+}
+$allyButton.Add_Click({ Toggle-AlliedBotGodMode })
 
-$enemyGodButton.Add_Click({
+function Toggle-EnemyBotGodMode {
     if (-not $script:EnemyGodEnabled) {
         if (-not (Connect-Server)) { return }
         $local = Get-LocalPlayerStateInfo
+        if ($null -eq $local -and $null -ne $script:Sb) { try { $local = Sb-GetLocalContext } catch { } }
         if ($null -eq $local) { return }
         $enemyTeam = Get-EnemyTeamId
         if ($enemyTeam -lt 0 -or $enemyTeam -eq [int]$local.Team) {
@@ -3517,7 +4347,8 @@ $enemyGodButton.Add_Click({
         $enemyInfoLabel.ForeColor = [System.Drawing.Color]::FromArgb(170, 175, 185)
         $script:LastEnemyRosterSignature = ""
     }
-})
+}
+$enemyGodButton.Add_Click({ Toggle-EnemyBotGodMode })
 
 $spawnButton.Add_Click({ Invoke-SpawnAlliedBot })
 $enemySpawnButton.Add_Click({ Invoke-SpawnEnemyBot })
@@ -3527,50 +4358,53 @@ $enemyDeleteButton.Add_Click({ Invoke-DeleteSelectedEnemy })
 $enemyDeleteAllButton.Add_Click({ Invoke-DeleteAllEnemies })
 
 $timer = New-Object System.Windows.Forms.Timer
-$timer.Interval = 50
+$timer.Interval = 100
 $timer.Add_Tick({
     if (-not (Connect-Server)) { Set-DisconnectedUi; return }
     Set-ConnectedUi -ProcessId $script:ConnectedProcessId
+    $mapInteracting=($null-ne$script:Sb-and($script:Sb.MapDrag-or($null-ne$sbMapZoomTimer-and$sbMapZoomTimer.Enabled)))
 
-    $addr = Resolve-HealthAddress
-    if ($null -eq $addr) {
-        $healthLabel.Text = "Your HP: waiting for ship..."
-    } else {
-        $hp = Read-F32 $addr
-        if (-not (Is-PlausibleHealth $hp)) {
+    if(-not$mapInteracting-or$script:GodEnabled){
+        $addr = Resolve-HealthAddress
+        if ($null -eq $addr) {
             $healthLabel.Text = "Your HP: waiting for ship..."
         } else {
-            if ($script:GodEnabled -and ($script:LastHealthAddress -eq 0 -or $addr.ToInt64() -ne $script:LastHealthAddress)) { $script:LockedHealth = [single]$hp }
-            $script:LastHealthAddress = $addr.ToInt64()
-            if ($script:GodEnabled) {
-                if (Write-F32 $addr $script:LockedHealth) { $healthLabel.Text = ("Your HP: {0:0.##}  (locked)" -f $script:LockedHealth) }
-                else { $healthLabel.Text = "Your HP: write failed" }
-            } else { $healthLabel.Text = ("Your HP: {0:0.##}" -f [double]$hp) }
+            $hp = Read-F32 $addr
+            if (-not (Is-PlausibleHealth $hp)) {
+                $healthLabel.Text = "Your HP: waiting for ship..."
+            } else {
+                if ($script:GodEnabled -and ($script:LastHealthAddress -eq 0 -or $addr.ToInt64() -ne $script:LastHealthAddress)) { $script:LockedHealth = [single]$hp }
+                $script:LastHealthAddress = $addr.ToInt64()
+                if ($script:GodEnabled) {
+                    if (Write-F32 $addr $script:LockedHealth) { $healthLabel.Text = ("Your HP: {0:0.##}  (locked)" -f $script:LockedHealth) }
+                    else { $healthLabel.Text = "Your HP: write failed" }
+                } else { $healthLabel.Text = ("Your HP: {0:0.##}" -f [double]$hp) }
+            }
         }
     }
 
-    Pump-PendingSpawnControllers
+    if(-not$mapInteracting){Pump-PendingSpawnControllers}
 
-    if (($script:AllyGodEnabled -or $script:EnemyGodEnabled) -and $script:SpawnRescanAt -ne [DateTime]::MinValue -and [DateTime]::UtcNow -ge $script:SpawnRescanAt) {
+    if (-not$mapInteracting-and($script:AllyGodEnabled -or $script:EnemyGodEnabled) -and $script:SpawnRescanAt -ne [DateTime]::MinValue -and [DateTime]::UtcNow -ge $script:SpawnRescanAt) {
         $script:SpawnRescanAt = [DateTime]::MinValue
         if (-not $script:ScanningPlayers) { [void](Start-PlayerStateDiscovery $true) }
     }
 
     Poll-PlayerStateDiscovery
 
-    if (($script:AllyGodEnabled -or $script:EnemyGodEnabled) -and -not $script:ScanningPlayers -and
+    if (-not$mapInteracting-and($script:AllyGodEnabled -or $script:EnemyGodEnabled) -and -not $script:ScanningPlayers -and
         $script:NextAutoRescanAt -ne [DateTime]::MinValue -and [DateTime]::UtcNow -ge $script:NextAutoRescanAt) {
         $script:NextAutoRescanAt = [DateTime]::UtcNow.AddSeconds(10)
         [void](Start-PlayerStateDiscovery $true)
     }
 
-    if (-not $script:ScanningPlayers -and $script:NextRosterRefreshAt -ne [DateTime]::MinValue -and [DateTime]::UtcNow -ge $script:NextRosterRefreshAt) {
-        $script:NextRosterRefreshAt = [DateTime]::UtcNow.AddMilliseconds(600)
+    if (-not$mapInteracting-and-not $script:ScanningPlayers -and $script:NextRosterRefreshAt -ne [DateTime]::MinValue -and [DateTime]::UtcNow -ge $script:NextRosterRefreshAt) {
+        $script:NextRosterRefreshAt = [DateTime]::UtcNow.AddMilliseconds(1500)
         [void](Start-PlayerStateDiscovery $true)
     }
 
-    if ([DateTime]::UtcNow -ge $script:NextRosterUiAt) {
-        $script:NextRosterUiAt = [DateTime]::UtcNow.AddMilliseconds(750)
+    if (-not$mapInteracting-and[DateTime]::UtcNow -ge $script:NextRosterUiAt) {
+        $script:NextRosterUiAt = [DateTime]::UtcNow.AddMilliseconds(1000)
         Refresh-AllyRosterUI $false
         Refresh-EnemyRosterUI $false
     }
@@ -3584,5 +4418,6 @@ $form.Add_FormClosed({
     Close-ServerHandle
 })
 
+. (Join-Path $PSScriptRoot 'Sandbox_v20.ps1')
 $timer.Start()
 [void]$form.ShowDialog()
