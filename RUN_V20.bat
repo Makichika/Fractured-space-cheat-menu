@@ -9,7 +9,7 @@ if not exist "%~dp0FracturedSpaceSoloTrainer_v20.ps1" (
     exit /b 1
 )
 
-"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -STA -File "%~dp0FracturedSpaceSoloTrainer_v20.ps1"
+"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -ExecutionPolicy RemoteSigned -STA -File "%~dp0FracturedSpaceSoloTrainer_v20.ps1"
 
 if errorlevel 1 (
     echo.
