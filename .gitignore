@@ -1,0 +1,12 @@
+# Runtime/debug files
+data/trainer-debug.log
+*.log
+
+# PowerShell temporary files
+*.tmp
+
+# OS/editor files
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/
