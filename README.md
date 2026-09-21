@@ -1,45 +1,45 @@
 # Fractured Space Solo Trainer v20
 
-Trainer destiné au serveur solo/local `spserver.exe` de Fractured Space.
+Trainer designed for the local/single-player `spserver.exe` server used by Fractured Space.
 
-## IMPORTANT — avant d'extraire le ZIP
+## IMPORTANT — before extracting the ZIP
 
-Si tu télécharges le trainer sous forme de fichier ZIP et que Windows affiche l'option **Débloquer** :
+If you download the trainer as a ZIP file and Windows shows an **Unblock** option:
 
-1. **Avant d'extraire le ZIP**, fais clic droit sur le fichier ZIP → **Propriétés**.
-2. Dans l'onglet **Général**, tout en bas, coche **Débloquer**.
-3. Clique sur **Appliquer**, puis **OK**.
-4. Extrais seulement ensuite le contenu du ZIP.
+1. **Before extracting the ZIP**, right-click the ZIP file → **Properties**.
+2. In the **General** tab, at the bottom, check **Unblock**.
+3. Click **Apply**, then **OK**.
+4. Only then extract the contents of the ZIP.
 
-Fais cette manipulation uniquement pour l'archive téléchargée depuis le dépôt/release officiel et après avoir vérifié sa provenance. Cela enlève le marquage Windows « téléchargé depuis Internet » du ZIP ; cela ne désactive pas Microsoft Defender ni Smart App Control.
+Only do this for an archive downloaded from the official repository/release and after verifying its source. This removes Windows' “downloaded from the Internet” mark from the ZIP; it does **not** disable Microsoft Defender or Smart App Control.
 
-## Utilisation
+## Usage
 
-1. Lance Fractured Space.
-2. Ouvre une partie/secteur local afin que `spserver.exe` soit démarré.
-3. Lance `RUN_V20.bat`.
-4. Utilise le trainer comme avant.
+1. Launch Fractured Space.
+2. Start a local/single-player match so that `spserver.exe` is running.
+3. Launch `RUN_V20.bat`.
+4. Use the trainer as usual.
 
-## Changements de cette distribution
+## Changes in this distribution
 
-- La logique du trainer n'a pas été modifiée.
-- `FracturedSpaceSoloTrainer_v20.ps1` est inchangé.
-- `Sandbox_v20.ps1` est inchangé.
-- `data/ship-systems.json` est inchangé.
-- Le lanceur ne force plus `-ExecutionPolicy Bypass`.
-- `data/trainer-debug.log` n'est plus distribué : le trainer le recrée localement si nécessaire.
-- Des hashes SHA-256 sont fournis dans `SHA256SUMS.txt`.
+- The trainer's core logic has not been modified.
+- `FracturedSpaceSoloTrainer_v20.ps1` is unchanged.
+- `Sandbox_v20.ps1` is unchanged.
+- `data/ship-systems.json` is unchanged.
+- The launcher no longer forces `-ExecutionPolicy Bypass`.
+- `data/trainer-debug.log` is no longer distributed; the trainer recreates it locally when needed.
+- SHA-256 checksums are provided in `SHA256SUMS.txt`.
 
-## Pourquoi Windows peut encore avertir
+## Why Windows may still show a warning
 
-Le trainer travaille avec la mémoire de `spserver.exe` et utilise notamment des API Windows telles que `OpenProcess`, `ReadProcessMemory`, `WriteProcessMemory`, `VirtualAllocEx`, `VirtualProtectEx` et `CreateRemoteThread`.
+The trainer interacts with the memory of `spserver.exe` and uses Windows APIs such as `OpenProcess`, `ReadProcessMemory`, `WriteProcessMemory`, `VirtualAllocEx`, `VirtualProtectEx`, and `CreateRemoteThread`.
 
-Ces techniques sont aussi utilisées par certains logiciels malveillants ; une protection heuristique peut donc avertir même si le projet est publié avec son code source.
+These techniques are also used by some malicious software, so heuristic security systems may still display a warning even when the project is open source.
 
-Cette distribution n'essaie pas de désactiver Defender, Smart App Control ou AMSI, et n'essaie pas de masquer ces opérations.
+This distribution does not attempt to disable Defender, Smart App Control, or AMSI, and does not attempt to hide these operations.
 
 ## Important
 
-Ne désactive pas Windows Defender ou Smart App Control pour exécuter le trainer.
+Do not disable Windows Defender or Smart App Control to run the trainer.
 
-Pour une distribution publique avec moins d'avertissements, la prochaine étape correcte est de signer les scripts/releases avec un certificat de signature de code et de conserver des builds reproductibles avec les hashes publiés.
+For a public distribution with fewer warnings, the proper next step is to sign the scripts/releases with a code-signing certificate and keep reproducible builds with published checksums.
