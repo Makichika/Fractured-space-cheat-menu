@@ -2,6 +2,17 @@
 
 Trainer destiné au serveur solo/local `spserver.exe` de Fractured Space.
 
+## IMPORTANT — avant d'extraire le ZIP
+
+Si tu télécharges le trainer sous forme de fichier ZIP et que Windows affiche l'option **Débloquer** :
+
+1. **Avant d'extraire le ZIP**, fais clic droit sur le fichier ZIP → **Propriétés**.
+2. Dans l'onglet **Général**, tout en bas, coche **Débloquer**.
+3. Clique sur **Appliquer**, puis **OK**.
+4. Extrais seulement ensuite le contenu du ZIP.
+
+Fais cette manipulation uniquement pour l'archive téléchargée depuis le dépôt/release officiel et après avoir vérifié sa provenance. Cela enlève le marquage Windows « téléchargé depuis Internet » du ZIP ; cela ne désactive pas Microsoft Defender ni Smart App Control.
+
 ## Utilisation
 
 1. Lance Fractured Space.
