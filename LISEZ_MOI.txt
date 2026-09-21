@@ -1,5 +1,0 @@
-FRACTURED SPACE v20
-
-Lance uniquement : RUN_V20.bat
-
-Custom Stats revient au timing de la v18 : aucun delai fixe. Le trainer attend seulement qu'un nouveau Pawn ait un StatusEffectReceiver et un GUID valides, puis applique immediatement.
