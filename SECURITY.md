@@ -1,14 +1,7 @@
 # Sécurité et provenance
 
-Ce projet modifie uniquement le processus local `spserver.exe` afin de fournir les fonctions du trainer.
+Ce projet est destiné au serveur solo local `spserver.exe`. Il lit et modifie la mémoire de ce processus et y exécute du code pour certaines actions. Ces opérations peuvent déclencher une alerte heuristique de Windows.
 
-La version distribuée ici :
-- ne désactive pas Microsoft Defender ;
-- ne modifie pas Smart App Control ;
-- ne crée pas de tâche planifiée ou service de persistance ;
-- ne télécharge pas de payload distant ;
-- ne contient pas `trainer-debug.log` dans la release.
+Les scripts publiés ne désactivent pas Microsoft Defender ou Smart App Control, ne créent pas de tâche planifiée ni de service, et ne téléchargent pas de code distant. `RUN_V20.bat` utilise `-ExecutionPolicy Bypass` pour son seul processus PowerShell ; il ne modifie pas la politique du système.
 
-Les fonctions d'accès/injection mémoire déjà nécessaires au trainer sont conservées, car les retirer casserait certaines fonctions.
-
-Vérifie `SHA256SUMS.txt` pour contrôler l'intégrité des fichiers.
+`data/trainer-debug.log` peut être créé localement, mais il est exclu du dépôt. Vérifie les empreintes de `SHA256SUMS.txt` pour contrôler les fichiers publiés. N'exécute le menu qu'à partir d'une source que tu reconnais.

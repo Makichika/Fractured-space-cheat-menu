@@ -66,6 +66,9 @@ public static class NativeMemoryV4
     [return: MarshalAs(UnmanagedType.Bool)]
     public static extern bool FlushInstructionCache(IntPtr hProcess, IntPtr lpBaseAddress, UIntPtr dwSize);
 
+    [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+    public static extern IntPtr SendMessage(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
+
     [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
     [return: MarshalAs(UnmanagedType.Bool)]
     public static extern bool VirtualProtectEx(
@@ -1163,6 +1166,147 @@ public static class NativeMemoryV4
         }
     }
 
+    public static bool DestroyActorPairsNative(
+        IntPtr hProcess,
+        ulong moduleBase,
+        ulong[] controllers,
+        ulong[] pawns)
+    {
+        LastActorDeleteError = 0;
+        if (hProcess == IntPtr.Zero || moduleBase < 0x10000UL || controllers == null || pawns == null)
+        {
+            LastActorDeleteError = 100;
+            return false;
+        }
+
+        int count = Math.Min(controllers.Length, pawns.Length);
+        List<ulong> validControllers = new List<ulong>();
+        List<ulong> validPawns = new List<ulong>();
+        for (int i = 0; i < count; i++)
+        {
+            if (controllers[i] < 0x10000UL || pawns[i] < 0x10000UL) continue;
+            validControllers.Add(controllers[i]);
+            validPawns.Add(pawns[i]);
+        }
+        if (validControllers.Count == 0)
+        {
+            LastActorDeleteError = 100;
+            return false;
+        }
+
+        ulong actorDestroy = moduleBase + 0x01171840UL;
+        byte[] sig = new byte[10];
+        IntPtr sigRead;
+        if (!ReadProcessMemory(hProcess, new IntPtr(unchecked((long)actorDestroy)), sig, sig.Length, out sigRead) ||
+            sigRead.ToInt64() != sig.Length ||
+            sig[0] != 0x48 || sig[1] != 0x89 || sig[2] != 0x5C || sig[3] != 0x24 || sig[4] != 0x10 ||
+            sig[5] != 0x48 || sig[6] != 0x89 || sig[7] != 0x74 || sig[8] != 0x24 || sig[9] != 0x18)
+        {
+            LastActorDeleteError = 10;
+            return false;
+        }
+
+        const uint MEM_COMMIT_RESERVE = 0x3000;
+        const uint MEM_RELEASE = 0x8000;
+        const uint PAGE_EXECUTE_READWRITE = 0x40;
+        const uint WAIT_OBJECT_0 = 0x00000000;
+        const uint WAIT_TIMEOUT = 0x00000102;
+        int blockSize = Math.Max(0x200, 0x80 + validControllers.Count * 64);
+        int resultOff = blockSize - 0x10;
+
+        IntPtr remote = VirtualAllocEx(hProcess, IntPtr.Zero, new UIntPtr((uint)blockSize), MEM_COMMIT_RESERVE, PAGE_EXECUTE_READWRITE);
+        if (remote == IntPtr.Zero)
+        {
+            LastActorDeleteError = 1;
+            return false;
+        }
+
+        bool safeToFree = true;
+        IntPtr thread = IntPtr.Zero;
+        try
+        {
+            ulong rb = unchecked((ulong)remote.ToInt64());
+            List<byte> code = new List<byte>();
+            code.AddRange(new byte[] { 0x48, 0x83, 0xEC, 0x28 });
+
+            for (int i = 0; i < validControllers.Count; i++)
+            {
+                code.AddRange(new byte[] { 0x48, 0xB9 }); EmitU64(code, validControllers[i]);
+                code.AddRange(new byte[] { 0x31, 0xD2 });
+                code.AddRange(new byte[] { 0x41, 0xB8, 0x01, 0x00, 0x00, 0x00 });
+                code.AddRange(new byte[] { 0x48, 0xB8 }); EmitU64(code, actorDestroy);
+                code.AddRange(new byte[] { 0xFF, 0xD0 });
+
+                code.AddRange(new byte[] { 0x48, 0xB9 }); EmitU64(code, validPawns[i]);
+                code.AddRange(new byte[] { 0x31, 0xD2 });
+                code.AddRange(new byte[] { 0x41, 0xB8, 0x01, 0x00, 0x00, 0x00 });
+                code.AddRange(new byte[] { 0x48, 0xB8 }); EmitU64(code, actorDestroy);
+                code.AddRange(new byte[] { 0xFF, 0xD0 });
+            }
+
+            code.AddRange(new byte[] { 0x48, 0xBA }); EmitU64(code, rb + (ulong)resultOff);
+            code.AddRange(new byte[] { 0xC6, 0x02, 0x01 });
+            code.AddRange(new byte[] { 0x31, 0xC0 });
+            code.AddRange(new byte[] { 0x48, 0x83, 0xC4, 0x28, 0xC3 });
+            if (code.Count >= resultOff)
+            {
+                LastActorDeleteError = 2;
+                return false;
+            }
+
+            byte[] payload = new byte[blockSize];
+            Buffer.BlockCopy(code.ToArray(), 0, payload, 0, code.Count);
+            IntPtr wrote;
+            if (!WriteProcessMemory(hProcess, remote, payload, payload.Length, out wrote) || wrote.ToInt64() != payload.Length)
+            {
+                LastActorDeleteError = 3;
+                return false;
+            }
+            FlushInstructionCache(hProcess, remote, new UIntPtr((uint)code.Count));
+
+            uint threadId;
+            thread = CreateRemoteThread(hProcess, IntPtr.Zero, UIntPtr.Zero, remote, IntPtr.Zero, 0, out threadId);
+            if (thread == IntPtr.Zero)
+            {
+                LastActorDeleteError = 4;
+                return false;
+            }
+
+            uint wait = WaitForSingleObject(thread, 12000);
+            if (wait == WAIT_TIMEOUT)
+            {
+                safeToFree = false;
+                LastActorDeleteError = 5;
+                return false;
+            }
+            if (wait != WAIT_OBJECT_0)
+            {
+                safeToFree = false;
+                LastActorDeleteError = 6;
+                return false;
+            }
+
+            byte[] result = new byte[1];
+            IntPtr got;
+            if (!ReadProcessMemory(hProcess, new IntPtr(unchecked((long)(rb + (ulong)resultOff))), result, 1, out got) || got.ToInt64() != 1)
+            {
+                LastActorDeleteError = 7;
+                return false;
+            }
+            return result[0] != 0;
+        }
+        catch
+        {
+            LastActorDeleteError = 9;
+            return false;
+        }
+        finally
+        {
+            if (thread != IntPtr.Zero) CloseHandle(thread);
+            if (safeToFree && remote != IntPtr.Zero) VirtualFreeEx(hProcess, remote, UIntPtr.Zero, MEM_RELEASE);
+        }
+    }
+
     public static int LastDestroyError = 0;
 
     // Local/offline helper for GameplayBlueprintLibrary.ServerDestroyAIPlayer.
@@ -1295,6 +1439,125 @@ public static class NativeMemoryV4
     }
 
     public static int LastTrainerActionError = 0;
+
+    // Read-only lookup in UE4's fixed global object array for Blueprint classes
+    // that have no actor in the current world.
+    public static ulong FindLoadedBlueprintClass(IntPtr hProcess, ulong moduleBase,
+        ulong classMeta, string wantedName)
+    {
+        if (hProcess == IntPtr.Zero || moduleBase < 0x10000UL || classMeta < 0x10000UL ||
+            String.IsNullOrEmpty(wantedName)) return 0;
+        ulong items, names;
+        if (!ReadU64Internal(hProcess, moduleBase + 0x034D91D0UL, out items) || items < 0x10000UL ||
+            !ReadU64Internal(hProcess, moduleBase + 0x034CFDF8UL, out names) || names < 0x10000UL)
+            return 0;
+        byte[] countBytes = new byte[4];
+        IntPtr got;
+        if (!ReadProcessMemory(hProcess, new IntPtr(unchecked((long)(moduleBase + 0x034D91DCUL))),
+            countBytes, 4, out got) || got.ToInt64() != 4) return 0;
+        int count = BitConverter.ToInt32(countBytes, 0);
+        if (count <= 0 || count > 1000000) return 0;
+        byte[] block = new byte[128 * 24];
+        byte[] header = new byte[32];
+        byte[] nameBytes = new byte[128];
+        for (int start = 0; start < count; start += 128)
+        {
+            int batch = Math.Min(128, count - start);
+            int size = batch * 24;
+            if (!ReadProcessMemory(hProcess, new IntPtr(unchecked((long)(items + (ulong)start * 24UL))),
+                block, size, out got) || got.ToInt64() != size) continue;
+            for (int i = 0; i < batch; i++)
+            {
+                ulong candidate = BitConverter.ToUInt64(block, i * 24);
+                if (candidate < 0x10000UL ||
+                    !ReadProcessMemory(hProcess, new IntPtr(unchecked((long)candidate)),
+                        header, header.Length, out got) || got.ToInt64() != header.Length ||
+                    BitConverter.ToUInt64(header, 0x10) != classMeta) continue;
+                int index = BitConverter.ToInt32(header, 0x18);
+                int number = BitConverter.ToInt32(header, 0x1C);
+                if (index < 0 || index >= 128 * 16384 || number != 0) continue;
+                ulong chunk, entry;
+                if (!ReadU64Internal(hProcess, names + (ulong)(index >> 14) * 8UL, out chunk) ||
+                    chunk < 0x10000UL ||
+                    !ReadU64Internal(hProcess, chunk + (ulong)(index & 0x3FFF) * 8UL, out entry) ||
+                    entry < 0x10000UL ||
+                    !ReadProcessMemory(hProcess, new IntPtr(unchecked((long)(entry + 0x10UL))),
+                        nameBytes, nameBytes.Length, out got) || got.ToInt64() != nameBytes.Length)
+                    continue;
+                byte[] flag = new byte[1];
+                if (!ReadProcessMemory(hProcess, new IntPtr(unchecked((long)entry)), flag, 1, out got) ||
+                    got.ToInt64() != 1) continue;
+                string name = (flag[0] & 1) != 0 ?
+                    System.Text.Encoding.Unicode.GetString(nameBytes) :
+                    System.Text.Encoding.ASCII.GetString(nameBytes);
+                int zero = name.IndexOf('\0');
+                if (zero >= 0) name = name.Substring(0, zero);
+                if (name == wantedName) return candidate;
+            }
+        }
+        return 0;
+    }
+
+    // Uses the game's small-ship spawn path. Its BotController supplies the
+    // live parent Pawn; the game installs that Pawn as the escort target.
+    public static ulong SpawnSmallEscortNative(IntPtr hProcess, ulong moduleBase,
+        ulong worldContext, ulong controller, ulong shipClass, byte teamId)
+    {
+        LastTrainerActionError = 0;
+        if (hProcess == IntPtr.Zero || moduleBase < 0x10000UL ||
+            worldContext < 0x10000UL || controller < 0x10000UL || shipClass < 0x10000UL || teamId > 16)
+        { LastTrainerActionError = 100; return 0; }
+        ulong parentPawn;
+        if (!ReadU64Internal(hProcess, controller + 0x348UL, out parentPawn) || parentPawn < 0x10000UL)
+        { LastTrainerActionError = 20; return 0; }
+        ulong spawn = moduleBase + 0x00356280UL;
+        if (!HasSignature(hProcess, spawn,
+            new byte[] { 0x48,0x89,0x5C,0x24,0x08,0x48,0x89,0x74,0x24,0x20,0x4C,0x89,0x44,0x24,0x18 }))
+        { LastTrainerActionError = 12; return 0; }
+        const int resultOffset = 0x100;
+        const int codeLength = 0x80;
+        return RunTrainerQueryU64(hProcess, delegate(ulong rb)
+        {
+            byte[] payload = new byte[0x300];
+            List<byte> code = new List<byte>();
+            code.AddRange(new byte[] { 0x48,0x83,0xEC,0x28 });
+            code.AddRange(new byte[] { 0x48,0xB9 }); EmitU64(code, worldContext);
+            code.AddRange(new byte[] { 0x48,0xBA }); EmitU64(code, controller);
+            code.AddRange(new byte[] { 0x49,0xB8 }); EmitU64(code, shipClass);
+            code.AddRange(new byte[] { 0x41,0xB9 }); code.AddRange(BitConverter.GetBytes((uint)teamId));
+            code.AddRange(new byte[] { 0x48,0xB8 }); EmitU64(code, spawn);
+            code.AddRange(new byte[] { 0xFF,0xD0 });
+            code.AddRange(new byte[] { 0x48,0xBA }); EmitU64(code, rb + resultOffset);
+            code.AddRange(new byte[] { 0x48,0x89,0x02,0x48,0x83,0xC4,0x28,0xC3 });
+            Buffer.BlockCopy(code.ToArray(), 0, payload, 0, code.Count);
+            return payload;
+        }, codeLength, resultOffset);
+    }
+
+    public static Task<ulong> BeginSmallEscortSpawn(int pid, ulong moduleBase,
+        ulong worldContext, ulong controller, ulong expectedPawn, ulong shipClass, byte teamId)
+    {
+        if (pid <= 0 || moduleBase < 0x10000UL || worldContext < 0x10000UL ||
+            controller < 0x10000UL || expectedPawn < 0x10000UL || shipClass < 0x10000UL || teamId > 16)
+            throw new ArgumentException("Invalid frigate spawn context.");
+        return Task.Run(() =>
+        {
+            IntPtr handle = OpenProcess(0x043A, false, pid);
+            if (handle == IntPtr.Zero) throw new Exception("Could not open the solo server.");
+            try
+            {
+                ulong parentPawn;
+                if (!ReadU64Internal(handle, controller + 0x348UL, out parentPawn) || parentPawn != expectedPawn)
+                    throw new Exception("Escort ship changed before spawning.");
+                ulong spawned = SpawnSmallEscortNative(handle, moduleBase, worldContext,
+                    controller, shipClass, teamId);
+                if (spawned < 0x10000UL)
+                    throw new Exception("Frigate spawn failed (native error " + LastTrainerActionError + ").");
+                return spawned;
+            }
+            finally { CloseHandle(handle); }
+        });
+    }
 
     static bool HasSignature(IntPtr hProcess, ulong address, byte[] expected)
     {
@@ -3735,6 +3998,43 @@ function Invoke-DeleteAllyRow($row) {
     return $false
 }
 
+function Invoke-DeleteRowsBatch([object[]]$Rows) {
+    $valid = @()
+    foreach ($row in @($Rows)) {
+        if ($null -eq $row) { continue }
+        $controller = [int64]$row.Controller
+        $pawn = [int64]$row.Pawn
+        if ($controller -le 0) { continue }
+        if ($pawn -le 0) {
+            $candidate = Read-U64 ([IntPtr]($controller + $CONTROLLER_PAWN_OFFSET))
+            if (Is-PlausiblePointer $candidate) { $pawn = [int64]$candidate }
+        }
+        if ($pawn -le 0) { continue }
+        $valid += [pscustomobject]@{ Row=$row; Controller=$controller; Pawn=$pawn }
+    }
+
+    if ($valid.Count -eq 0) {
+        return [pscustomobject]@{ Removed=0; Failed=@($Rows).Count; Error=100 }
+    }
+
+    [uint64[]]$controllers = @($valid | ForEach-Object { [uint64]$_.Controller })
+    [uint64[]]$pawns = @($valid | ForEach-Object { [uint64]$_.Pawn })
+    $ok = [NativeMemoryV4]::DestroyActorPairsNative(
+        $script:ProcessHandle,
+        [uint64]$script:ModuleBase.ToInt64(),
+        $controllers,
+        $pawns)
+
+    if (-not $ok) {
+        return [pscustomobject]@{ Removed=0; Failed=@($Rows).Count; Error=[NativeMemoryV4]::LastActorDeleteError }
+    }
+
+    foreach ($entry in $valid) {
+        Remove-AllyCacheEntry ([int64]$entry.Row.PlayerState) ([int64]$entry.Controller)
+    }
+    return [pscustomobject]@{ Removed=$valid.Count; Failed=(@($Rows).Count-$valid.Count); Error=0 }
+}
+
 function Invoke-DeleteSelectedAlly {
     if ($null -eq $allyListView -or $allyListView.SelectedItems.Count -eq 0) {
         $deleteInfoLabel.Text = "Delete: select a live allied ship first"
@@ -3800,12 +4100,12 @@ function Invoke-DeleteAllAllies {
     $removed = 0
     $failed = 0
     try {
-        foreach ($row in $rows) {
-            $deleteInfoLabel.Text = "Delete all: removing $($row.Ship)... ($removed/$($rows.Count))"
-            $deleteInfoLabel.ForeColor = [System.Drawing.Color]::Khaki
-            [System.Windows.Forms.Application]::DoEvents()
-            if (Invoke-DeleteAllyRow $row) { $removed++ } else { $failed++ }
-        }
+        $deleteInfoLabel.Text = "Delete all: removing $($rows.Count) allied ships..."
+        $deleteInfoLabel.ForeColor = [System.Drawing.Color]::Khaki
+        [System.Windows.Forms.Application]::DoEvents()
+        $result = Invoke-DeleteRowsBatch $rows
+        $removed = [int]$result.Removed
+        $failed = [int]$result.Failed
         $script:LastRosterSignature = ""
         Refresh-AllyRosterUI $true
         $script:NextRosterRefreshAt = [DateTime]::UtcNow.AddSeconds(2)
@@ -3889,12 +4189,12 @@ function Invoke-DeleteAllEnemies {
     $removed = 0
     $failed = 0
     try {
-        foreach ($row in $rows) {
-            $enemyDeleteInfoLabel.Text = "Delete all: removing $($row.Ship)... ($removed/$($rows.Count))"
-            $enemyDeleteInfoLabel.ForeColor = [System.Drawing.Color]::Khaki
-            [System.Windows.Forms.Application]::DoEvents()
-            if (Invoke-DeleteAllyRow $row) { $removed++ } else { $failed++ }
-        }
+        $enemyDeleteInfoLabel.Text = "Delete all: removing $($rows.Count) enemy ships..."
+        $enemyDeleteInfoLabel.ForeColor = [System.Drawing.Color]::Khaki
+        [System.Windows.Forms.Application]::DoEvents()
+        $result = Invoke-DeleteRowsBatch $rows
+        $removed = [int]$result.Removed
+        $failed = [int]$result.Failed
         $script:LastEnemyRosterSignature = ""
         Refresh-EnemyRosterUI $true
         $script:NextRosterRefreshAt = [DateTime]::UtcNow.AddSeconds(2)
@@ -4418,6 +4718,7 @@ $form.Add_FormClosed({
     Close-ServerHandle
 })
 
+. (Join-Path $PSScriptRoot 'FrigateLoader_v20.ps1')
 . (Join-Path $PSScriptRoot 'Sandbox_v20.ps1')
 $timer.Start()
 [void]$form.ShowDialog()

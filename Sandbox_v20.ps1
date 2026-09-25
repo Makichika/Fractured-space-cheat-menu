@@ -3,10 +3,10 @@ $script:Sb = @{
     Pid = 0; Level = 0L; Verified = $false; NextUi = [DateTime]::MinValue
     Selected = 0L; Rows = @(); Invulnerable = @{}; Originals = @{}; Queue = (New-Object System.Collections.Queue)
     NextSpawn = [DateTime]::MinValue; Busy = $false; History = @(); Events = @(); Seen = @{}
-    PendingGod = @{}; PendingBoss = @{}; PendingCustom = @{}; PendingSelfCustom = $null; CustomProfiles = @{}; CustomDrafts = @{}; CustomAppliedMax = @{}; NextCustomProfile = [DateTime]::MinValue; ShipSystems = @{}; CustomShipChoiceStates = @(); CustomShipListSignature = ''; CustomShipListBusy = $false; CustomPersistentBusy = $false; CustomUiLoading = $false; Favorites = @(); Recent = @(); SessionStart = [DateTime]::UtcNow
+    PendingGod = @{}; PendingBoss = @{}; PendingCustom = @{}; PendingSelfCustom = $null; CustomProfiles = @{}; CustomDrafts = @{}; CustomAppliedMax = @{}; NextCustomProfile = [DateTime]::MinValue; ShipSystems = @{}; CustomShipChoiceStates = @(); CustomShipListSignature = ''; CustomShipListBusy = $false; CustomPersistentBusy = $false; CustomUiLoading = $false; Recent = @(); SessionStart = [DateTime]::UtcNow
     LocalPlayerState = 0L; LocalTeam = -1; LocalController = 0L; LocalClassPtr = 0L; LastPlayerPawn = 0L; LastPlayerPawnToken = ''; DesiredRespawnShip = ''
     Wave = $null; Sample = $null; Loss = 0.0; Peak = 0.0; MonitorStart = [DateTime]::UtcNow
-    WorldSettings = 0L; EntityRows = @(); NextNames = @{}; UsedBotNames = @{}; LastError = ''; UiBusy = $false; DebugFollow = $true
+    WorldSettings = 0L; EntityRows = @(); NextNames = @{}; UsedBotNames = @{}; LastError = ''; UiBusy = $false; DebugFollow = $true; FrigateClasses = @{}; FrigateTargets = @(); PendingFrigate = $null; NextFrigateSpawn = [DateTime]::MinValue
     MapRows = @(); MapHits = @(); MapSectorHits = @(); MapSectorByPawn = @{}; MapSectorNames = @{}; MapBounds = @{}
     MapKnown = @{}; MapMaxHp = @{}; MapRosterScroll = @{ Allies = 0; Enemies = 0 }; MapZoom = 1.0; MapTargetZoom = 1.0; MapZoomAnchor = $null; MapPanX = 0.0; MapPanY = 0.0; MapDrag = $false; MapDragPoint = $null; MapNextInteractionPaint = [DateTime]::MinValue; MapFocusSector = ''
     NextMap = [DateTime]::MinValue; NativeMap = $null; NextNativeMap = [DateTime]::MinValue; GNames = 0L; FNameCache = @{}
@@ -14,6 +14,11 @@ $script:Sb = @{
 $script:SbDataDir = Join-Path $PSScriptRoot 'data'
 $script:SbLogFile = Join-Path $script:SbDataDir 'trainer-debug.log'
 $script:SbBuildHash = '22E5A945A219DABC5ECFE72AABCF0C302E858C9B78320B633CEE179A034C1E48'
+function Sb-ScrollDebugBottom {
+    if($null-eq$sbLog-or-not$sbLog.IsHandleCreated){return}
+    $sbLog.SelectionStart=$sbLog.TextLength;$sbLog.SelectionLength=0;$sbLog.ScrollToCaret()
+    [void][NativeMemoryV4]::SendMessage($sbLog.Handle,0x115,[IntPtr]7,[IntPtr]::Zero)
+}
 function Sb-Log([string]$Message) {
     $line = ('{0:HH:mm:ss}  {1}' -f [DateTime]::Now, $Message)
     $script:Sb.Events = @(@($script:Sb.Events) + $line | Select-Object -Last 5000)
@@ -21,10 +26,16 @@ function Sb-Log([string]$Message) {
     if ($null -ne $sbMessage) { $sbMessage.Text = $Message }
     if ($null -ne $sbLog) {
         $oldStart=$sbLog.SelectionStart;$oldLength=$sbLog.SelectionLength
+        $oldFirstLine=if(-not$script:Sb.DebugFollow-and$sbLog.IsHandleCreated){[NativeMemoryV4]::SendMessage($sbLog.Handle,0xCE,[IntPtr]::Zero,[IntPtr]::Zero).ToInt32()}else{0}
         $prefix=if($sbLog.TextLength-gt0){[Environment]::NewLine}else{''}
         $sbLog.AppendText($prefix+$line)
-        if($script:Sb.DebugFollow){$sbLog.SelectionStart=$sbLog.TextLength;$sbLog.SelectionLength=0;$sbLog.ScrollToCaret()}
-        else{$sbLog.Select([Math]::Min($oldStart,$sbLog.TextLength),[Math]::Min($oldLength,[Math]::Max(0,$sbLog.TextLength-$oldStart)))}
+        if($script:Sb.DebugFollow){Sb-ScrollDebugBottom}
+        else{
+            $sbLog.Select([Math]::Min($oldStart,$sbLog.TextLength),[Math]::Min($oldLength,[Math]::Max(0,$sbLog.TextLength-$oldStart)))
+            $newFirstLine=[NativeMemoryV4]::SendMessage($sbLog.Handle,0xCE,[IntPtr]::Zero,[IntPtr]::Zero).ToInt32()
+            $lineDelta=$oldFirstLine-$newFirstLine
+            if($lineDelta-ne0){[void][NativeMemoryV4]::SendMessage($sbLog.Handle,0xB6,[IntPtr]::Zero,[IntPtr]$lineDelta)}
+        }
     }
 }
 function Sb-Run([scriptblock]$Action) {
@@ -790,6 +801,119 @@ function Sb-NewBotName {
     for($i=0;$i-lt100;$i++){$name=('{0}_{1}'-f(Get-Random -InputObject $first),(Get-Random -InputObject $call));if(-not$script:Sb.UsedBotNames.ContainsKey($name)){$script:Sb.UsedBotNames[$name]=$true;return $name}}
     $name=('{0}_{1}_{2}'-f(Get-Random -InputObject $first),(Get-Random -InputObject $call),(Get-Random -InputObject $call));$script:Sb.UsedBotNames[$name]=$true;return $name
 }
+function Sb-FindFrigateClass([string]$ClassName,[bool]$AllowMissing=$false) {
+    $cached=[int64]$script:Sb.FrigateClasses[$ClassName]
+    if((Is-PlausiblePointer $cached)-and(Sb-UObjectName $cached)-eq$ClassName){return $cached}
+    $local=Sb-Require
+    # The global registry includes the classes of existing actors as well as
+    # loaded classes that have no actor. Its native scan keeps the UI responsive.
+    $playerClass=Read-U64 ([IntPtr]([int64]$local.Ship+0x10))
+    $classMeta=if(Is-PlausiblePointer $playerClass){Read-U64 ([IntPtr]([int64]$playerClass+0x10))}else{0L}
+    if(Is-PlausiblePointer $classMeta){
+        $class=[NativeMemoryV4]::FindLoadedBlueprintClass($script:ProcessHandle,[uint64]$script:ModuleBase.ToInt64(),[uint64]$classMeta,$ClassName)
+        if((Is-PlausiblePointer ([int64]$class))-and(Sb-UObjectName ([int64]$class))-eq$ClassName){$script:Sb.FrigateClasses[$ClassName]=[int64]$class;return [int64]$class}
+    }
+    if($AllowMissing){return 0L}
+    throw ('{0} is not loaded by this game mode.' -f $ClassName)
+}
+function Sb-RefreshFrigateTargets {
+    if($null-eq$sbFrigateTarget){return}
+    $old=if($sbFrigateTarget.SelectedIndex-ge0-and$sbFrigateTarget.SelectedIndex-lt$script:Sb.FrigateTargets.Count){[int64]$script:Sb.FrigateTargets[$sbFrigateTarget.SelectedIndex]}else{[int64]$script:Sb.Selected}
+    $targets=@();$items=@()
+    $local=Sb-GetLocalContext
+    $states=if($null-ne$local){@(@($local.PlayerState)+@($script:PlayerStateAddresses)|Select-Object -Unique)}else{@($script:PlayerStateAddresses)}
+    foreach($ps in $states){
+        $s=Sb-Ship ([int64]$ps);if($null-eq$s-or$s.HP-le0){continue}
+        $pilot=Get-PlayerStateName $s.PlayerState
+        $ship=Get-ShipNameFromPlayerState $s.PlayerState $s.Pawn
+        $targets+=,[int64]$s.PlayerState
+        $items+=,('{0} / {1} / team {2}' -f $pilot,$ship,$s.Team)
+    }
+    $signature=($targets -join ',')+'|'+($items -join '|')
+    if($signature-eq$script:Sb.FrigateTargetSignature){return}
+    $script:Sb.FrigateTargetSignature=$signature;$script:Sb.FrigateTargets=$targets
+    $sbFrigateTarget.BeginUpdate()
+    try{$sbFrigateTarget.Items.Clear();foreach($item in $items){[void]$sbFrigateTarget.Items.Add($item)}}finally{$sbFrigateTarget.EndUpdate()}
+    $index=[Array]::IndexOf([long[]]$targets,$old)
+    if($index-lt0-and$targets.Count-gt0){$index=0}
+    $sbFrigateTarget.SelectedIndex=$index
+}
+function Sb-SpawnFrigate {
+    $local=Sb-Require
+    if($null-ne$script:Sb.PendingFrigate){throw 'A frigate spawn is already in progress.'}
+    if([DateTime]::UtcNow-lt$script:Sb.NextFrigateSpawn){throw 'Wait a moment before spawning another frigate.'}
+    if($sbFrigateTarget.SelectedIndex-lt0-or$sbFrigateTarget.SelectedIndex-ge$script:Sb.FrigateTargets.Count){throw 'Choose a live escort ship.'}
+    $ps=[int64]$script:Sb.FrigateTargets[$sbFrigateTarget.SelectedIndex]
+    $target=Sb-Ship $ps
+    if($null-eq$target-or$target.HP-le0-or-not(Is-PlausiblePointer ([int64]$target.Controller))){throw 'Escort ship is no longer alive.'}
+    if($null-eq$target.Team-or[int]$target.Team-lt0-or[int]$target.Team-gt16){throw 'Escort ship team is unavailable.'}
+    $choice=[string]$sbFrigateType.SelectedItem
+    if($choice-notin@('SmallBeamShip','SmallGunnerShip','SmallHealerShip','SmallKamikaziShip','SmallMissileShip')){throw 'Choose a frigate.'}
+    $count=[int]$sbFrigateCount.Value
+    if($count-lt1-or$count-gt20){throw 'Choose 1 to 20 frigates.'}
+    $className=$choice+'_C'
+    $class=Sb-FindFrigateClass $className $true
+    $job=@{
+        Pid=[int]$script:ConnectedProcessId; Level=[int64]$script:Sb.Level
+        PlayerState=$ps; TargetToken=[string]$target.Token; Controller=[uint64]$target.Controller
+        Pawn=[uint64]$target.Pawn; Team=[byte]$target.Team; Choice=$choice; ClassName=$className
+        Count=$count; Spawned=0; Class=[uint64]$class
+        Pilot=(Get-PlayerStateName $target.PlayerState)
+        Ship=(Get-ShipNameFromPlayerState $target.PlayerState $target.Pawn)
+        Stage=''; Task=$null; ReadyAt=[DateTime]::MinValue
+    }
+    if(Is-PlausiblePointer ([int64]$class)){
+        Sb-StartFrigateSpawnTask $job
+    }else{
+        $targetClass=Read-U64 ([IntPtr]([int64]$target.Pawn+0x10))
+        $classMeta=if(Is-PlausiblePointer ([int64]$targetClass)){Read-U64 ([IntPtr]([int64]$targetClass+0x10))}else{0L}
+        if(-not(Is-PlausiblePointer ([int64]$classMeta))-or(Sb-UObjectName ([int64]$classMeta))-ne'BlueprintGeneratedClass'){throw 'Blueprint class metadata is unavailable.'}
+        $job.Stage='Load'
+        $job.Task=[DeferredFrigateNative]::BeginLoad($job.Pid,[uint64]$script:ModuleBase.ToInt64(),[uint64]$classMeta,$choice)
+        Sb-Log ('Loading '+$className+' for this match...')
+    }
+    $script:Sb.PendingFrigate=$job
+    $sbFrigateButton.Enabled=$false
+}
+function Sb-StartFrigateSpawnTask($Job) {
+    if($Job.Pid-ne$script:ConnectedProcessId-or$Job.Level-ne$script:Sb.Level){throw 'Match changed during frigate spawn.'}
+    $target=Sb-Ship ([int64]$Job.PlayerState)
+    if($null-eq$target-or$target.HP-le0-or$target.Token-ne$Job.TargetToken-or[uint64]$target.Controller-ne$Job.Controller-or[uint64]$target.Pawn-ne$Job.Pawn){throw 'Escort ship changed during frigate spawn.'}
+    $local=Sb-Require
+    $pawn=Read-U64 ([IntPtr]([int64]$Job.Controller+$CONTROLLER_PAWN_OFFSET))
+    if($pawn-ne$Job.Pawn){throw 'Escort controller no longer owns the selected ship.'}
+    $Job.Stage='Spawn'
+    $Job.Task=[NativeMemoryV4]::BeginSmallEscortSpawn($Job.Pid,[uint64]$script:ModuleBase.ToInt64(),[uint64]$local.WorldContext,$Job.Controller,$Job.Pawn,$Job.Class,$Job.Team)
+}
+function Sb-PollFrigate {
+    $job=$script:Sb.PendingFrigate
+    if($null-eq$job){return}
+    if($job.Stage-eq'Wait'){
+        if([DateTime]::UtcNow-lt$job.ReadyAt){return}
+        try{Sb-StartFrigateSpawnTask $job}catch{Sb-Log ('Error after {0}/{1} frigates: {2}' -f $job.Spawned,$job.Count,$_.Exception.Message);$script:Sb.PendingFrigate=$null;$sbFrigateButton.Enabled=$true}
+        return
+    }
+    if($null-eq$job.Task-or-not$job.Task.IsCompleted){return}
+    $continue=$false
+    try{
+        if($job.Pid-ne$script:ConnectedProcessId-or$job.Level-ne$script:Sb.Level){throw 'Match changed during frigate spawn.'}
+        $result=[uint64]$job.Task.GetAwaiter().GetResult()
+        if($job.Stage-eq'Load'){
+            if(-not(Is-PlausiblePointer ([int64]$result))-or(Sb-UObjectName ([int64]$result))-ne$job.ClassName){throw 'Loaded frigate class did not match the selected type.'}
+            $script:Sb.FrigateClasses[$job.ClassName]=[int64]$result
+            $job.Class=$result
+            Sb-StartFrigateSpawnTask $job
+            $continue=$true
+        }elseif($job.Stage-eq'Spawn'){
+            if(-not(Is-PlausiblePointer ([int64]$result))){throw 'Frigate spawn returned no ship.'}
+            $job.Spawned++
+            Sb-Log ('Spawned {0}/{1} {2} frigate escorting {3} / {4}' -f $job.Spawned,$job.Count,$job.Choice,$job.Pilot,$job.Ship)
+            if($job.Spawned-lt$job.Count){$job.Stage='Wait';$job.Task=$null;$job.ReadyAt=[DateTime]::UtcNow.AddMilliseconds(500);$continue=$true}
+            else{$script:Sb.NextFrigateSpawn=[DateTime]::UtcNow.AddMilliseconds(900)}
+        }
+    }catch{Sb-Log ('Error after {0}/{1} frigates: {2}' -f $job.Spawned,$job.Count,$_.Exception.GetBaseException().Message)}
+    finally{if(-not$continue){$script:Sb.PendingFrigate=$null;$sbFrigateButton.Enabled=$true}}
+}
 function Sb-SpawnNext {
     if ($script:Sb.Busy -or $script:Sb.Queue.Count -eq 0 -or [DateTime]::UtcNow -lt $script:Sb.NextSpawn) { return }
     if ($script:Sb.PendingCustom.Count -gt 0) { return }
@@ -1466,6 +1590,8 @@ function Sb-RefreshRows {
     $script:Sb.Rows=$rows
     $topState=0L
     try{if($sbShips.Items.Count-gt0-and$null-ne$sbShips.TopItem-and$null-ne$sbShips.TopItem.Tag){$topState=[int64]$sbShips.TopItem.Tag}}catch{}
+    $liveStates=@{};foreach($s in $rows){$liveStates[[string][int64]$s.PlayerState]=$true}
+    $deadCount=0
     $sbShips.BeginUpdate(); $sbShips.Items.Clear()
     try {
         foreach ($s in $rows) {
@@ -1477,6 +1603,15 @@ function Sb-RefreshRows {
             $it.Tag=$s.PlayerState; [void]$sbShips.Items.Add($it)
             if($s.PlayerState -eq $script:Sb.Selected){$it.Selected=$true}
         }
+        foreach($r in @($script:Sb.MapRows|Where-Object{-not[bool]$_.IsAlive})){
+            $stateKey=[string][int64]$r.PlayerState;if($liveStates.ContainsKey($stateKey)){continue}
+            $side=[string]$r.Side
+            if($sbTeamFilter.SelectedItem-ne'All'-and$side-ne$sbTeamFilter.SelectedItem){continue}
+            $it=New-Object System.Windows.Forms.ListViewItem([string]$r.Name)
+            [void]$it.SubItems.Add($side);[void]$it.SubItems.Add('0');[void]$it.SubItems.Add([string]$r.Status)
+            $it.Tag=[int64]$r.PlayerState;$it.ForeColor=[Drawing.Color]::DarkGray;[void]$sbShips.Items.Add($it);$deadCount++
+            if([int64]$r.PlayerState-eq$script:Sb.Selected){$it.Selected=$true}
+        }
     } finally { $sbShips.EndUpdate() }
     if($topState-gt0){for($i=0;$i-lt$sbShips.Items.Count;$i++){if([int64]$sbShips.Items[$i].Tag-eq$topState){$sbShips.TopItem=$sbShips.Items[$i];break}}}
     $live=@{}
@@ -1484,7 +1619,7 @@ function Sb-RefreshRows {
     foreach($key in @($live.Keys)){if(-not $script:Sb.Seen.ContainsKey($key)){Sb-Log ('Ship appeared: '+$key.Split(':')[0])}}
     foreach($key in @($script:Sb.Seen.Keys)){if(-not $live.ContainsKey($key)){Sb-Log ('Ship left roster: '+$key.Split(':')[0])}}
     $script:Sb.Seen=$live
-    $subtitle.Text=('Ships: {0}  | Queue: {1}  | Session: {2:hh\:mm\:ss}' -f $rows.Count,$script:Sb.Queue.Count,([DateTime]::UtcNow-$script:Sb.SessionStart))
+    $subtitle.Text=('Ships: {0}  | Queue: {1}  | Session: {2:hh\:mm\:ss}' -f ($rows.Count+$deadCount),$script:Sb.Queue.Count,([DateTime]::UtcNow-$script:Sb.SessionStart))
     $sbQueueLabel.Text='Pending: '+$script:Sb.Queue.Count+' | Recent: '+($script:Sb.Recent -join ', ')
 }
 function Sb-RefreshInspector {
@@ -1509,7 +1644,7 @@ function Sb-Tick {
         $level=if($local.Alive){[int64]$local.Level}else{[int64]$script:Sb.Level}
         if($script:Sb.Pid -ne $script:ConnectedProcessId -or $script:Sb.Level -ne $level){
             if(-not $local.Alive){return}
-            $script:Sb.Verified=$false; $script:Sb.Invulnerable=@{}; $script:Sb.Originals=@{}; $script:Sb.Queue.Clear(); $script:Sb.PendingGod=@{}; $script:Sb.PendingBoss=@{}; $script:Sb.PendingCustom=@{}; $script:Sb.PendingSelfCustom=$null; $script:Sb.CustomProfiles=@{};$script:Sb.CustomDrafts=@{};$script:Sb.CustomAppliedMax=@{};$script:Sb.UsedBotNames=@{};$script:Sb.NextCustomProfile=[DateTime]::MinValue;$script:Sb.CustomShipChoiceStates=@();$script:Sb.CustomShipListSignature='';$script:Sb.Wave=$null; $script:Sb.DesiredRespawnShip=''
+            $script:Sb.Verified=$false; $script:Sb.Invulnerable=@{}; $script:Sb.Originals=@{}; $script:Sb.Queue.Clear(); $script:Sb.PendingGod=@{}; $script:Sb.PendingBoss=@{}; $script:Sb.PendingCustom=@{}; $script:Sb.PendingSelfCustom=$null; $script:Sb.CustomProfiles=@{};$script:Sb.CustomDrafts=@{};$script:Sb.CustomAppliedMax=@{};$script:Sb.UsedBotNames=@{};$script:Sb.NextCustomProfile=[DateTime]::MinValue;$script:Sb.CustomShipChoiceStates=@();$script:Sb.CustomShipListSignature='';$script:Sb.FrigateClasses=@{};$script:Sb.FrigateTargets=@();$script:Sb.FrigateTargetSignature='';$script:Sb.PendingFrigate=$null;$sbFrigateButton.Enabled=$true;$script:Sb.Wave=$null; $script:Sb.DesiredRespawnShip=''
             $script:Sb.History=@(); $script:Sb.Seen=@{}; $script:Sb.Selected=[int64]$local.PlayerState; $script:Sb.EntityRows=@(); $script:Sb.WorldSettings=0L
             $script:Sb.MapRows=@();$script:Sb.MapHits=@();$script:Sb.MapSectorHits=@();$script:Sb.MapKnown=@{};$script:Sb.MapMaxHp=@{};$script:Sb.MapRosterScroll=@{Allies=0;Enemies=0};$script:Sb.MapSectorByPawn=@{};$script:Sb.MapSectorNames=@{};$script:Sb.MapBounds=@{};$script:Sb.MapZoom=1.0;$script:Sb.MapTargetZoom=1.0;$script:Sb.MapZoomAnchor=$null;$script:Sb.MapPanX=0.0;$script:Sb.MapPanY=0.0;$script:Sb.MapFocusSector='';$script:Sb.NativeMap=$null;$script:Sb.NextNativeMap=[DateTime]::MinValue;$script:Sb.GNames=0L;$script:Sb.FNameCache=@{};$script:Sb.NextMap=[DateTime]::MinValue
             $script:Sb.Pid=$script:ConnectedProcessId; $script:Sb.Level=$level; $script:Sb.SessionStart=[DateTime]::UtcNow
@@ -1519,6 +1654,7 @@ function Sb-Tick {
             $script:Sb.Verified=$true; Sb-Log 'Solo server verified.'
         }
         if(-not $script:Sb.Verified){return}
+        Sb-PollFrigate
         foreach($key in @($script:Sb.Invulnerable.Keys)){$e=$script:Sb.Invulnerable[$key];$s=Sb-Ship $e.State;if($null -eq $s -or $s.StateToken -ne $e.StateToken -or $s.Token -ne $e.PawnToken -or $s.HP -le 0){$script:Sb.Invulnerable.Remove($key)}}
         foreach($key in @($script:Sb.PendingGod.Keys)){
             $e=$script:Sb.PendingGod[$key]; $ctrl=[int64]$key
@@ -1633,6 +1769,7 @@ function Sb-Tick {
             Sb-RefreshRows
             if($sbTabs.SelectedTab -eq $sbInspectTab){Sb-RefreshInspector}
             if($sbTabs.SelectedTab -eq $sbStatsTab){Sb-RefreshMapData;Sb-UpdateCustomTargetUi}
+            if($sbTabs.SelectedTab -eq $sbSpawnTab){Sb-RefreshFrigateTargets}
         }
         if([DateTime]::UtcNow -ge $script:Sb.NextMap){
             $script:Sb.NextMap=[DateTime]::UtcNow.AddMilliseconds($(if($mapInteracting){450}else{150}))
@@ -1659,6 +1796,7 @@ function Sb-Combo($Parent,[int]$X,[int]$Y,[int]$W,[object[]]$Items) {
     $c=Sb-Control 'ComboBox' $Parent '' $X $Y $W 28
     $c.DropDownStyle='DropDownList';$c.MaxDropDownItems=18
     [void]$c.Items.AddRange($Items);if($c.Items.Count -gt 0){$c.SelectedIndex=0}
+    if($Items.Count-gt0){$longest=0;foreach($item in $Items){$measure=[Windows.Forms.TextRenderer]::MeasureText([string]$item,$c.Font).Width;if($measure-gt$longest){$longest=$measure}};$c.Width=[Math]::Min($W,[Math]::Max(95,$longest+34))}
     return $c
 }
 function Sb-Number($Parent,[int]$X,[int]$Y,[decimal]$Min,[decimal]$Max,[decimal]$Value,[int]$Decimals=0,[int]$Width=125) {
@@ -1672,9 +1810,9 @@ function Sb-Tab([string]$Name) {
     [void]$sbTabs.TabPages.Add($p);return $p
 }
 $form.Text='Fractured Space - Solo Sandbox (v20)'
-$form.Size=New-Object Drawing.Size(1600,960);$form.MinimumSize=New-Object Drawing.Size(1500,760);$form.FormBorderStyle='Sizable';$form.MaximizeBox=$true
-$sbWorkspace=Sb-Control 'SplitContainer' $form '' 12 115 1558 750
-$sbWorkspace.Anchor='Top,Bottom,Left,Right';$sbWorkspace.Orientation='Vertical';$sbWorkspace.SplitterWidth=6;$sbWorkspace.Panel1MinSize=600;$sbWorkspace.Panel2MinSize=720;$sbWorkspace.SplitterDistance=800
+$form.Size=New-Object Drawing.Size(1200,690);$form.MinimumSize=New-Object Drawing.Size(1200,680);$form.FormBorderStyle='Sizable';$form.MaximizeBox=$true
+$sbWorkspace=Sb-Control 'SplitContainer' $form '' 12 115 1160 500
+$sbWorkspace.Anchor='Top,Bottom,Left,Right';$sbWorkspace.Orientation='Vertical';$sbWorkspace.SplitterWidth=6;$sbWorkspace.Panel1MinSize=570;$sbWorkspace.Panel2MinSize=500;$sbWorkspace.SplitterDistance=580
 $sbWorkspace.Panel1.BackColor=$form.BackColor;$sbWorkspace.Panel2.BackColor=$form.BackColor
 $sbTabs=Sb-Control 'TabControl' $sbWorkspace.Panel1 '' 0 0 620 750
 $sbTabs.Dock='Fill'
@@ -1687,31 +1825,35 @@ $sbSpawnTab=Sb-Tab 'SPAWNER / SCENARIOS'
 $sbStatsTab=Sb-Tab 'CUSTOM STATS / RESPAWN'
 $sbScenarioTab=$sbSpawnTab
 $sbDebugTab=Sb-Tab 'DEBUG'
-$sbMessage=Sb-Control 'Label' $form 'Start a local solo match.' 15 873 1550 38
+$sbMessage=Sb-Control 'Label' $form 'Start a local solo match.' 15 622 1150 25
 $sbMessage.Anchor='Bottom,Left,Right'
-$sbLog=Sb-Control 'TextBox' $sbDebugTab '' 15 55 1510 625
-$sbLog.Anchor='Top,Bottom,Left,Right'
+$sbDebugTab.AutoScroll=$false
+$sbDebugLayout=New-Object Windows.Forms.TableLayoutPanel;$sbDebugLayout.Dock='Fill';$sbDebugLayout.ColumnCount=1;$sbDebugLayout.RowCount=2;$sbDebugLayout.Padding=New-Object Windows.Forms.Padding(8)
+$sbDebugLayout.ColumnStyles.Add((New-Object Windows.Forms.ColumnStyle([Windows.Forms.SizeType]::Percent,100)))|Out-Null
+$sbDebugLayout.RowStyles.Add((New-Object Windows.Forms.RowStyle([Windows.Forms.SizeType]::Absolute,72)))|Out-Null
+$sbDebugLayout.RowStyles.Add((New-Object Windows.Forms.RowStyle([Windows.Forms.SizeType]::Percent,100)))|Out-Null
+$sbDebugTab.Controls.Add($sbDebugLayout)
+$sbDebugToolbar=New-Object Windows.Forms.FlowLayoutPanel;$sbDebugToolbar.Dock='Fill';$sbDebugToolbar.WrapContents=$true;$sbDebugToolbar.AutoScroll=$false;$sbDebugToolbar.FlowDirection='LeftToRight';$sbDebugToolbar.Padding=New-Object Windows.Forms.Padding(2)
+$sbDebugLayout.Controls.Add($sbDebugToolbar,0,0)
+$sbLog=New-Object Windows.Forms.RichTextBox;$sbLog.Dock='Fill';$sbLog.Margin=New-Object Windows.Forms.Padding(2);$sbDebugLayout.Controls.Add($sbLog,0,1)
 $sbLog.Multiline=$true
 $sbLog.ReadOnly=$true
 $sbLog.MaxLength=2000000
-$sbLog.ScrollBars='Vertical'
+$sbLog.ScrollBars='ForcedVertical'
 $sbLog.WordWrap=$false
 $sbLog.BackColor=[Drawing.Color]::FromArgb(22,26,31)
 $sbLog.ForeColor=[Drawing.Color]::Gainsboro
 $sbLog.Font=New-Object System.Drawing.Font('Consolas',8.5)
-[void](Sb-Control 'Label' $sbDebugTab 'Actions and errors. Saved to data\trainer-debug.log' 15 15 700 25)
-$sbDebugFollow=Sb-Control 'CheckBox' $sbDebugTab 'FOLLOW NEW LOGS' 710 12 190 28;$sbDebugFollow.Checked=$true
-$sbDebugFollow.Add_CheckedChanged({$script:Sb.DebugFollow=$this.Checked;if($this.Checked){$sbLog.SelectionStart=$sbLog.TextLength;$sbLog.SelectionLength=0;$sbLog.ScrollToCaret()}})
-$sbLog.Add_MouseWheel({if($script:Sb.DebugFollow){$script:Sb.DebugFollow=$false;$sbDebugFollow.Checked=$false}})
-$sbLog.Add_MouseDown({if($_.Button-eq[Windows.Forms.MouseButtons]::Left-and$_.X-ge($sbLog.ClientSize.Width-24)){$script:Sb.DebugFollow=$false;$sbDebugFollow.Checked=$false}})
-$sbLog.Add_KeyDown({if($_.KeyCode-in@('Up','Down','PageUp','PageDown','Home')){$script:Sb.DebugFollow=$false;$sbDebugFollow.Checked=$false}})
-[void](Sb-Button $sbDebugTab 'BOTTOM' 915 12 190 {$script:Sb.DebugFollow=$true;$sbDebugFollow.Checked=$true;$sbLog.SelectionStart=$sbLog.TextLength;$sbLog.SelectionLength=0;$sbLog.ScrollToCaret();$sbLog.Focus()})
-[void](Sb-Button $sbDebugTab 'COPY LOG' 1120 12 190 {if(-not[string]::IsNullOrWhiteSpace($sbLog.Text)){[Windows.Forms.Clipboard]::SetText($sbLog.Text)}})
-[void](Sb-Button $sbDebugTab 'CLEAR LOG' 1325 12 190 {$script:Sb.Events=@();$sbLog.Clear()})
+$sbDebugLabel=Sb-Control 'Label' $sbDebugToolbar 'Actions and errors. Saved to data\trainer-debug.log' 0 0 275 28;$sbDebugLabel.Margin=New-Object Windows.Forms.Padding(2)
+$sbDebugFollow=Sb-Control 'CheckBox' $sbDebugToolbar 'FOLLOW NEW LOGS' 0 0 155 28;$sbDebugFollow.Checked=$true;$sbDebugFollow.Margin=New-Object Windows.Forms.Padding(2)
+$sbDebugFollow.Add_CheckedChanged({$script:Sb.DebugFollow=$this.Checked;if($this.Checked){Sb-ScrollDebugBottom}})
+$sbDebugBottom=Sb-Button $sbDebugToolbar 'BOTTOM' 0 0 90 {$script:Sb.DebugFollow=$true;$sbDebugFollow.Checked=$true;Sb-ScrollDebugBottom;$sbLog.Focus()};$sbDebugBottom.Margin=New-Object Windows.Forms.Padding(2)
+$sbDebugCopy=Sb-Button $sbDebugToolbar 'COPY LOG' 0 0 105 {if(-not[string]::IsNullOrWhiteSpace($sbLog.Text)){[Windows.Forms.Clipboard]::SetText($sbLog.Text)}};$sbDebugCopy.Margin=New-Object Windows.Forms.Padding(2)
+$sbDebugClear=Sb-Button $sbDebugToolbar 'CLEAR LOG' 0 0 105 {$script:Sb.Events=@();$sbLog.Clear()};$sbDebugClear.Margin=New-Object Windows.Forms.Padding(2)
 $sbMapHost=$sbWorkspace.Panel2
-$sbMapInfo=Sb-Control 'Label' $sbMapHost 'Waiting for live ship positions...' 10 6 735 24
+$sbMapInfo=Sb-Control 'Label' $sbMapHost 'Waiting for live ship positions...' 10 6 540 24
 $sbMapInfo.Anchor='Top,Left,Right';$sbMapInfo.ForeColor=[Drawing.Color]::FromArgb(175,185,195)
-$sbMapToolbar=Sb-Control 'FlowLayoutPanel' $sbMapHost '' 8 30 735 62
+$sbMapToolbar=Sb-Control 'FlowLayoutPanel' $sbMapHost '' 8 30 540 62
 $sbMapToolbar.Anchor='Top,Left,Right';$sbMapToolbar.WrapContents=$true;$sbMapToolbar.AutoScroll=$false;$sbMapToolbar.FlowDirection='LeftToRight';$sbMapToolbar.Padding=New-Object Windows.Forms.Padding(2,2,2,0)
 $mapFilterLabel=New-Object Windows.Forms.Label;$mapFilterLabel.Text='SHOW';$mapFilterLabel.AutoSize=$false;$mapFilterLabel.Size=New-Object Drawing.Size(45,25);$mapFilterLabel.TextAlign='MiddleLeft';$sbMapToolbar.Controls.Add($mapFilterLabel)
 function Sb-MapFilterBox([string]$Text,[int]$Width){$c=New-Object Windows.Forms.CheckBox;$c.Text=$Text;$c.Checked=$true;$c.AutoSize=$false;$c.Size=New-Object Drawing.Size($Width,25);$c.Margin=New-Object Windows.Forms.Padding(2,1,2,1);$c.BackColor=$sbMapToolbar.BackColor;$c.ForeColor=[Drawing.Color]::White;$c.Add_CheckedChanged({if($null-ne$sbMapPanel){$sbMapPanel.Invalidate()}});$sbMapToolbar.Controls.Add($c);return $c}
@@ -1721,9 +1863,9 @@ $sbMapSort=New-Object Windows.Forms.ComboBox;$sbMapSort.DropDownStyle='DropDownL
 $sbMapZoomLabel=New-Object Windows.Forms.Label;$sbMapZoomLabel.Text='Zoom x1.00';$sbMapZoomLabel.AutoSize=$false;$sbMapZoomLabel.Size=New-Object Drawing.Size(90,25);$sbMapZoomLabel.TextAlign='MiddleCenter';$sbMapToolbar.Controls.Add($sbMapZoomLabel)
 $sbMapResetView=New-Object Windows.Forms.Button;$sbMapResetView.Text='RESET VIEW';$sbMapResetView.Size=New-Object Drawing.Size(105,27);$sbMapResetView.FlatStyle='Flat';$sbMapResetView.Add_Click({Sb-ResetMapView});$sbMapToolbar.Controls.Add($sbMapResetView)
 $sbMapCenterSelected=New-Object Windows.Forms.Button;$sbMapCenterSelected.Text='CENTER SELECTED';$sbMapCenterSelected.Size=New-Object Drawing.Size(145,27);$sbMapCenterSelected.FlatStyle='Flat';$sbMapCenterSelected.Add_Click({Sb-Run {Sb-CenterSelectedOnMap}});$sbMapToolbar.Controls.Add($sbMapCenterSelected)
-$sbMapSelectedInfo=Sb-Control 'Label' $sbMapHost 'Selected: none' 10 94 735 32
+$sbMapSelectedInfo=Sb-Control 'Label' $sbMapHost 'Selected: none' 10 94 540 32
 $sbMapSelectedInfo.Anchor='Top,Left,Right';$sbMapSelectedInfo.AutoEllipsis=$true;$sbMapSelectedInfo.Font=New-Object Drawing.Font('Segoe UI',9,[Drawing.FontStyle]::Bold);$sbMapSelectedInfo.ForeColor=[Drawing.Color]::FromArgb(235,205,95)
-$sbMapPanel=Sb-Control 'Panel' $sbMapHost '' 8 127 735 612
+$sbMapPanel=Sb-Control 'Panel' $sbMapHost '' 8 127 540 370
 $sbMapPanel.Anchor='Top,Bottom,Left,Right';$sbMapPanel.BackColor=[Drawing.Color]::FromArgb(7,14,19);$sbMapPanel.Cursor='Hand'
 $sbMapPanel.TabStop=$true
 $sbMapZoomTimer=New-Object Windows.Forms.Timer;$sbMapZoomTimer.Interval=33;$sbMapZoomTimer.Add_Tick({$target=[double]$script:Sb.MapTargetZoom;$current=[double]$script:Sb.MapZoom;$difference=$target-$current;if([Math]::Abs($difference)-lt0.005){Sb-SetMapZoomAt $target $script:Sb.MapZoomAnchor;$sbMapZoomTimer.Stop();return};Sb-SetMapZoomAt ($current+$difference*.42) $script:Sb.MapZoomAnchor})
@@ -1770,65 +1912,58 @@ $sbMapPanel.Add_Resize({$this.Invalidate()})
 $sbShipDetailsLabel=Sb-Control 'Label' $sbInspectTab 'SHIPS' 15 92 90 23
 $sbTeamFilter=Sb-Combo $sbInspectTab 110 87 120 @('All','Player','Ally','Enemy')
 $sbSelectPlayerButton=Sb-Button $sbInspectTab 'SELECT PLAYER' 240 84 150 {$l=Sb-Require;$script:Sb.Selected=[int64]$l.PlayerState;Sb-RefreshInspector}
-$sbShips=Sb-Control 'ListView' $sbInspectTab '' 15 125 760 220
+$sbShips=Sb-Control 'ListView' $sbInspectTab '' 15 125 550 220
 $sbShips.View='Details';$sbShips.FullRowSelect=$true;$sbShips.MultiSelect=$false;$sbShips.HideSelection=$false
-foreach($col in @(@('Ship',250),@('Team',80),@('HP',110),@('Difficulty',135))){[void]$sbShips.Columns.Add($col[0],$col[1])}
+foreach($col in @(@('Ship',175),@('Team',60),@('HP',75),@('Difficulty / Status',210))){[void]$sbShips.Columns.Add($col[0],$col[1])}
 $sbShips.Anchor='Top,Left,Right'
 $sbShips.Add_SelectedIndexChanged({if($sbShips.SelectedItems.Count-gt0){$script:Sb.Selected=[int64]$sbShips.SelectedItems[0].Tag;Sb-RefreshInspector}})
-$sbDetails=Sb-Control 'TextBox' $sbInspectTab '' 15 355 760 125
+$sbDetails=Sb-Control 'TextBox' $sbInspectTab '' 15 355 550 125
 $sbDetails.Multiline=$true;$sbDetails.ReadOnly=$true;$sbDetails.ScrollBars='Vertical';$sbDetails.Font=New-Object Drawing.Font('Consolas',9)
 $sbDetails.Anchor='Top,Left,Right'
+$sbInspectTab.Add_Resize({$available=[Math]::Max(200,$sbInspectTab.ClientSize.Width-30);$sbShips.Width=$available;$sbDetails.Width=$available})
 $sbHealButton=Sb-Button $sbInspectTab 'HEAL FULL' 15 490 100 {Sb-Heal (Sb-Selected);Sb-Log 'Ship healed.'}
 $sbKillButton=Sb-Button $sbInspectTab 'KILL' 125 490 80 {Sb-Kill (Sb-Selected);Sb-Log 'Lethal damage applied.'}
 $sbGodOnButton=Sb-Button $sbInspectTab 'GOD ON' 215 490 90 {Sb-God (Sb-Selected) $true;Sb-Log 'Invulnerability enabled.'}
 $sbGodOffButton=Sb-Button $sbInspectTab 'GOD OFF' 315 490 90 {Sb-God (Sb-Selected) $false;Sb-Log 'Invulnerability disabled.'}
-$sbCloneButton=Sb-Button $sbInspectTab 'CLONE' 415 490 90 {Sb-Clone ([int]$sbCloneCount.Value)}
-$sbCloneCount=Sb-Number $sbInspectTab 515 493 1 40 1 0 70
-$sbRestoreButton=Sb-Button $sbInspectTab 'RESTORE NORMAL' 595 490 180 {Sb-RestoreSelected (Sb-Selected)}
-$sbDifficultyLabel=Sb-Control 'Label' $sbInspectTab 'Bot difficulty' 15 540 100 23
-$sbAiDiff=Sb-Combo $sbInspectTab 120 537 180 @('Easy 1','Easy 2','Easy 3','Medium 1','Medium 2','Medium 3','Hard 1','Hard 2','Hard 3','Milcho Bot')
-$sbApplyAiButton=Sb-Button $sbInspectTab 'APPLY AI' 310 534 110 {Sb-SetDifficulty (Sb-Selected) $sbAiDiff.SelectedIndex;Sb-Log 'Bot difficulty changed.'}
-$sbDeleteSelectedButton=Sb-Button $sbInspectTab 'DELETE SELECTED' 15 580 160 {Sb-DeleteSelectedComplete}
-$sbDeleteAllAlliesButton=Sb-Button $sbInspectTab 'DELETE ALL ALLIES' 185 580 180 {Invoke-DeleteAllAllies}
-$sbDeleteAllEnemiesButton=Sb-Button $sbInspectTab 'DELETE ALL ENEMIES' 375 580 190 {Invoke-DeleteAllEnemies}
-$sbSpawnShip=Sb-Combo $sbSpawnTab 15 50 300 @($SHIP_GUIDS.Keys)
+$sbCloneButton=Sb-Button $sbInspectTab 'CLONE' 15 535 90 {Sb-Clone ([int]$sbCloneCount.Value)}
+$sbCloneCount=Sb-Number $sbInspectTab 110 538 1 40 1 0 60
+$sbRestoreButton=Sb-Button $sbInspectTab 'RESTORE NORMAL' 180 535 170 {Sb-RestoreSelected (Sb-Selected)}
+$sbDifficultyLabel=Sb-Control 'Label' $sbInspectTab 'Bot difficulty' 15 582 100 23
+$sbAiDiff=Sb-Combo $sbInspectTab 120 579 160 @('Easy 1','Easy 2','Easy 3','Medium 1','Medium 2','Medium 3','Hard 1','Hard 2','Hard 3','Milcho Bot')
+$sbApplyAiButton=Sb-Button $sbInspectTab 'APPLY AI' 290 576 110 {Sb-SetDifficulty (Sb-Selected) $sbAiDiff.SelectedIndex;Sb-Log 'Bot difficulty changed.'}
+$sbDeleteSelectedButton=Sb-Button $sbInspectTab 'DELETE SELECTED' 15 622 160 {Sb-DeleteSelectedComplete}
+$sbDeleteAllAlliesButton=Sb-Button $sbInspectTab 'DELETE ALL ALLIES' 185 622 170 {Invoke-DeleteAllAllies}
+$sbDeleteAllEnemiesButton=Sb-Button $sbInspectTab 'DELETE ALL ENEMIES' 365 622 180 {Invoke-DeleteAllEnemies}
+$sbSpawnShip=Sb-Combo $sbSpawnTab 15 50 190 @($SHIP_GUIDS.Keys)
 $sbSpawnShip.SelectedItem='Punisher'
-$sbSpawnSide=Sb-Combo $sbSpawnTab 330 50 120 @('Ally','Enemy')
-$sbSpawnDiff=Sb-Combo $sbSpawnTab 465 50 180 @('Easy 1','Easy 2','Easy 3','Medium 1','Medium 2','Medium 3','Hard 1','Hard 2','Hard 3','Milcho Bot');$sbSpawnDiff.SelectedIndex=4
-$sbSpawnCount=Sb-Number $sbSpawnTab 660 50 1 40 1
-$sbSpawnGod=Sb-Control 'CheckBox' $sbSpawnTab 'Individual God Mode' 795 50 210 28
-[void](Sb-Button $sbSpawnTab 'QUEUE SPAWN' 15 100 170 {
+$sbSpawnSide=Sb-Combo $sbSpawnTab 215 50 90 @('Ally','Enemy')
+$sbSpawnDiff=Sb-Combo $sbSpawnTab 315 50 125 @('Easy 1','Easy 2','Easy 3','Medium 1','Medium 2','Medium 3','Hard 1','Hard 2','Hard 3','Milcho Bot');$sbSpawnDiff.SelectedIndex=4
+$sbSpawnCount=Sb-Number $sbSpawnTab 455 50 1 40 1 0 70
+$sbSpawnGod=Sb-Control 'CheckBox' $sbSpawnTab 'Individual God Mode' 15 88 210 28
+[void](Sb-Button $sbSpawnTab 'QUEUE SPAWN' 15 130 160 {
     $cfg=if($sbCustomOnSpawn.Checked){Sb-GetCustomStatsConfig}else{$null}
     Sb-QueueShip ([string]$sbSpawnShip.SelectedItem) ([string]$sbSpawnSide.SelectedItem) $sbSpawnDiff.SelectedIndex ([int]$sbSpawnCount.Value) $sbSpawnGod.Checked $false $cfg
 })
-[void](Sb-Button $sbSpawnTab 'CANCEL QUEUE / WAVES' 200 100 240 {$script:Sb.Queue.Clear();$script:Sb.Wave=$null;Sb-Log 'Queue and waves stopped.'})
-[void](Sb-Button $sbSpawnTab 'UNDO LAST SPAWN' 455 100 200 {Sb-Undo})
-$sbQueueLabel=Sb-Control 'Label' $sbSpawnTab 'Pending: 0' 15 150 995 55
-[void](Sb-Button $sbSpawnTab 'ADD FAVORITE' 15 290 170 {$n=[string]$sbSpawnShip.SelectedItem;if($SHIP_GUIDS.Contains($n)){$script:Sb.Favorites=@(@($script:Sb.Favorites)+$n|Sort-Object -Unique);$sbFavorites.Items.Clear();[void]$sbFavorites.Items.AddRange([object[]]$script:Sb.Favorites);Sb-SaveFavorites}})
-$sbFavorites=Sb-Combo $sbSpawnTab 200 293 300 @()
-[void](Sb-Button $sbSpawnTab 'USE FAVORITE' 515 290 170 {$sbSpawnShip.SelectedItem=$sbFavorites.SelectedItem})
-[void](Sb-Button $sbSpawnTab 'REMOVE FAVORITE' 700 290 180 {$script:Sb.Favorites=@($script:Sb.Favorites|Where-Object{$_ -ne $sbFavorites.SelectedItem});$sbFavorites.Items.Clear();[void]$sbFavorites.Items.AddRange([object[]]$script:Sb.Favorites);Sb-SaveFavorites})
-function Sb-SaveFavorites {
-    if(-not(Test-Path -LiteralPath $script:SbDataDir)){[void](New-Item -ItemType Directory -Path $script:SbDataDir -Force)}
-    ConvertTo-Json -InputObject @($script:Sb.Favorites) | Set-Content -LiteralPath (Join-Path $script:SbDataDir 'favorites.json') -Encoding UTF8
-}
+[void](Sb-Button $sbSpawnTab 'CANCEL QUEUE' 185 130 210 {$script:Sb.Queue.Clear();$script:Sb.Wave=$null;Sb-Log 'Spawn queue stopped.'})
+[void](Sb-Button $sbSpawnTab 'UNDO LAST SPAWN' 405 130 150 {Sb-Undo})
+$sbQueueLabel=Sb-Control 'Label' $sbSpawnTab 'Pending: 0' 15 177 530 55
 
 $shipSystemsFile=Join-Path $script:SbDataDir 'ship-systems.json'
 try{if(Test-Path -LiteralPath $shipSystemsFile){$rawSystems=Get-Content -LiteralPath $shipSystemsFile -Raw|ConvertFrom-Json;foreach($p in $rawSystems.PSObject.Properties){$script:Sb.ShipSystems[[string]$p.Name]=@($p.Value)}}else{Sb-Log 'ship-systems.json missing; real system labels unavailable.'}}catch{Sb-Log ('Could not load ship system names: '+$_.Exception.Message)}
 
-$sbCustomTarget=Sb-Control 'Label' $sbStatsTab 'TARGET: select a ship in TEAMS or MAP' 15 12 1510 27
+$sbCustomTarget=Sb-Control 'Label' $sbStatsTab 'TARGET: select a ship in TEAMS or MAP' 15 12 540 27
 $sbCustomTarget.Anchor='Top,Left,Right';$sbCustomTarget.Font=New-Object Drawing.Font('Segoe UI',11,[Drawing.FontStyle]::Bold);$sbCustomTarget.ForeColor=[Drawing.Color]::FromArgb(235,205,95)
 [void](Sb-Control 'Label' $sbStatsTab 'SHIP' 15 44 50 22)
-$sbCustomShipList=Sb-Combo $sbStatsTab 70 39 620 @()
+$sbCustomShipList=Sb-Combo $sbStatsTab 70 39 470 @()
 $sbCustomShipList.Add_SelectedIndexChanged({
     if($script:Sb.CustomShipListBusy){return}
     $index=$this.SelectedIndex
     if($index-ge0-and$index-lt$script:Sb.CustomShipChoiceStates.Count){$script:Sb.Selected=[int64]$script:Sb.CustomShipChoiceStates[$index];Sb-UpdateCustomTargetUi}
 })
-$sbCustomProfileStatus=Sb-Control 'Label' $sbStatsTab 'Profile: none' 710 42 815 23
+$sbCustomProfileStatus=Sb-Control 'Label' $sbStatsTab 'Profile: none' 15 73 540 23
 $sbCustomProfileStatus.Anchor='Top,Left,Right';$sbCustomProfileStatus.ForeColor=[Drawing.Color]::FromArgb(175,195,205)
-$sbCustomOnSpawn=Sb-Control 'CheckBox' $sbStatsTab 'Apply to queued/generated ships' 20 70 310 26
-$sbCustomEveryRespawn=Sb-Control 'CheckBox' $sbStatsTab 'Force these stats on every respawn' 350 70 340 26
+$sbCustomOnSpawn=Sb-Control 'CheckBox' $sbStatsTab 'Apply to queued ships' 20 101 260 26
+$sbCustomEveryRespawn=Sb-Control 'CheckBox' $sbStatsTab 'Force these stats on every respawn' 285 101 270 26
 $sbCustomEveryRespawn.Add_CheckedChanged({
     if($script:Sb.CustomPersistentBusy){return}
     try{Sb-SetSelectedPersistent $this.Checked}catch{
@@ -1836,61 +1971,61 @@ $sbCustomEveryRespawn.Add_CheckedChanged({
         Sb-Log ('Error: '+$_.Exception.Message)
     }
 })
-[void](Sb-Control 'Label' $sbStatsTab 'GENERAL MODIFIERS' 20 103 650 24)
-[void](Sb-Control 'Label' $sbStatsTab 'SELECTED SHIP SYSTEMS' 740 103 650 24)
+[void](Sb-Control 'Label' $sbStatsTab 'GENERAL MODIFIERS' 20 140 520 24)
+[void](Sb-Control 'Label' $sbStatsTab 'SELECTED SHIP SYSTEMS' 20 389 520 24)
 
-$gx1=20;$gn1=220;$gx2=380;$gn2=580;$glw=190;$sy=135;$dy=42
-[void](Sb-Control 'Label' $sbStatsTab 'Max HP (0 = unchanged)' $gx1 ($sy+3) $glw 22);$sbCustomHP=Sb-Number $sbStatsTab $gn1 $sy 0 1000000 0
-[void](Sb-Control 'Label' $sbStatsTab 'Damage bonus %' $gx2 ($sy+3) $glw 22);$sbCustomDamage=Sb-Number $sbStatsTab $gn2 $sy -100 1000 0
+$gx1=20;$gn1=193;$gx2=290;$gn2=465;$glw=165;$sy=174;$dy=42
+[void](Sb-Control 'Label' $sbStatsTab 'Max HP (0 = unchanged)' $gx1 ($sy+3) $glw 22);$sbCustomHP=Sb-Number $sbStatsTab $gn1 $sy 0 1000000 0 0 82
+[void](Sb-Control 'Label' $sbStatsTab 'Damage bonus %' $gx2 ($sy+3) $glw 22);$sbCustomDamage=Sb-Number $sbStatsTab $gn2 $sy -100 1000 0 0 82
 $sy+=$dy
-[void](Sb-Control 'Label' $sbStatsTab 'Capture speed bonus %' $gx1 ($sy+3) $glw 22);$sbCustomCapture=Sb-Number $sbStatsTab $gn1 $sy -100 1000 0
-[void](Sb-Control 'Label' $sbStatsTab 'Energy regen bonus %' $gx2 ($sy+3) $glw 22);$sbCustomEnergyRegen=Sb-Number $sbStatsTab $gn2 $sy -100 1000 0
+[void](Sb-Control 'Label' $sbStatsTab 'Capture speed bonus %' $gx1 ($sy+3) $glw 22);$sbCustomCapture=Sb-Number $sbStatsTab $gn1 $sy -100 1000 0 0 82
+[void](Sb-Control 'Label' $sbStatsTab 'Energy regen bonus %' $gx2 ($sy+3) $glw 22);$sbCustomEnergyRegen=Sb-Number $sbStatsTab $gn2 $sy -100 1000 0 0 82
 $sy+=$dy
-[void](Sb-Control 'Label' $sbStatsTab 'Forward speed bonus %' $gx1 ($sy+3) $glw 22);$sbCustomForward=Sb-Number $sbStatsTab $gn1 $sy -100 1000 0
-[void](Sb-Control 'Label' $sbStatsTab 'Reverse speed bonus %' $gx2 ($sy+3) $glw 22);$sbCustomReverse=Sb-Number $sbStatsTab $gn2 $sy -100 1000 0
+[void](Sb-Control 'Label' $sbStatsTab 'Forward speed bonus %' $gx1 ($sy+3) $glw 22);$sbCustomForward=Sb-Number $sbStatsTab $gn1 $sy -100 1000 0 0 82
+[void](Sb-Control 'Label' $sbStatsTab 'Reverse speed bonus %' $gx2 ($sy+3) $glw 22);$sbCustomReverse=Sb-Number $sbStatsTab $gn2 $sy -100 1000 0 0 82
 $sy+=$dy
-[void](Sb-Control 'Label' $sbStatsTab 'Strafe speed bonus %' $gx1 ($sy+3) $glw 22);$sbCustomStrafe=Sb-Number $sbStatsTab $gn1 $sy -100 1000 0
-[void](Sb-Control 'Label' $sbStatsTab 'Vertical speed bonus %' $gx2 ($sy+3) $glw 22);$sbCustomVertical=Sb-Number $sbStatsTab $gn2 $sy -100 1000 0
+[void](Sb-Control 'Label' $sbStatsTab 'Strafe speed bonus %' $gx1 ($sy+3) $glw 22);$sbCustomStrafe=Sb-Number $sbStatsTab $gn1 $sy -100 1000 0 0 82
+[void](Sb-Control 'Label' $sbStatsTab 'Vertical speed bonus %' $gx2 ($sy+3) $glw 22);$sbCustomVertical=Sb-Number $sbStatsTab $gn2 $sy -100 1000 0 0 82
 $sy+=$dy
-[void](Sb-Control 'Label' $sbStatsTab 'Turn/Yaw speed bonus %' $gx1 ($sy+3) $glw 22);$sbCustomTurn=Sb-Number $sbStatsTab $gn1 $sy -100 1000 0
+[void](Sb-Control 'Label' $sbStatsTab 'Turn/Yaw speed bonus %' $gx1 ($sy+3) $glw 22);$sbCustomTurn=Sb-Number $sbStatsTab $gn1 $sy -100 1000 0 0 82
 
-$sbCustomPrimaryLabel=Sb-Control 'Label' $sbStatsTab 'PRIMARY: select a ship' 740 138 610 22
-$sbCustomPrimaryCD=Sb-Number $sbStatsTab 1370 135 0 100 0;$sbCustomPrimaryCD.Enabled=$false
-$sbCustomSecondaryLabel=Sb-Control 'Label' $sbStatsTab 'SECONDARY: select a ship' 740 180 610 22
-$sbCustomSecondaryCD=Sb-Number $sbStatsTab 1370 177 0 100 0;$sbCustomSecondaryCD.Enabled=$false
+$sbCustomPrimaryLabel=Sb-Control 'Label' $sbStatsTab 'PRIMARY: select a ship' 20 424 425 22
+$sbCustomPrimaryCD=Sb-Number $sbStatsTab 465 421 0 100 0 0 82;$sbCustomPrimaryCD.Enabled=$false
+$sbCustomSecondaryLabel=Sb-Control 'Label' $sbStatsTab 'SECONDARY: select a ship' 20 466 425 22
+$sbCustomSecondaryCD=Sb-Number $sbStatsTab 465 463 0 100 0 0 82;$sbCustomSecondaryCD.Enabled=$false
 for($i=1;$i-le9;$i++){
-    $rowY=219+(($i-1)*42)
-    $label=Sb-Control 'Label' $sbStatsTab ('SYSTEM '+$i+': select a ship') 740 ($rowY+3) 610 22
-    $box=Sb-Number $sbStatsTab 1370 $rowY 0 100 0
+    $rowY=505+(($i-1)*42)
+    $label=Sb-Control 'Label' $sbStatsTab ('SYSTEM '+$i+': select a ship') 20 ($rowY+3) 425 22
+    $box=Sb-Number $sbStatsTab 465 $rowY 0 100 0 0 82
     Set-Variable -Scope Script -Name ('sbCustomSubsystemLabel'+$i) -Value $label
     Set-Variable -Scope Script -Name ('sbCustomSubsystemCD'+$i) -Value $box
     if($i-gt4){$label.Visible=$false;$box.Visible=$false}
 }
 
-$btnY=475
-[void](Sb-Button $sbStatsTab 'APPLY NEXT RESPAWN ONCE' 20 $btnY 260 {Sb-ArmSelectedCustom})
-[void](Sb-Button $sbStatsTab 'REMOVE PROFILE' 295 $btnY 200 {Sb-ClearSelectedCustom})
-[void](Sb-Button $sbStatsTab 'RESET VALUES' 510 $btnY 190 {
+$btnY=900
+[void](Sb-Button $sbStatsTab 'APPLY NEXT RESPAWN ONCE' 20 $btnY 220 {Sb-ArmSelectedCustom})
+[void](Sb-Button $sbStatsTab 'REMOVE PROFILE' 250 $btnY 160 {Sb-ClearSelectedCustom})
+[void](Sb-Button $sbStatsTab 'RESET VALUES' 420 $btnY 125 {
     foreach($n in @($sbCustomHP,$sbCustomDamage,$sbCustomPrimaryCD,$sbCustomSecondaryCD,$sbCustomCapture,$sbCustomEnergyRegen,$sbCustomForward,$sbCustomReverse,$sbCustomStrafe,$sbCustomVertical,$sbCustomTurn)){$n.Value=0}
     foreach($i in 1..9){(Get-Variable -Scope Script -Name ('sbCustomSubsystemCD'+$i) -ValueOnly).Value=0}
 })
-[void](Sb-Button $sbStatsTab 'APPLY NOW (LIVE)' 715 $btnY 210 {Sb-ApplySelectedCustomNow})
+[void](Sb-Button $sbStatsTab 'APPLY NOW (LIVE)' 20 ($btnY+44) 180 {Sb-ApplySelectedCustomNow})
 
-$infoY=$btnY+50
-[void](Sb-Control 'Label' $sbStatsTab 'RED = FIRE RATE (MAX 80%)    YELLOW = COOLDOWN' 20 $infoY 900 28)
+$infoY=$btnY+87
+[void](Sb-Control 'Label' $sbStatsTab 'RED = FIRE RATE (MAX 80%)    YELLOW = COOLDOWN' 20 $infoY 530 28)
 $allCustomNumbers=@($sbCustomHP,$sbCustomDamage,$sbCustomPrimaryCD,$sbCustomSecondaryCD,$sbCustomCapture,$sbCustomEnergyRegen,$sbCustomForward,$sbCustomReverse,$sbCustomStrafe,$sbCustomVertical,$sbCustomTurn)
 foreach($i in 1..9){$allCustomNumbers+=Get-Variable -Scope Script -Name ('sbCustomSubsystemCD'+$i) -ValueOnly}
 foreach($number in $allCustomNumbers){$number.Add_ValueChanged({Sb-RefreshSelectedPersistentConfig})}
 Sb-UpdateCustomTargetUi
 
-[void](Sb-Control 'Label' $sbStatsTab 'CHANGE PLAYER SHIP' 20 575 300 26)
-[void](Sb-Control 'Label' $sbStatsTab 'Ship' 20 617 80 22)
-$sbRespawnShip=Sb-Combo $sbStatsTab 100 612 330 @($SHIP_GUIDS.Keys)
+[void](Sb-Control 'Label' $sbStatsTab 'CHANGE PLAYER SHIP' 20 1025 300 26)
+[void](Sb-Control 'Label' $sbStatsTab 'Ship' 20 1067 70 22)
+$sbRespawnShip=Sb-Combo $sbStatsTab 90 1062 175 @($SHIP_GUIDS.Keys)
 $sbRespawnShip.SelectedItem='Punisher'
-[void](Sb-Button $sbStatsTab 'CHANGE SHIP NOW' 450 609 220 {Sb-ChangeShipNow ([string]$sbRespawnShip.SelectedItem)})
-$sbRespawnCurrent=Sb-Control 'Label' $sbStatsTab 'Player ship: unchanged' 690 617 700 28
+[void](Sb-Button $sbStatsTab 'CHANGE SHIP NOW' 280 1059 190 {Sb-ChangeShipNow ([string]$sbRespawnShip.SelectedItem)})
+$sbRespawnCurrent=Sb-Control 'Label' $sbStatsTab 'Player ship: unchanged' 20 1105 530 28
 
-$sbMatchPanel=Sb-Control 'Panel' $form '' 830 8 730 98
+$sbMatchPanel=Sb-Control 'Panel' $form '' 450 8 730 98
 $sbMatchPanel.Anchor='Top,Right'
 [void](Sb-Control 'Label' $sbMatchPanel 'MATCH SPEED' 10 12 95 22)
 $sbMatchSpeed=Sb-Number $sbMatchPanel 105 8 0.05 5 1 2 85
@@ -1901,15 +2036,16 @@ $sbBatchSide=Sb-Combo $sbMatchPanel 105 52 110 @('All','Ally','Enemy')
 [void](Sb-Button $sbMatchPanel 'HEAL' 225 49 90 {Sb-Batch 'Heal' ([string]$sbBatchSide.SelectedItem)})
 [void](Sb-Button $sbMatchPanel 'GOD ON' 325 49 100 {Sb-Batch 'God' ([string]$sbBatchSide.SelectedItem)})
 [void](Sb-Button $sbMatchPanel 'GOD OFF' 435 49 100 {Sb-Batch 'Ungod' ([string]$sbBatchSide.SelectedItem)})
-[void](Sb-Control 'Label' $sbScenarioTab 'BATTLE GENERATOR' 15 350 760 24)
-[void](Sb-Control 'Label' $sbScenarioTab 'Allied bots' 15 387 100 22);$sbBattleAllies=Sb-Number $sbScenarioTab 115 384 0 20 4
-[void](Sb-Control 'Label' $sbScenarioTab 'Enemy bots' 255 387 100 22);$sbBattleEnemies=Sb-Number $sbScenarioTab 355 384 0 20 5
-[void](Sb-Control 'Label' $sbScenarioTab 'Difficulty' 495 387 90 22);$sbBattleDiff=Sb-Combo $sbScenarioTab 585 384 190 @('Easy 1','Easy 2','Easy 3','Medium 1','Medium 2','Medium 3','Hard 1','Hard 2','Hard 3','Milcho Bot');$sbBattleDiff.SelectedIndex=4
-$sbRandomShips=Sb-Control 'CheckBox' $sbScenarioTab 'Random ships' 15 423 180 28
-$sbRandomDifficulties=Sb-Control 'CheckBox' $sbScenarioTab 'Random difficulties' 210 423 220 28
-[void](Sb-Button $sbScenarioTab 'GENERATE BATTLE' 15 465 200 {$cfg=if($sbCustomOnSpawn.Checked){Sb-GetCustomStatsConfig}else{$null};Sb-Battle ([int]$sbBattleAllies.Value) ([int]$sbBattleEnemies.Value) $sbRandomShips.Checked $sbRandomDifficulties.Checked $sbBattleDiff.SelectedIndex $cfg})
-$sbPreset=Sb-Combo $sbScenarioTab 230 468 165 @('1v1','3v3','5v5','10v10','20v20','Player vs 10')
-[void](Sb-Button $sbScenarioTab 'USE COUNTS' 410 465 120 {
+$sbBattleReserve=Sb-Control 'Panel' $sbScenarioTab '' 0 0 1 1;$sbBattleReserve.Visible=$false
+[void](Sb-Control 'Label' $sbBattleReserve 'BATTLE GENERATOR' 15 350 760 24)
+[void](Sb-Control 'Label' $sbBattleReserve 'Allied bots' 15 387 100 22);$sbBattleAllies=Sb-Number $sbBattleReserve 115 384 0 20 4
+[void](Sb-Control 'Label' $sbBattleReserve 'Enemy bots' 255 387 100 22);$sbBattleEnemies=Sb-Number $sbBattleReserve 355 384 0 20 5
+[void](Sb-Control 'Label' $sbBattleReserve 'Difficulty' 495 387 90 22);$sbBattleDiff=Sb-Combo $sbBattleReserve 585 384 190 @('Easy 1','Easy 2','Easy 3','Medium 1','Medium 2','Medium 3','Hard 1','Hard 2','Hard 3','Milcho Bot');$sbBattleDiff.SelectedIndex=4
+$sbRandomShips=Sb-Control 'CheckBox' $sbBattleReserve 'Random ships' 15 423 180 28
+$sbRandomDifficulties=Sb-Control 'CheckBox' $sbBattleReserve 'Random difficulties' 210 423 220 28
+[void](Sb-Button $sbBattleReserve 'GENERATE BATTLE' 15 465 200 {$cfg=if($sbCustomOnSpawn.Checked){Sb-GetCustomStatsConfig}else{$null};Sb-Battle ([int]$sbBattleAllies.Value) ([int]$sbBattleEnemies.Value) $sbRandomShips.Checked $sbRandomDifficulties.Checked $sbBattleDiff.SelectedIndex $cfg})
+$sbPreset=Sb-Combo $sbBattleReserve 230 468 165 @('1v1','3v3','5v5','10v10','20v20','Player vs 10')
+[void](Sb-Button $sbBattleReserve 'USE COUNTS' 410 465 120 {
     switch([string]$sbPreset.SelectedItem){
         '1v1'{$sbBattleAllies.Value=0;$sbBattleEnemies.Value=1}
         '3v3'{$sbBattleAllies.Value=2;$sbBattleEnemies.Value=3}
@@ -1920,19 +2056,27 @@ $sbPreset=Sb-Combo $sbScenarioTab 230 468 165 @('1v1','3v3','5v5','10v10','20v20
     }
     Sb-Log 'Counts selected. Existing bots are retained; use GENERATE BATTLE to add the scenario.'
 })
-[void](Sb-Button $sbScenarioTab 'SAVE ROSTER' 545 465 110 {Sb-SaveScenario})
-[void](Sb-Button $sbScenarioTab 'LOAD ROSTER' 665 465 110 {Sb-LoadScenario})
-[void](Sb-Control 'Label' $sbScenarioTab 'TIMED ENEMY WAVES' 15 525 760 24)
-[void](Sb-Control 'Label' $sbScenarioTab 'Waves' 15 562 55 23);$sbWaveTotal=Sb-Number $sbScenarioTab 70 559 1 50 5 0 85
-[void](Sb-Control 'Label' $sbScenarioTab 'First' 165 562 45 23);$sbWaveBase=Sb-Number $sbScenarioTab 210 559 1 20 2 0 85
-[void](Sb-Control 'Label' $sbScenarioTab 'Added' 305 562 55 23);$sbWaveStep=Sb-Number $sbScenarioTab 360 559 0 10 2 0 85
-[void](Sb-Control 'Label' $sbScenarioTab 'Interval' 455 562 65 23);$sbWaveDelay=Sb-Number $sbScenarioTab 520 559 10 3600 60 0 100
-[void](Sb-Button $sbScenarioTab 'START WAVES' 15 610 175 {[void](Sb-Require);if($null -eq $sbSpawnShip.SelectedItem){throw 'Select a ship.'};$cfg=if($sbCustomOnSpawn.Checked){Sb-GetCustomStatsConfig}else{$null};$script:Sb.Wave=@{Current=0;Total=[int]$sbWaveTotal.Value;Base=[int]$sbWaveBase.Value;Step=[int]$sbWaveStep.Value;Delay=[int]$sbWaveDelay.Value;Next=[DateTime]::UtcNow;Ship=[string]$sbSpawnShip.SelectedItem;Difficulty=$sbBattleDiff.SelectedIndex;RandomShips=$sbRandomShips.Checked;RandomDifficulties=$sbRandomDifficulties.Checked;Custom=$cfg};Sb-Log 'Timed waves started.'})
-[void](Sb-Button $sbScenarioTab 'STOP WAVES / QUEUE' 205 610 220 {$script:Sb.Wave=$null;$script:Sb.Queue.Clear();Sb-Log 'Waves and queue stopped.'})
-try {
-    $favfile=Join-Path $script:SbDataDir 'favorites.json'
-    if(Test-Path -LiteralPath $favfile){$script:Sb.Favorites=@((Get-Content -LiteralPath $favfile -Raw|ConvertFrom-Json)|Where-Object{$SHIP_GUIDS.Contains([string]$_)});[void]$sbFavorites.Items.AddRange([object[]]$script:Sb.Favorites)}
-} catch {Sb-Log 'Could not load favorites.'}
+[void](Sb-Button $sbBattleReserve 'SAVE ROSTER' 545 465 110 {Sb-SaveScenario})
+[void](Sb-Button $sbBattleReserve 'LOAD ROSTER' 665 465 110 {Sb-LoadScenario})
+[void](Sb-Control 'Label' $sbSpawnTab 'SMALL FRIGATES' 15 260 530 24)
+[void](Sb-Control 'Label' $sbSpawnTab 'Type' 15 299 55 22)
+$sbFrigateType=Sb-Combo $sbSpawnTab 70 295 190 @('SmallBeamShip','SmallGunnerShip','SmallHealerShip','SmallKamikaziShip','SmallMissileShip')
+[void](Sb-Control 'Label' $sbSpawnTab 'Count' 275 299 55 22)
+$sbFrigateCount=Sb-Number $sbSpawnTab 330 295 1 20 1 0 65
+[void](Sb-Control 'Label' $sbSpawnTab 'Escort ship' 15 343 110 22)
+$sbFrigateTarget=Sb-Combo $sbSpawnTab 125 339 420 @()
+$sbFrigateButton=Sb-Button $sbSpawnTab 'SPAWN FRIGATE' 15 381 180 {Sb-SpawnFrigate}
+[void](Sb-Control 'Label' $sbBattleReserve 'TIMED ENEMY WAVES' 15 535 530 24)
+[void](Sb-Control 'Label' $sbBattleReserve 'Waves' 15 572 55 23);$sbWaveTotal=Sb-Number $sbBattleReserve 70 569 1 50 5 0 65
+[void](Sb-Control 'Label' $sbBattleReserve 'First' 145 572 45 23);$sbWaveBase=Sb-Number $sbBattleReserve 190 569 1 20 2 0 65
+[void](Sb-Control 'Label' $sbBattleReserve 'Added' 265 572 55 23);$sbWaveStep=Sb-Number $sbBattleReserve 320 569 0 10 2 0 65
+[void](Sb-Control 'Label' $sbBattleReserve 'Interval' 395 572 65 23);$sbWaveDelay=Sb-Number $sbBattleReserve 460 569 10 3600 60 0 85
+[void](Sb-Control 'Label' $sbBattleReserve 'Difficulty' 15 619 90 22)
+$sbWaveDiff=Sb-Combo $sbBattleReserve 105 615 125 @('Easy 1','Easy 2','Easy 3','Medium 1','Medium 2','Medium 3','Hard 1','Hard 2','Hard 3','Milcho Bot');$sbWaveDiff.SelectedIndex=4
+$sbWaveRandomShips=Sb-Control 'CheckBox' $sbBattleReserve 'Random ships' 240 615 130 28
+$sbWaveRandomDiff=Sb-Control 'CheckBox' $sbBattleReserve 'Random difficulties' 375 615 170 28
+[void](Sb-Button $sbBattleReserve 'START WAVES' 15 660 175 {[void](Sb-Require);if($null -eq $sbSpawnShip.SelectedItem){throw 'Select a ship.'};$cfg=if($sbCustomOnSpawn.Checked){Sb-GetCustomStatsConfig}else{$null};$script:Sb.Wave=@{Current=0;Total=[int]$sbWaveTotal.Value;Base=[int]$sbWaveBase.Value;Step=[int]$sbWaveStep.Value;Delay=[int]$sbWaveDelay.Value;Next=[DateTime]::UtcNow;Ship=[string]$sbSpawnShip.SelectedItem;Difficulty=$sbWaveDiff.SelectedIndex;RandomShips=$sbWaveRandomShips.Checked;RandomDifficulties=$sbWaveRandomDiff.Checked;Custom=$cfg};Sb-Log 'Timed waves started.'})
+[void](Sb-Button $sbBattleReserve 'STOP WAVES / QUEUE' 205 660 220 {$script:Sb.Wave=$null;$script:Sb.Queue.Clear();Sb-Log 'Waves and queue stopped.'})
 $sbTimer=New-Object Windows.Forms.Timer;$sbTimer.Interval=100;$sbTimer.Add_Tick({Sb-Tick})
 $form.Add_FormClosing({$sbTimer.Stop();$sbMapZoomTimer.Stop();$script:Sb.Queue.Clear();$script:Sb.Wave=$null;Sb-Run {Sb-ClearGod};Sb-Run {Sb-Restore};foreach($img in @($script:Sb.MapIcons.Values)){if($null-ne$img){$img.Dispose()}}})
 $form.Add_Shown({$sbTimer.Start()})
@@ -1950,7 +2094,7 @@ foreach($c in @($separator,$allyColumnTitle,$allyButton,$allyInfoLabel,$managerS
 $healthLabel.Location=New-Object Drawing.Point(15,8);$healthLabel.Size=New-Object Drawing.Size(760,24);$healthLabel.Anchor='Top,Left,Right'
 $godButton.Visible=$false
 
-[void](Sb-Control 'Label' $sbSpawnTab 'Team' 330 18 120 22)
-[void](Sb-Control 'Label' $sbSpawnTab 'Difficulty' 465 18 180 22)
-[void](Sb-Control 'Label' $sbSpawnTab 'Count' 660 18 115 22)
+[void](Sb-Control 'Label' $sbSpawnTab 'Team' 215 18 90 22)
+[void](Sb-Control 'Label' $sbSpawnTab 'Difficulty' 315 18 125 22)
+[void](Sb-Control 'Label' $sbSpawnTab 'Count' 455 18 70 22)
 [void](Sb-Control 'Label' $sbSpawnTab 'Ship' 15 18 120 22)
