@@ -1,19 +1,23 @@
 # Fractured Space Solo Trainer v20
 
-Menu pour les parties locales de Fractured Space utilisant `spserver.exe`.
+Trainer designed for the local/single-player `spserver.exe` server used by Fractured Space.
 
-## Utilisation
+## IMPORTANT — before extracting the ZIP
 
-1. Lance une partie solo et attends que ton vaisseau soit présent.
-2. Lance `RUN_V20.bat`.
-3. Dans **Spawner / Scenario**, choisis un type de frégate, un nombre de 1 à 20 et le vaisseau à escorter, puis clique sur **SPAWN FRIGATE**.
+1. **Before extracting the ZIP**, right-click the ZIP file → **Properties**.
+2. In the **General** tab, at the bottom, check **Unblock**.
+3. Click **Apply**, then **OK**.
+4. Only then extract the contents of the ZIP.
 
-Les cinq vrais types sont disponibles : `SmallBeamShip`, `SmallGunnerShip`, `SmallHealerShip`, `SmallKamikaziShip` et `SmallMissileShip`. Le menu charge la classe nécessaire en Conquest comme en Last Stand, puis crée les frégates une par une. Le jeu doit rester ouvert ; seul le menu doit être relancé après une mise à jour de ses fichiers.
+Only do this for an archive downloaded from the official repository/release and after verifying its source. This removes Windows' “downloaded from the Internet” mark from the ZIP; it does **not** disable Microsoft Defender or Smart App Control.
 
-## Fichiers
+## Usage
 
-Garde `FracturedSpaceSoloTrainer_v20.ps1`, `Sandbox_v20.ps1`, `FrigateLoader_v20.ps1`, `RUN_V20.bat` et `data/ship-systems.json` ensemble. Le journal `data/trainer-debug.log` est créé localement et n'est pas publié.
+1. Launch Fractured Space.
+2. Start a local/single-player match so that `spserver.exe` is running.
+3. Launch `RUN_V20.bat`.
+4. Use the trainer as usual.
 
-Le trainer vérifie la version de `spserver.exe` avant ses opérations en mémoire. Il utilise notamment `OpenProcess`, `ReadProcessMemory`, `WriteProcessMemory` et `CreateRemoteThread`. Windows peut avertir à cause de ces opérations. Ne désactive pas Defender ou Smart App Control pour lancer le menu.
+## Why Windows may still show a warning
 
-`RUN_V20.bat` utilise `-ExecutionPolicy Bypass` uniquement pour le processus PowerShell qu'il lance ; il ne change pas la politique de la machine. Les empreintes des fichiers publiés sont dans `SHA256SUMS.txt`.
+The trainer interacts with the memory of `spserver.exe` and uses Windows APIs such as `OpenProcess`, `ReadProcessMemory`, `WriteProcessMemory`, `VirtualAllocEx`, `VirtualProtectEx`, and `CreateRemoteThread`.
